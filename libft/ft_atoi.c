@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 09:16:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/01 10:42:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:27:05 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_atoi(const char *nptr)
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			sign *= -1;
+			sign = -1;
 		i++;
 	}
 	while (nptr[i] >= 48 && nptr[i] <= 57)

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:02:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/03/29 18:02:39 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/01 13:52:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,13 @@ void	ft_bzero(void *s, size_t n)
 	str = (unsigned char *)s;
 	while (i < n)
 		str[i++] = 0;
+}
+
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+int	main(int argc, char *argv[])
+{
+	printf("yolo");
+	return (0);
 }
