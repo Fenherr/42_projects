@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 13:36:49 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/06 08:44:17 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/04 10:48:51 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/04 13:59:35 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	ft_forbiddenchar(char c, char const *set)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
 	char	*str;
 
-	str = malloc(sizeof(char) * len + 1);
-	if (!str)
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
+	j = ft_strlen(s1) - 1;
+	while (ft_forbiddenchar(s1[i], set))
 		i++;
+	if (i == ft_strlen(s1))
+	{
+		str = malloc(sizeof(char));
+		str[0] = 0;
+		return (str);
 	}
-	str[j] = '\0';
-	return (str);
+	while (ft_forbiddenchar(s1[j], set))
+		j--;
+	return (ft_substr(s1, i, j - i + 1));
 }

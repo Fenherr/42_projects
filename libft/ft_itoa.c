@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 16:02:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/04 09:08:40 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/05 10:30:31 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/05 12:59:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_itoa(int n)
 {
-	size_t			i;
-	unsigned char	*str;
+	char	*str;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
-		str[i++] = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n < 0)
+		return (ft_strjoin("-", ft_itoa(-n)));
+	str = ft_strdup("0");
+	if (!str)
+		return (NULL);
+	*str = *str + (n % 10);
+	if (n >= 0 && n <= 9)
+		return (ft_strdup(str));
+	else
+		return (ft_strjoin(ft_itoa(n / 10), str));
+	return (0);
 }
