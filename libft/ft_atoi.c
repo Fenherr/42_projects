@@ -6,17 +6,24 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 09:16:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/01 13:27:05 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:53:48 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_checkminmax(int n)
+{
+	if (n == 1)
+		return (-1);
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	int		nbr;
-	int		sign;
+	int					i;
+	int					sign;
+	unsigned long long	nbr;
 
 	i = 0;
 	nbr = 0;
@@ -29,10 +36,12 @@ int	ft_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= 48 && nptr[i] <= 57)
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
 	{
 		nbr = nbr * 10 + (nptr[i] - 48);
 		i++;
 	}
+	if (i > 19 || nbr >= 9223372036854775808ULL)
+		return (ft_checkminmax(sign));
 	return (nbr * sign);
 }

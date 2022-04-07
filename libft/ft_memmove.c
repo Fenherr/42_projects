@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 08:40:21 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/03/31 09:23:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/07 15:26:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t			i;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	dest_word = (unsigned char *)dest;
 	src_word = (unsigned char *)src;
 	if (dest > src)

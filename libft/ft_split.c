@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:26:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/06 12:59:19 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/07 17:37:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static size_t	ft_countlines(char const *s, char c)
 			cpt++;
 		i++;
 	}
-	return (cpt + 1);
+	return (cpt);
 }
 
-static void	ft_fill(char const *s, char c, char **tab)
+/*static void	ft_fill(char const *s, char c, char **arr)
 {
 	size_t	i;
 	size_t	j;
@@ -43,24 +43,35 @@ static void	ft_fill(char const *s, char c, char **tab)
 		k = 0;
 		while (s[i] != c && s[i])
 		{
-			tab[j][k] = s[i];
+			arr[j][k] = s[i];
 			i++;
 			k++;
 		}
 		while (s[i] == c && s[i])
 			i++;
-		tab[j][k] = 0;
+		arr[j][k] = 0;
 		j++;
 	}
-	tab[j] = NULL;
+	arr[j] = NULL;
+}*/
+
+static void	ft_free(char **arr, int j)
+{
+	while (j-- > 0)
+		free(arr[j]);
+	free(arr);
 }
 
-static void	ft_malloccount(char const *s, char c, char **arr)
+char	**ft_split(char const *s, char c)
 {
+	char	**arr;
 	size_t	i;
 	size_t	line;
 	size_t	count;
 
+	arr = malloc(sizeof(char *) * (ft_countlines(s, c) + 1));
+	if (!arr)
+		return (arr = ft_calloc(sizeof(char), 1));
 	i = 0;
 	line = 0;
 	while (s[i])
@@ -73,21 +84,14 @@ static void	ft_malloccount(char const *s, char c, char **arr)
 			i++;
 			count++;
 		}
-		arr[line] = malloc(sizeof(char) * count);
+		arr[line] = ft_substr(s, i, count - 1);
+		if (!arr[line])
+		{
+			ft_free(arr, line);
+			return (arr = ft_calloc(sizeof(char), 1));
+		}
 		line++;
 	}
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	char	**arr;
-
-	i = ft_countlines(s, c);
-	arr = malloc(sizeof(char *) * i);
-	if (!s)
-		return (arr);
-	ft_malloccount(s, c, arr);
-	ft_fill(s, c, arr);
+	//ft_fill(s, c, arr);
 	return (arr);
 }
