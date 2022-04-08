@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/04/07 16:50:10 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/04/08 09:03:31 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,11 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-LIBSHARE = libft.so
-
 .c.o:
 	gcc $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS)
 	$(CC) -o $(NAME) $(OBJS)
-
-so:
-	gcc -c -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
-	gcc -nostartfiles -shared -o $(LIBSHARE) $(OBJS) $(OBJS_BONUS)
 
 bonus:	$(OBJS_BONUS)
 	$(CC) $(NAME) $(OBJS_BONUS)

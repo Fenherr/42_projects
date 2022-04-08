@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:02:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/07 16:57:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/08 08:45:44 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	char	*str;
 
 	str = s;
-	while (n> 0)
+	while (n > 0)
 	{
 		str[n - 1] = 0;
 		n--;

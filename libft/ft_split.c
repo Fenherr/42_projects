@@ -6,92 +6,72 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:26:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/07 17:37:11 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/08 08:43:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countlines(char const *s, char c)
+static int	ft_countline(char const *s, char c)
 {
-	size_t	i;
-	size_t	cpt;
-
-	i = 0;
-	cpt = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1]))
-			cpt++;
-		i++;
-	}
-	return (cpt);
-}
-
-/*static void	ft_fill(char const *s, char c, char **arr)
-{
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while (s[i] == c)
-		i++;
 	while (s[i])
 	{
-		k = 0;
-		while (s[i] != c && s[i])
-		{
-			arr[j][k] = s[i];
-			i++;
-			k++;
-		}
-		while (s[i] == c && s[i])
-			i++;
-		arr[j][k] = 0;
-		j++;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
+			j++;
+		i++;
 	}
-	arr[j] = NULL;
-}*/
+	return (j);
+}
 
-static void	ft_free(char **arr, int j)
+static int	ft_ilen(char const *s, char c, int i)
 {
-	while (j-- > 0)
-		free(arr[j]);
-	free(arr);
+	int	len;
+
+	len = 0;
+	while (s[i] && s[i] != c)
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
+static void	ft_niel(char **str, int i)
+{
+	while (i-- > 0)
+		free(str[i]);
+	free(str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	size_t	i;
-	size_t	line;
-	size_t	count;
+	int		i;
+	int		j;
+	char	**str;
 
-	arr = malloc(sizeof(char *) * (ft_countlines(s, c) + 1));
-	if (!arr)
-		return (arr = ft_calloc(sizeof(char), 1));
 	i = 0;
-	line = 0;
-	while (s[i])
+	j = -1;
+	str = malloc((ft_countline(s, c) + 1) * sizeof(char *));
+	if (!str)
+		return (str = ft_calloc(sizeof(char), 1));
+	while (++j < ft_countline(s, c))
 	{
-		while (s[i] == c && s[i])
+		while (s[i] == c)
 			i++;
-		count = 1;
-		while (s[i] != c && s[i])
+		str[j] = ft_substr(s, i, ft_ilen(s, c, i));
+		str[j][ft_ilen(s, c, i)] = 0;
+		if (!str)
 		{
-			i++;
-			count++;
+			ft_niel(str, j);
+			return (str = ft_calloc(sizeof(char), 1));
 		}
-		arr[line] = ft_substr(s, i, count - 1);
-		if (!arr[line])
-		{
-			ft_free(arr, line);
-			return (arr = ft_calloc(sizeof(char), 1));
-		}
-		line++;
+		i += ft_ilen(s, c, i);
 	}
-	//ft_fill(s, c, arr);
-	return (arr);
+	str[j] = NULL;
+	return (str);
 }
