@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isgraph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 12:43:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/12 11:21:36 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 11:22:24 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 11:25:15 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+int	ft_isgraph(int c)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (c >= 33 | c <= 126);
 }
