@@ -14,30 +14,91 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-char	*find_line(char *str)
+char	*find_line(char *save)
 {
-	int		i;
+	int	i;
+	char	*str;
 
 	i = 0;
-	while (str[i] != '\n')
+	if (!save[i])
+		return (NULL);
+	while (save[i] && save[i] != '\n')
 		i++;
-	if (str[i] == '\n')
-		return (str);
-	return (NULL);
+	s = (char *)malloc(sizeof(char) * (i + 2));
+	if (!s)
+		return (NULL);
+	i = 0;
+	while (save[i] && save[i] != '\n')
+		s[i++] = save[i++];
+	if (save[i] == '\n')
+		s[i++] = save[i++];
+	s[i] = '\0';
+	return (s);
+}
+
+char	*ft_save(char *save)
+{
+	int	i;
+	int	j;
+	char	*s;
+
+	i = 0;
+	while (save[i] && save[i] != '\n')
+		i++;
+	if (!save[i])
+	{
+		free(save);
+		return (NULL);
+	}
+	s = (char *)malloc(sizeof(char) * (ft_strlen(save) - i + 1));
+	if (!s)
+		return (NULL);
+	i++;
+	j = 0;
+	while (save[i])
+		s[j++] = save[i++];
+	s[j] = '\0';
+	free(save);
+	return (s);
+}
+
+char	*ft_rd_save(int fd, char *save)
+{
+	char	*buff;
+	int	rd;
+
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
+		return (NULL);
+	rd = 1;
+	while (!ft_strchr(save, '\n') && rd != 0)
+	{
+		rd = read(fd, buff, BUFFER_SIZE);
+		if (rd == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[rd] = '\0';
+		save = ft_strjoin(save, buff);
+	}
+	free(buff);
+	return (save);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*buff;
-	static int	rd;
+	char		*line;
+	static char	*save;
 
-	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	rd = read(fd, buff, BUFFER_SIZE);
-	if (rd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	save = ft_rd_save(fd, save);
+	if (!save)
 		return (NULL);
-	find_line(buff);
-	buff[rd] = '\0';
-	return (buff);
+	line = find_line(save);
+	save = ft_save(save);
+	return (line);
 }
 
 int	main()
