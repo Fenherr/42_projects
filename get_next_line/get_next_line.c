@@ -6,17 +6,15 @@
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 08:49:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/12 08:43:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:44:08 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
 
 char	*find_line(char *save)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	i = 0;
@@ -24,22 +22,28 @@ char	*find_line(char *save)
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
-	s = (char *)malloc(sizeof(char) * (i + 2));
-	if (!s)
+	str = (char *)malloc(sizeof(char) * (i + 2));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (save[i] && save[i] != '\n')
-		s[i++] = save[i++];
+	{
+		str[i] = save[i];
+		i++;
+	}
 	if (save[i] == '\n')
-		s[i++] = save[i++];
-	s[i] = '\0';
-	return (s);
+	{
+		str[i] = save[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char	*ft_save(char *save)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*s;
 
 	i = 0;
@@ -65,7 +69,7 @@ char	*ft_save(char *save)
 char	*ft_rd_save(int fd, char *save)
 {
 	char	*buff;
-	int	rd;
+	int		rd;
 
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
@@ -99,12 +103,4 @@ char	*get_next_line(int fd)
 	line = find_line(save);
 	save = ft_save(save);
 	return (line);
-}
-
-int	main()
-{
-	int	fd;
-
-	fd = open("test", O_RDONLY);
-	printf("%s", get_next_line(fd));
 }
