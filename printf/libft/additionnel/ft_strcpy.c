@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:30:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 08:53:52 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/01 12:43:43 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 11:21:36 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-int	ft_isspace(int c)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	return (c == 32 || (c >= 9 || c <= 13));
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

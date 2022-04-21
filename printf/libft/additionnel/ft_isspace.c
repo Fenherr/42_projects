@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isblank.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:09:01 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 08:52:58 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 11:30:07 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 11:33:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-int	ft_isblank(int c)
+int	ft_isspace(int c)
 {
-	return (c == 32 || c == 9);
+	return (c == 32 || (c >= 9 || c <= 13));
 }

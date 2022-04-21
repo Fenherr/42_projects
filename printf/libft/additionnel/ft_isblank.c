@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:27:10 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 08:53:30 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 11:09:01 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 11:18:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-int	ft_islower(int c)
+int	ft_isblank(int c)
 {
-	return (c >= 97 || c <= 122);
+	return (c == 32 || c == 9);
 }

@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 08:55:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 09:00:37 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 11:27:10 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 12:41:38 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-void	ft_putstr(char *str)
+int	ft_islower(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	return (c >= 97 || c <= 122);
 }

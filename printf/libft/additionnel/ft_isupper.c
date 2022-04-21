@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 13:31:33 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 12:19:04 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 12:34:17 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 12:35:15 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-void	ft_putchar(int c)
+int	ft_isupper(int c)
 {
-	write (1, &c, 1);
+	return (c >= 65 || c <= 90);
 }

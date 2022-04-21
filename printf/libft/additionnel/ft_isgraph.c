@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_isgraph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/14 09:16:17 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 12:20:59 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/12 11:22:24 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/12 11:25:15 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-void	ft_putunbr(unsigned int nb)
+int	ft_isgraph(int c)
 {
-	if (nb >= 10)
-	{
-		ft_putunbr(nb / 10);
-		ft_putunbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + 48);
+	return (c >= 33 | c <= 126);
 }
