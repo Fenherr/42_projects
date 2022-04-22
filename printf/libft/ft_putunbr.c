@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 12:43:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/14 08:54:11 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/14 09:16:17 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/14 12:20:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+void	ft_putunbr(unsigned int nb)
 {
-	int	i;
-
-	i = 0;
-	while (src[i])
+	if (nb >= 10)
 	{
-		dest[i] = src[i];
-		i++;
+		ft_putunbr(nb / 10);
+		ft_putunbr(nb % 10);
 	}
-	dest[i] = '\0';
-	return (dest);
+	else
+		ft_putchar(nb + 48);
 }

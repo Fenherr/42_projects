@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/04/08 09:03:31 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/04/21 12:32:51 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,14 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 		ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 		ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-		ft_putnbr_fd.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_split.c
-
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-			 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstadd_back.c \
-			 ft_lstmap.c
+		ft_putnbr_fd.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_split.c \
+		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstadd_back.c \
+		ft_lstmap.c ft_putchar.c ft_isblank.c ft_iscntrl.c \
+		ft_isgraph.c ft_islower.c ft_isupper.c ft_isspace.c \
+		ft_isxdigit.c ft_strcpy.c ft_putstr.c ft_putnbr.c ft_putunbr.c \
 
 OBJS = $(SRCS:.c=.o)
-
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 NAME = libft.a
 
@@ -41,17 +40,14 @@ CFLAGS = -Wall -Wextra -Werror
 $(NAME):	$(OBJS)
 	$(CC) -o $(NAME) $(OBJS)
 
-bonus:	$(OBJS_BONUS)
-	$(CC) $(NAME) $(OBJS_BONUS)
-
 all:	$(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS)
 
 fclean:	clean
 	$(RM) $(NAME)
 
 re:	fclean all
 
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re
