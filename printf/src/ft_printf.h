@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 08:35:02 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/22 14:02:30 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:53:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_printpercent(void);
 
 int		ft_len_hexa(unsigned int nb);
 int		ft_nblen(unsigned int nb);
+int		ft_len_ptr(unsigned long long nb);
 char	*ft_uitoa(unsigned int n);
 void	ft_putstr(char *str);
 void	ft_putptr(unsigned long long nb);

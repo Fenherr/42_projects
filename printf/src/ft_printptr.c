@@ -6,11 +6,24 @@
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 08:41:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/04/22 15:00:50 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:53:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_len_ptr(unsigned long long nb)
+{
+	int	len;
+
+	len = 0;
+	while (nb != 0)
+	{
+		len++;
+		nb /= 16;
+	}
+	return (len);
+}
 
 void	ft_putptr(unsigned long long nb)
 {
@@ -39,7 +52,7 @@ int	ft_printptr(unsigned long long ptr)
 	{
 		print_len += write(1, "0x", 2);
 		ft_putptr(ptr);
-		print_len += ft_len_hexa(ptr);
+		print_len += ft_len_ptr(ptr);
 	}
 	return (print_len);
 }
