@@ -1,4 +1,16 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 08:38:27 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/22 14:00:03 by ngrenoux         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_printchar(int c)
 {
@@ -16,7 +28,7 @@ int	ft_form(va_list args, const char form)
 	else if (form == 's')
 		print_len += ft_printstr(va_arg(args, char *));
 	else if (form == 'p')
-		print_len += ft_printptr(va_arg(args, unsigned long int));
+		print_len += ft_printptr(va_arg(args, unsigned long long));
 	else if (form == 'd' || form == 'i')
 		print_len += ft_printnbr(va_arg(args, int));
 	else if (form == 'u')
@@ -31,12 +43,12 @@ int	ft_form(va_list args, const char form)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int	i;
-	int	print_len;
+	int		i;
+	int		print_len;
 
 	i = 0;
 	print_len = 0;
-	va_start(arg, format);
+	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -50,10 +62,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (print_len);
-}
-
-int	main(void)
-{
-	ft_printf("Bonjour");
-	return (0);
 }

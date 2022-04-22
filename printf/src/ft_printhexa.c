@@ -1,11 +1,24 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printhexa.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 08:40:29 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/22 15:18:14 by ngrenoux         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_printf.h"
+#include <stdio.h>
 void	ft_puthexa(unsigned int nb, const char form)
 {
-	if(nb >= 16)
+	printf("%x", nb);
+	if (nb >= 16)
 	{
 		ft_puthexa(nb / 16, form);
-		ft_puthexa(nb % 10, form);
+		ft_puthexa(nb % 16, form);
 	}
 	else
 	{
@@ -23,9 +36,22 @@ void	ft_puthexa(unsigned int nb, const char form)
 
 int	ft_printhexa(unsigned int nb, const char form)
 {
+	printf("%d", nb);
 	if (nb == 0)
-		return (ft_putchar('0'));
+		return (write(1, "0", 1));
+	else if (nb < 0)
+	{
+		nb *= -1;
+		ft_puthexa(nb, form);
+		printf("%d", nb);
+	}
 	else
 		ft_puthexa(nb, form);
 	return (ft_len_hexa(nb));
+}
+
+int	main()
+{
+	ft_printhexa(-1, 'x');
+	return (0);
 }

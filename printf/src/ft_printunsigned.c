@@ -1,4 +1,16 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 08:41:34 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/22 13:49:30 by ngrenoux         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_nblen(unsigned int nb)
 {
@@ -16,7 +28,7 @@ int	ft_nblen(unsigned int nb)
 char	*ft_uitoa(unsigned int n)
 {
 	char	*nb;
-	int	len;
+	int		len;
 
 	len = ft_nblen(n);
 	nb = (char *)malloc(sizeof(char) * (len + 1));
@@ -34,12 +46,12 @@ char	*ft_uitoa(unsigned int n)
 
 int	ft_printunsigned(unsigned int n)
 {
-	int	print_len;
+	int		print_len;
 	char	*nb;
 
 	print_len = 0;
 	if (n == 0)
-		print_len += ft_putchar('0');
+		print_len += write(1, "0", 1);
 	else
 	{
 		nb = ft_uitoa(n);

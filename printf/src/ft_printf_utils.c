@@ -1,4 +1,16 @@
-#include "../include/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/22 08:39:51 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/04/22 13:47:48 by ngrenoux         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_printstr(char *str)
 {
@@ -20,7 +32,7 @@ int	ft_printstr(char *str)
 
 int	ft_printnbr(int n)
 {
-	int	len;
+	int		len;
 	char	*nb;
 
 	len = 0;
