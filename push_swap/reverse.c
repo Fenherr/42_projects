@@ -1,35 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 13:09:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/30 14:23:55 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/05/30 14:03:34 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/31 11:06:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*delelm(t_stack *lst)
+t_stack	*lastelm(t_stack *lst)
 {
-	t_stack	*l;
+	t_stack	*last;
 
 	if (!lst)
 		return (NULL);
-	l = lst;
-	lst = lst->next;
-	free(l);
-	return (lst);
+	last = lst;
+	while (lst)
+	{
+		if (last->next == NULL)
+			return (last);
+		else
+			last = last->next;
+	}
+	return (last);
 }
 
-t_stack	*rotate(t_stack *lst)
+t_stack	*reverse_rotate(t_stack *lst)
 {
-	t_stack	*keep;
+	t_stack	*last;
+	int		i;
+	t_stack	*tmp;
 
-	keep = lst->next;
-	add_back(lst, lst->content);
-	delelm(lst);
-	return (keep);
+	i = 0;
+	tmp = lst;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	last = lastelm(lst);
+	last->next = lst;
+	tmp = last;
+	while (i > 0)
+	{
+		tmp = tmp->next;
+		i--;
+	}
+	tmp->next = NULL;
+	return (last);
 }

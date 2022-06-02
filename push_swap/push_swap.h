@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 15:57:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/25 14:04:12 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/05/30 09:29:46 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/06/01 13:48:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,18 @@
 typedef struct s_stack
 {
 	struct s_stack	*next;
-	int		value;
-}t_stack;
+	int				content;
+}	t_stack;
 
-typedef struct s_lst
-{
-	t_stack	*first;
-}t_lst;
-
-t_lst	*init(int val);
-t_stack	*lastelm(t_lst *lst);
-int	error(char *arg);
-void	add_back(t_lst *lst, int val);
-void	add_front(t_lst *lst, int val);
-void	print_stack(t_lst *lst);
-void	lstswap(t_lst *lst);
+t_stack	*init(int value);
+t_stack	*delelm(t_stack *lst);
+t_stack	*rotate(t_stack *lst);
+t_stack	*lastelm(t_stack *lst);
+t_stack	*reverse_rotate(t_stack *lst);
+t_stack	*push(t_stack *lst, t_stack *lst2);
+void	add_back(t_stack *lst, int value);
+void	print_stack(t_stack *a, t_stack *b);
 void	swap(int *a, int *b);
-void	double_swap(t_lst *a, t_lst *b);
-void	rotate(t_lst *lst);
-void	double_rotate(t_lst *a, t_lst *b);
-void	reverse_rotate(t_lst *lst);
-void	delelm(t_lst *lst);
-
+void	lst_swap(t_stack *lst);
+int	error(char *arg);
 #endif

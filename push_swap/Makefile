@@ -6,13 +6,13 @@
 #    By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/05/27 14:09:58 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/06/01 10:18:38 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
 CC		= gcc
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 
 #==================================EXECUTABLE==================================#
 NAME		= push_swap
@@ -24,10 +24,12 @@ LIBFT		= libft
 SRCS		= main.c 		\
 		  init.c		\
 		  add.c 		\
+		  print_stack.c 	\
 		  swap.c		\
 		  rotate.c		\
-		  reverse_rotate	\
-		  print_stack.c 	\
+		  reverse.c		\
+		  push.c		\
+		  error.c		\
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

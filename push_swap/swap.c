@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:46:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/23 15:44:00 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/05/30 12:56:36 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/30 14:03:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,10 @@ void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	lstswap(t_lst *lst)
+void	lst_swap(t_stack *lst)
 {
 	t_stack	*l;
 
-	l = lst->first->next;
-	swap(&lst->first->value, &l->value);
-}
-
-void	double_swap(t_lst *a, t_lst *b)
-{
-	lstswap(a);
-	lstswap(b);
+	l = lst->next;
+	swap(&lst->content, &l->content);
 }
