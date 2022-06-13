@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int		i;
-	t_stack	*a;
-	t_stack	*b;
+	int i;
+	t_stack *a;
+	t_stack *b;
 
 	i = 1;
 	a = init(ft_atoi(av[i]));
@@ -31,8 +31,9 @@ int	main(int ac, char **av)
 			exit(0);
 	}
 	is_dup(a);
-	elm_pos(a);
 	print_stack(a, b);
 	ft_printf("--a--\n");
+	sort(a, b);
+	print_stack(a, b);
 	return (0);
 }
