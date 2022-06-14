@@ -33,7 +33,7 @@ int main(int ac, char **av)
 	is_dup(a);
 	print_stack(a, b);
 	ft_printf("--a--\n");
-	sort(a, b);
+	reverse_rotate(a);
 	print_stack(a, b);
 	return (0);
 }

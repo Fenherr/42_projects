@@ -30,7 +30,8 @@ SRCS		= main.c 		\
 		  reverse.c		\
 		  push.c		\
 		  error.c		\
-		  sort.c
+		  sort.c		\
+		  sort3.c
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

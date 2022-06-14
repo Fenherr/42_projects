@@ -34,6 +34,7 @@ void print_stack(t_stack *a, t_stack *b);
 void swap(int *a, int *b);
 void lst_swap(t_stack *lst);
 void sort(t_stack *a, t_stack *b);
+void sort3(t_stack *lst);
 int is_dup(t_stack *stack);
 int error(char *arg);
 #endif
