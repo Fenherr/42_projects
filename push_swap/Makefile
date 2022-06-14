@@ -12,7 +12,7 @@
 
 #=================================COMPILATION==================================#
 CC		= gcc
-FLAGS		= -Wall -Wextra -Werror -g
+FLAGS		= -Wall -Wextra -Werror -Iincludes -g
 
 #==================================EXECUTABLE==================================#
 NAME		= push_swap
@@ -21,9 +21,8 @@ NAME		= push_swap
 LIBFT		= libft
 
 #=================================SOURCE FILES=================================#
-SRCS		= main.c 		\
+SRCS		= ${wildcard srcs/*.c}
 		  
-
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
 
