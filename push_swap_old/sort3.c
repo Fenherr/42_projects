@@ -14,12 +14,12 @@ static void case1(t_stack *lst)
     }
     else if (lst->content > next_elm->content && lst->content > last->content && next_elm->content < last->content)
     {
-        rotate(lst);
+        lst = rotate(lst);
         ft_printf("ra\n");
     }
     else if (lst->content < next_elm->content && lst->content > last->content)
     {
-        reverse_rotate(lst);
+        lst = reverse_rotate(lst);
         ft_printf("rra\n");
     }
 }
@@ -34,13 +34,13 @@ static void case2(t_stack *lst)
     if (lst->content > next_elm->content && lst->content > last->content && next_elm->content > last->content)
     {
         lst_swap(lst);
-        reverse_rotate(lst);
+        lst = reverse_rotate(lst);
         ft_printf("sa\nrra\n");
     }
     else if (lst->content < next_elm->content && lst->content < last->content && next_elm->content > last->content)
     {
         lst_swap(lst);
-        rotate(lst);
+        lst = rotate(lst);
         ft_printf("sa\nra\n");
     }
 }

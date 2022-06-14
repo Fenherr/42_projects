@@ -22,7 +22,16 @@ LIBFT		= libft
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.c 		\
-		  
+		  init.c		\
+		  add.c 		\
+		  print_stack.c 	\
+		  swap.c		\
+		  rotate.c		\
+		  reverse.c		\
+		  push.c		\
+		  error.c		\
+		  sort.c		\
+		  sort3.c
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

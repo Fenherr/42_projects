@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-t_stack	*lastelm(t_stack *lst)
+t_stack *lastelm(t_stack *lst)
 {
-	t_stack	*last;
+	t_stack *last;
 
 	if (!lst)
 		return (NULL);
@@ -29,27 +29,29 @@ t_stack	*lastelm(t_stack *lst)
 	return (last);
 }
 
-t_stack	*reverse_rotate(t_stack *lst)
+t_stack *reverse_rotate(t_stack *lst)
 {
-	t_stack	*last;
-	int		i;
-	t_stack	*tmp;
+	t_stack *last;
+	int i;
+	t_stack *tmp;
 
-	i = 0;
+	i = 1;
 	tmp = lst;
 	while (tmp->next)
 	{
 		tmp = tmp->next;
 		i++;
 	}
-	last = lastelm(lst);
+	last = tmp;
 	last->next = lst;
 	tmp = last;
-	while (i > 0)
+	while (i >= 0)
 	{
-		tmp = tmp->next;
+		lst = lst->next;
+		last = last->next;
+		last = lst;
 		i--;
 	}
-	tmp->next = NULL;
-	return (last);
+	lst->next = NULL;
+	return (tmp);
 }

@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 09:38:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/10 12:49:58 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/07 08:38:34 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:20:50 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int main(int ac, char **av)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
-	t_stack *a;
-	t_stack *b;
+	size_t	i;
 
-	i = 1;
-	a = init(ft_atoi(av[i]));
-	b = NULL;
-	if (error(av[i]) == 1)
-		exit(0);
-	while (++i < ac)
+	i = 0;
+	while (lst)
 	{
-		if (error(av[i]) == 0)
-			add_back(a, ft_atoi(av[i]));
-		else
-			exit(0);
+		lst = lst->next;
+		i++;
 	}
-	is_dup(a);
-	print_stack(a, b);
-	ft_printf("--a--\n");
-	reverse_rotate(a);
-	print_stack(a, b);
-	return (0);
+	return (i);
 }
