@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:25:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/14 17:20:28 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/15 10:50:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ int main(int ac, char **av)
     t_stack *keep;
 
     i = 2;
-    first = lstnew(av[1]);
     b = NULL;
+    first = lstnew(av[1]);
+    if (error(av[1]) == 1)
+        exit(0);
     while (i < ac)
     {
-        first = addback(first, lstnew(av[i]));
+        if (error(av[i]) == 1)
+            exit(0);
+        else
+            first = addback(first, lstnew(av[i]));
         i++;
     }
+    is_dup(first);
     ft_affiche(first);
     ft_printf("stack\n");
     first = swap(first);

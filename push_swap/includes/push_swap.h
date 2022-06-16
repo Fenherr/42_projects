@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:12:15 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/14 17:16:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/15 09:03:41 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ t_stack *swap(t_stack *lst);
 t_stack *rotate(t_stack *lst);
 t_stack *reverse(t_stack *lst);
 t_stack *push(t_stack *a, t_stack *b);
+int is_dup(t_stack *stack);
+int error(char *arg);
 
 #endif
