@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:25:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/18 08:48:20 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:51:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,34 @@
 
 void ft_affiche(t_stack *lst)
 {
-    while (lst)
-    {
-        ft_printf("%d\n", lst->content);
-        lst = lst->next;
-    }
+	while (lst)
+	{
+		ft_printf("%d\n", lst->content);
+		lst = lst->next;
+	}
 }
 
 int main(int ac, char **av)
 {
-    int i;
-    t_stack *first;
+	int i;
+	t_stack *first;
 
-    i = 2;
-    first = lstnew(av[1]);
-    if (error(av[1]) == 1)
-        exit(0);
-    while (i < ac)
-    {
-        if (error(av[i]) == 1)
-            exit(0);
-        else
-            first = addback(first, lstnew(av[i]));
-        i++;
-    }
-    is_dup(first);
+	i = 2;
+	first = lstnew(av[1]);
+	if (error(av[1]) == 1)
+		exit(0);
+	while (i < ac)
+	{
+		if (error(av[i]) == 1)
+			exit(0);
+		else
+			first = addback(first, lstnew(av[i]));
+		i++;
+	}
+	is_dup(first);
+	ft_affiche(first);
+	ft_printf("\n");
+	first = sort3(first);
+	ft_printf("\n");
+	ft_affiche(first);
 }
