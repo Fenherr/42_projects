@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/nfs/homes/ngrenoux/42/42_projects",
-      "program": "/nfs/homes/ngrenoux/42/42_projects/build/Debug/outDebug",
+      "cwd": "/nfs/homes/ngrenoux/42/42_projects/exam/02/ft_strpbrk",
+      "program": "/nfs/homes/ngrenoux/42/42_projects/exam/02/ft_strpbrk/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

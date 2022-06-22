@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 16:10:37 2022
+# Make data base, printed on Wed Jun 22 08:46:10 2022
 
 # Variables
 
@@ -21,13 +21,11 @@ PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-1c900c03-9f44-4339-a920-eeeb95568195.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-500df75d-9cb2-4f57-8c76-fae027212101.sock
 # environment
 SBX_CHROME_API_RQ = 1
 # environment
 VSCODE_CWD = /nfs/homes/ngrenoux
-# environment
-GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -57,7 +55,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
 LANG = C
 # environment
@@ -107,7 +105,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101014_WtxtvT
+KRB5CCNAME = FILE:/tmp/krb5cc_101014_gh573J
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -119,7 +117,7 @@ XDG_DATA_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/3A4.42angouleme.fr:@/tmp/.ICE-unix/41801,unix/3A4.42angouleme.fr:/tmp/.ICE-unix/41801
+SESSION_MANAGER = local/3A1.42angouleme.fr:@/tmp/.ICE-unix/2483,unix/3A1.42angouleme.fr:/tmp/.ICE-unix/2483
 # automatic
 *F = $(notdir $*)
 # environment
@@ -158,8 +156,6 @@ MAKE = $(MAKE_COMMAND)
 PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data/node_modules/bin
 # default
 MAKEFILES := 
-# environment
-LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -167,7 +163,7 @@ DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
 XDG_CONFIG_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = c55ece89978d41498d4ad3b36ada94fe
+INVOCATION_ID = fa31010c52c243d788496a563a81d07a
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -205,11 +201,11 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 41531
+MANAGERPID = 2199
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 104568
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4446
 # environment
-SSH_AGENT_PID = 41763
+SSH_AGENT_PID = 2445
 # environment
 _ = /usr/bin/make
 # environment
@@ -219,7 +215,7 @@ GPG_AGENT_INFO = /run/user/101014/gnupg/S.gpg-agent:0:1
 # environment
 PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-JOURNAL_STREAM = 9:169189
+JOURNAL_STREAM = 9:43897
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -259,7 +255,7 @@ ZYPAK_BIN = /app/bin
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=123/1024=12%, Rehash=0, Collisions=15/148=10%
+# Load=121/1024=12%, Rehash=0, Collisions=14/146=10%
 
 # Pattern-specific Variable Values
 
@@ -267,7 +263,7 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 56, inode 70321327): 10 files, no impossibilities.
+# . (device 61, inode 70321327): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -279,7 +275,6 @@ GDMSESSION = ubuntu
 
 # Not a target:
 Makefile:
- 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -313,6 +308,7 @@ GNUmakefile:
 #  Failed to be updated.
 
 # files hash-table stats:
+ 
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
@@ -326,6 +322,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Tue Jun 21 16:10:37 2022
+# Finished Make data base on Wed Jun 22 08:46:10 2022
 
  
