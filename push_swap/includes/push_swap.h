@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:12:15 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/27 15:56:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:03:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void addback(t_stack *lst, t_stack *new);
 void addfront(t_stack *lst, t_stack *new);
 void rotate(t_stack *lst);
 void reverse(t_stack *lst);
-void push(t_stack *a, t_stack *b);
+void push(t_stack *stack_a, t_stack *stack_b);
 
 #endif
