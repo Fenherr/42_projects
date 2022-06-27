@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:29:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/09 11:31:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:32:54 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_number(char *arg)
+static int is_number(char *arg)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (arg[0] == '-' && arg[1])
@@ -28,16 +28,16 @@ static int	is_number(char *arg)
 	return (0);
 }
 
-static int	check_limits(char *arg)
+static int check_limits(char *arg)
 {
 	if (ft_atoi(arg) > 2147483647 || ft_atoi(arg) < -2147483648)
 		return (1);
 	return (0);
 }
 
-int	is_dup(t_stack *stack)
+int is_dup(t_stack *stack)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	while (stack->next)
 	{
@@ -56,7 +56,7 @@ int	is_dup(t_stack *stack)
 	return (0);
 }
 
-int	error(char *arg)
+int error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
 	{

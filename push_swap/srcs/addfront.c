@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   addfront.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 17:08:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/18 09:09:57 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:53:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*addfront(t_stack *lst, t_stack *new)
+void addfront(t_stack *lst, t_stack *new)
 {
 	if (!lst || !new)
-		return (NULL);
+		return;
 	new->next = lst;
 	new->prev = NULL;
 	lst->prev = new;
-	return (new);
 }

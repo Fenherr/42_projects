@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   addback.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 18:09:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/14 18:09:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:45:30 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*lstlast(t_stack *lst)
+t_stack *lstlast(t_stack *lst)
 {
-	t_stack	*last;
+	t_stack *last;
 
 	if (!lst)
 		return (NULL);
@@ -29,15 +29,17 @@ t_stack	*lstlast(t_stack *lst)
 	return (last);
 }
 
-t_stack	*addback(t_stack *lst, t_stack *new)
+void addback(t_stack *lst, t_stack *new)
 {
-	t_stack	*last;
+	t_stack *last;
 
 	if (!lst)
-		return (NULL);
+	{
+		lst = new;
+		return;
+	}
 	last = lstlast(lst);
 	last->next = new;
 	new->prev = last;
 	new->next = NULL;
-	return (lst);
 }

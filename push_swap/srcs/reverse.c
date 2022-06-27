@@ -3,25 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 17:05:21 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/14 18:05:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 15:18:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*reverse(t_stack *lst)
+static void reverse_swap(t_stack *lst)
 {
-	t_stack	*last;
-	t_stack	*before_last;
+	t_stack *prev_elm;
 
-	if (!lst)
-		return (NULL);
-	last = lstlast(lst);
-	before_last = last->prev;
-	addfront(lst, last);
-	before_last->next = NULL;
-	return (last);
+	prev_elm = lst->prev;
+	swap(&lst->content, &prev_elm->content);
+}
+
+void reverse(t_stack *lst)
+{
+	lst = lstlast(lst);
+	while (lst->prev)
+	{
+		reverse_swap(lst);
+		lst = lst->prev;
+	}
 }

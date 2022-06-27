@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:25:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/20 13:51:53 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/27 15:45:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,29 @@ void ft_affiche(t_stack *lst)
 int main(int ac, char **av)
 {
 	int i;
-	t_stack *first;
+	t_stack *lst;
+	t_stack *tmp;
 
 	i = 2;
-	first = lstnew(av[1]);
-	if (error(av[1]) == 1)
-		exit(0);
-	while (i < ac)
+	if (ac >= 2)
 	{
-		if (error(av[i]) == 1)
-			exit(0);
-		else
-			first = addback(first, lstnew(av[i]));
-		i++;
+		lst = lstnew(av[1]);
+		tmp = NULL;
+		while (i < ac)
+		{
+			if (error(av[i]) == 1)
+				exit(0);
+			else
+				addback(lst, lstnew(av[i]));
+			i++;
+		}
+		is_dup(lst);
+		ft_affiche(lst);
+		ft_printf("\n");
+		tmp = push(lst, tmp);
+		ft_affiche(tmp);
+		ft_printf("-Stack b-\n");
+		ft_affiche(lst);
+		ft_printf("-Stack a-\n");
 	}
-	is_dup(first);
-	ft_affiche(first);
-	ft_printf("\n");
-	first = sort3(first);
-	ft_printf("\n");
-	ft_affiche(first);
 }
