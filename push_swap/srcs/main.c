@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:25:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/27 15:45:43 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/28 11:44:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,26 @@ int main(int ac, char **av)
 	t_stack *lst;
 	t_stack *tmp;
 
-	i = 2;
+	i = 1;
 	if (ac >= 2)
 	{
-		lst = lstnew(av[1]);
+		if (error(av[i]) == 1)
+			exit(0);
+		lst = lstnew(ft_atoi(av[1]));
 		tmp = NULL;
-		while (i < ac)
+		while (++i < ac)
 		{
 			if (error(av[i]) == 1)
 				exit(0);
 			else
-				addback(lst, lstnew(av[i]));
-			i++;
+				addback(lst, lstnew(ft_atoi(av[i])));
 		}
 		is_dup(lst);
 		ft_affiche(lst);
-		ft_printf("\n");
-		tmp = push(lst, tmp);
+		ft_printf("-Original stack-\n\n");
+		push(lst, &tmp);
 		ft_affiche(tmp);
-		ft_printf("-Stack b-\n");
+		ft_printf("-Stack b-\n\n");
 		ft_affiche(lst);
 		ft_printf("-Stack a-\n");
 	}

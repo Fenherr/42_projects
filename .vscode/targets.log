@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 24 08:58:31 2022
+# Make data base, printed on Tue Jun 28 14:37:32 2022
 
 # Variables
 
@@ -21,7 +21,7 @@ PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-ae9aebba-8671-4da7-814f-d07971c6fc78.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-a234e4ee-1eb5-4665-9442-d049be8de7d1.sock
 # environment
 SBX_CHROME_API_RQ = 1
 # environment
@@ -57,7 +57,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session19
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session23
 # environment
 LANG = C
 # environment
@@ -107,7 +107,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101014_sSbva2
+KRB5CCNAME = FILE:/tmp/krb5cc_101014_XmAtIo
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -119,7 +119,7 @@ XDG_DATA_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/3B1.42angouleme.fr:@/tmp/.ICE-unix/2410738,unix/3B1.42angouleme.fr:/tmp/.ICE-unix/2410738
+SESSION_MANAGER = local/1B2.42angouleme.fr:@/tmp/.ICE-unix/879040,unix/1B2.42angouleme.fr:/tmp/.ICE-unix/879040
 # automatic
 *F = $(notdir $*)
 # environment
@@ -167,7 +167,7 @@ DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
 XDG_CONFIG_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = 41375f5964004c518cbe62da025744b3
+INVOCATION_ID = 9f828f212f754073b8b70cb6b9deeb37
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -205,11 +205,11 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2410294
+MANAGERPID = 878775
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2412299
+GIO_LAUNCHED_DESKTOP_FILE_PID = 890961
 # environment
-SSH_AGENT_PID = 2410700
+SSH_AGENT_PID = 879000
 # environment
 _ = /usr/bin/make
 # environment
@@ -219,7 +219,7 @@ GPG_AGENT_INFO = /run/user/101014/gnupg/S.gpg-agent:0:1
 # environment
 PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-JOURNAL_STREAM = 9:6517091
+JOURNAL_STREAM = 9:13077353
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -267,9 +267,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 55, inode 70321327): 11 files, no impossibilities.
+# . (device 55, inode 70321327): 10 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -320,12 +320,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 147 B / avg = 8 B
-# current buf: size = 8162 B / used = 147 B / count = 18 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 17 / storage = 133 B / avg = 7 B
+# current buf: size = 8162 B / used = 133 B / count = 17 / avg = 7 B
 
-# strcache performance: lookups = 21 / hit rate = 14%
+# strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/21=0%
-# Finished Make data base on Fri Jun 24 08:58:31 2022
+# Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
+# Finished Make data base on Tue Jun 28 14:37:32 2022
 
  
