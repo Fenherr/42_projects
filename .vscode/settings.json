@@ -32,6 +32,8 @@
 		"*.twig": "html",
 		"mlx.h": "c",
 		"libft.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"unistd.h": "c",
+		"stdlib.h": "c"
 	}
 }

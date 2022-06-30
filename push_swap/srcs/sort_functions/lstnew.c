@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 16:48:41 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/27 15:17:30 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/06/14 16:30:22 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/06/30 15:20:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void swap(int *a, int *b)
+t_stack *lstnew(int value)
 {
-	int tmp;
+	t_stack *new;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void swap_elm(t_stack *lst)
-{
-	t_stack *next_elm;
-
-	next_elm = lst->next;
-	swap(&lst->content, &next_elm->content);
+	new = (t_stack *)malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->content = value;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

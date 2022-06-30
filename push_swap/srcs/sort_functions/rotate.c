@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   addfront.c                                         :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 17:08:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/27 13:53:01 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/06/14 16:59:13 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/06/30 15:20:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void addfront(t_stack *lst, t_stack *new)
+void rotate(t_stack *lst)
 {
-	if (!lst || !new)
-		return;
-	new->next = lst;
-	new->prev = NULL;
-	lst->prev = new;
+	while (lst->next)
+	{
+		swap_elm(lst);
+		lst = lst->next;
+	}
 }

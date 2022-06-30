@@ -1,0 +1,16 @@
+{
+	"tasks": [
+		{
+			"label": "make_pushswap",
+			"command": "make",
+			"args": [
+				"re"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "${fileDirname}"
+			}
+		}
+	],
+	"version": "2.0.0"
+}

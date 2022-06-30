@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+         #
+#    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/06/08 13:09:42 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/06/30 15:13:13 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME		= push_swap
 LIBFT		= libft
 
 #=================================SOURCE FILES=================================#
-SRCS		= ${wildcard srcs/*.c}
+SRCS		= ${wildcard srcs/*/*.c}
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
