@@ -6,11 +6,23 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:29:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/30 14:10:51 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/04 09:25:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
+
+static void ft_puterror(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+}
 
 static int is_number(char *arg)
 {
@@ -53,7 +65,7 @@ int is_dup(t_stack *stack)
 		{
 			if (tmp->content == stack->content)
 			{
-				ft_printf("Error\n");
+				ft_puterror("Error\n");
 				exit(0);
 			}
 			tmp = tmp->next;
@@ -67,7 +79,7 @@ int error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
 	{
-		ft_printf("Error\n");
+		ft_puterror("Error\n");
 		return (1);
 	}
 	return (0);

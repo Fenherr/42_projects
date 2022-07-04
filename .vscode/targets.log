@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 30 15:14:52 2022
+# Make data base, printed on Mon Jul  4 13:44:43 2022
 
 # Variables
 
@@ -21,13 +19,11 @@ PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-ccf23925-ebe5-43b2-becd-fcbf42300164.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-cf8a100e-a315-4b65-b374-48cf73c38e92.sock
 # environment
 SBX_CHROME_API_RQ = 1
 # environment
 VSCODE_CWD = /nfs/homes/ngrenoux
-# environment
-GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -57,7 +53,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session25
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # environment
 LANG = C
 # environment
@@ -107,7 +103,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101014_8BB61K
+KRB5CCNAME = FILE:/tmp/krb5cc_101014_T7t1rR
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -119,7 +115,7 @@ XDG_DATA_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/1B2.42angouleme.fr:@/tmp/.ICE-unix/1520976,unix/1B2.42angouleme.fr:/tmp/.ICE-unix/1520976
+SESSION_MANAGER = local/3C1.42angouleme.fr:@/tmp/.ICE-unix/985746,unix/3C1.42angouleme.fr:/tmp/.ICE-unix/985746
 # automatic
 *F = $(notdir $*)
 # environment
@@ -158,8 +154,6 @@ MAKE = $(MAKE_COMMAND)
 PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data/node_modules/bin
 # default
 MAKEFILES := 
-# environment
-LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -167,7 +161,7 @@ DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
 XDG_CONFIG_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = e63fdd06816844b786e5c1348ca2db44
+INVOCATION_ID = 867bf0a084674a5c97de4f7f24b82545
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -205,11 +199,11 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1520701
+MANAGERPID = 985446
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 1525067
+GIO_LAUNCHED_DESKTOP_FILE_PID = 988924
 # environment
-SSH_AGENT_PID = 1520938
+SSH_AGENT_PID = 985708
 # environment
 _ = /usr/bin/make
 # environment
@@ -219,7 +213,7 @@ GPG_AGENT_INFO = /run/user/101014/gnupg/S.gpg-agent:0:1
 # environment
 PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-JOURNAL_STREAM = 9:14912771
+JOURNAL_STREAM = 9:2813933
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -259,7 +253,7 @@ ZYPAK_BIN = /app/bin
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=123/1024=12%, Rehash=0, Collisions=15/148=10%
+# Load=121/1024=12%, Rehash=0, Collisions=14/146=10%
 
 # Pattern-specific Variable Values
 
@@ -267,7 +261,7 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 55, inode 70321327): 10 files, no impossibilities.
+# . (device 59, inode 70321327): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -291,12 +285,14 @@ Makefile:
 #  File has not been updated.
 
 # Not a target:
- 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 
 # Not a target:
 makefile:
@@ -326,6 +322,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Thu Jun 30 15:14:52 2022
+# Finished Make data base on Mon Jul  4 13:44:43 2022
 
  

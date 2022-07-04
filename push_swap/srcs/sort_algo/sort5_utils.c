@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort5_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 16:25:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/04 09:13:34 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/04 14:21:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void ft_affiche(t_stack *lst)
+int check_if_first_is_min(t_stack *lst)
 {
+	t_stack *tmp;
+
+	tmp = lst;
+	lst = lst->next;
 	while (lst)
 	{
-		ft_printf("%d\n", lst->content);
+		if (tmp->content < lst->content)
+			return (1);
 		lst = lst->next;
 	}
-}
-
-int main(int ac, char **av)
-{
-	int i;
-	t_stack *lst;
-
-	i = 1;
-	if (ac >= 2)
-	{
-		if (error(av[i]) == 1)
-			exit(0);
-		lst = lstnew(ft_atoi(av[1]));
-		while (++i < ac)
-		{
-			if (error(av[i]) == 1)
-				exit(0);
-			else
-				addback(lst, lstnew(ft_atoi(av[i])));
-		}
-		is_dup(lst);
-		sort(lst);
-		ft_affiche(lst);
-	}
+	return (0);
 }
