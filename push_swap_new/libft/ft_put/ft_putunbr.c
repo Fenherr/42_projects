@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5_utils.c                                      :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:10:24 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/14 09:16:17 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:25:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int check_if_first_is_min(t_stack **lst)
+void	ft_putunbr(unsigned int nb)
 {
-	t_stack *tmp;
-
-	tmp = *lst;
-	*lst = (*lst)->next;
-	while ((*lst)->next != NULL)
+	if (nb >= 10)
 	{
-		if (tmp->content < (*lst)->content)
-			return (1);
-		*lst = (*lst)->next;
+		ft_putunbr(nb / 10);
+		ft_putunbr(nb % 10);
 	}
-	return (0);
+	else
+		ft_putchar(nb + 48);
 }

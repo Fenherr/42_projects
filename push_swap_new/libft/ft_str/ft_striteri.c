@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5_utils.c                                      :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:10:24 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/05 13:43:51 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:10:14 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int check_if_first_is_min(t_stack **lst)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	t_stack *tmp;
+	int	i;
+	int	len;
 
-	tmp = *lst;
-	*lst = (*lst)->next;
-	while ((*lst)->next != NULL)
+	i = 0;
+	len = 0;
+	if (s != NULL && f != NULL)
 	{
-		if (tmp->content < (*lst)->content)
-			return (1);
-		*lst = (*lst)->next;
+		len = ft_strlen(s);
+		while (i < len)
+		{
+			(*f)(i, s);
+			s++;
+			i++;
+		}
 	}
-	return (0);
 }

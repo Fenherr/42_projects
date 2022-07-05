@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:10:24 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/07 11:11:56 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:19:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int check_if_first_is_min(t_stack **lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_stack *tmp;
+	t_list	*last;
 
-	tmp = *lst;
-	*lst = (*lst)->next;
-	while ((*lst)->next != NULL)
+	if (!*lst)
 	{
-		if (tmp->content < (*lst)->content)
-			return (1);
-		*lst = (*lst)->next;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

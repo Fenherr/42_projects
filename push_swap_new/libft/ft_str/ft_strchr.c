@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:10:24 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/03/31 11:54:10 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:09:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int check_if_first_is_min(t_stack **lst)
+char	*ft_strchr(const char *s, int c)
 {
-	t_stack *tmp;
+	int	i;
 
-	tmp = *lst;
-	*lst = (*lst)->next;
-	while ((*lst)->next != NULL)
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
 	{
-		if (tmp->content < (*lst)->content)
-			return (1);
-		*lst = (*lst)->next;
+		if (*s == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
 	return (0);
 }

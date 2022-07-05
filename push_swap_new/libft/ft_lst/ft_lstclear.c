@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 13:37:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:10:24 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/07 13:26:46 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:19:38 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int check_if_first_is_min(t_stack **lst)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_stack *tmp;
+	t_list	*temp;
 
-	tmp = *lst;
-	*lst = (*lst)->next;
-	while ((*lst)->next != NULL)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (tmp->content < (*lst)->content)
-			return (1);
-		*lst = (*lst)->next;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	return (0);
 }

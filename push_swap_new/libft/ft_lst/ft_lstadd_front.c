@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:30:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:08:34 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/06 17:24:08 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:19:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-void sort5(t_stack **lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_stack *stack_b;
-
-	stack_b = NULL;
-	if (check_if_first_is_min(lst) == 1)
-	{
-		push(lst, &stack_b);
-	}
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

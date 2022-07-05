@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 15:18:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 10:59:12 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/05 13:21:58 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/05 14:52:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+#include <stdlib.h>
+#include <unistd.h>
+#include "../libft/libft.h"
 
-int lstsize(t_stack **lst)
+typedef struct s_stack
 {
-	size_t i;
+	int	*stack_a;
+	int	*stack_b;
+	int	len_a;
+	int	len_b;
+}	t_stack;
 
-	i = 0;
-	while ((*lst)->next != NULL)
-	{
-		*lst = (*lst)->next;
-		i++;
-	}
-	return (i);
-}
-
-void sort(t_stack **lst)
-{
-	if (lstsize(lst) <= 3 && lstsize(lst) > 1)
-		sort3(lst);
-	else if (lstsize(lst) > 3 && lstsize(lst) <= 5)
-		sort5(lst);
-}
+#endif

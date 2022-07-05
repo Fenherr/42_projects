@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:30:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:08:34 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/06 16:50:53 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:20:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-void sort5(t_stack **lst)
+t_list	*ft_lstnew(void *content)
 {
-	t_stack *stack_b;
+	t_list	*elm;
 
-	stack_b = NULL;
-	if (check_if_first_is_min(lst) == 1)
-	{
-		push(lst, &stack_b);
-	}
+	elm = (t_list *)malloc(sizeof(*elm));
+	if (!elm)
+		return (NULL);
+	elm ->content = content;
+	elm ->next = NULL;
+	return (elm);
 }

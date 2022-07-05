@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:30:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:08:34 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/03/29 10:03:29 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:15:52 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-void sort5(t_stack **lst)
+int	ft_isascii(int c)
 {
-	t_stack *stack_b;
-
-	stack_b = NULL;
-	if (check_if_first_is_min(lst) == 1)
-	{
-		push(lst, &stack_b);
-	}
+	return (c >= 0 && c <= 127);
 }

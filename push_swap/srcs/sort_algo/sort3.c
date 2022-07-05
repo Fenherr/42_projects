@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 08:49:10 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/04 09:40:56 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/05 10:59:54 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ static void two_moves(t_stack *lst)
 	}
 }
 
-void sort3(t_stack *lst)
+void sort3(t_stack **lst)
 {
-	one_move_swap(lst);
-	one_move_rotate(lst);
-	two_moves(lst);
+	one_move_swap(*lst);
+	one_move_rotate(*lst);
+	two_moves(*lst);
 }

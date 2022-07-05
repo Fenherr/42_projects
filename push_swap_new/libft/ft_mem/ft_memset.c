@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:30:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:08:34 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/03/29 10:58:44 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:22:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-void sort5(t_stack **lst)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_stack *stack_b;
+	size_t			i;
+	unsigned char	*str;
 
-	stack_b = NULL;
-	if (check_if_first_is_min(lst) == 1)
-	{
-		push(lst, &stack_b);
-	}
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+		str[i++] = c;
+	return (s);
 }

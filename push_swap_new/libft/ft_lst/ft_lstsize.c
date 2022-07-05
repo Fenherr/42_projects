@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 15:18:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 10:59:12 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/07 08:38:34 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/05/02 12:20:50 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../libft.h"
 
-int lstsize(t_stack **lst)
+int	ft_lstsize(t_list *lst)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while ((*lst)->next != NULL)
+	while (lst)
 	{
-		*lst = (*lst)->next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);
-}
-
-void sort(t_stack **lst)
-{
-	if (lstsize(lst) <= 3 && lstsize(lst) > 1)
-		sort3(lst);
-	else if (lstsize(lst) > 3 && lstsize(lst) <= 5)
-		sort5(lst);
 }

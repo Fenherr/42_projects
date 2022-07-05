@@ -26,7 +26,13 @@
 			"preLaunchTask": "make_pushswap",
 			"request": "launch",
 			"program": "${fileDirname}/push_swap",
-			"args": ["101","42","99","1","7"],
+			"args": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5"
+			],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
