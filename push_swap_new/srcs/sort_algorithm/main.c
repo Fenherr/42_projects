@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 13:21:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/06 10:46:45 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/06 09:34:30 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/06 14:16:19 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-#include <stdlib.h>
-#include <unistd.h>
-#include "../libft/libft.h"
+#include "../../includes/push_swap.h"
 
-typedef struct s_stack
+void lstaff(t_stack *lst)
 {
-	int *stack_a;
-	int *stack_b;
-	int len_a;
-	int len_b;
-} t_stack;
+	int i;
 
-void init(t_stack *lst, int ac);
-int error(char *arg);
+	i = 0;
+	while (i < lst->len_a)
+	{
+		ft_printf("%d\n", lst->stack_a[i]);
+		i++;
+	}
+}
 
-#endif
+int main(int ac, char **av)
+{
+	t_stack *lst;
+	int i;
+
+	i = 1;
+	if (ac >= 2)
+	{
+		init(lst, ac);
+		while (i < ac)
+		{
+			if (error(av[i]) == 1)
+				exit(0);
+			lst->stack_a[i - 1] = ft_atoi(av[i]);
+			i++;
+		}
+	}
+	lstaff(lst);
+	return (0);
+}
