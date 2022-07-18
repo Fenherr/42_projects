@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 14:12:15 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/05 11:08:53 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:17:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack *lstnew(int value);
 t_stack *lstlast(t_stack *lst);
 int is_dup(t_stack *stack);
 int error(char *arg);
-int lstsize(t_stack **lst);
+int lstsize(t_stack *lst);
 int check_if_first_is_min(t_stack **lst);
 void swap(int *a, int *b);
 void swap_elm(t_stack *lst);
@@ -36,7 +36,7 @@ void addfront(t_stack **dest, t_stack *new);
 void rotate(t_stack *lst);
 void reverse(t_stack *lst);
 void push(t_stack **src, t_stack **dest);
-void sort(t_stack **lst);
+void sort(t_stack *lst);
 void sort3(t_stack **lst);
 void sort5(t_stack **lst);
 
