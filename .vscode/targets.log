@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 13 12:43:54 2022
+# Make data base, printed on Wed Jul 20 09:31:20 2022
 
 # Variables
 
@@ -21,7 +21,7 @@ PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-7e2986b3-bb7b-496b-ad34-86efec0ad31c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-2854119f-c5a3-4662-8145-129c79c0d309.sock
 # environment
 SBX_CHROME_API_RQ = 1
 # environment
@@ -57,7 +57,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session3
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session5
 # environment
 LANG = C
 # environment
@@ -107,7 +107,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101014_oquDZy
+KRB5CCNAME = FILE:/tmp/krb5cc_101014_rvV6oF
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -119,7 +119,7 @@ XDG_DATA_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/1D2.42angouleme.fr:@/tmp/.ICE-unix/719216,unix/1D2.42angouleme.fr:/tmp/.ICE-unix/719216
+SESSION_MANAGER = local/1B2.42angouleme.fr:@/tmp/.ICE-unix/3106662,unix/1B2.42angouleme.fr:/tmp/.ICE-unix/3106662
 # automatic
 *F = $(notdir $*)
 # environment
@@ -167,7 +167,7 @@ DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
 XDG_CONFIG_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = f13ac5de4c59400a9cc2357923b887a0
+INVOCATION_ID = b0a097ac00d04b45a27a75e77fa7bd0b
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -205,11 +205,11 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 718724
+MANAGERPID = 3106202
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 741043
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3114070
 # environment
-SSH_AGENT_PID = 719178
+SSH_AGENT_PID = 3106624
 # environment
 _ = /usr/bin/make
 # environment
@@ -219,7 +219,7 @@ GPG_AGENT_INFO = /run/user/101014/gnupg/S.gpg-agent:0:1
 # environment
 PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-JOURNAL_STREAM = 9:1999519
+JOURNAL_STREAM = 9:8492964
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -283,7 +283,6 @@ Makefile:
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
- 
 
 # Not a target:
 .DEFAULT:
@@ -297,6 +296,7 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
+ 
 
 # Not a target:
 makefile:
@@ -326,6 +326,6 @@ GNUmakefile:
 # strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Wed Jul 13 12:43:54 2022
+# Finished Make data base on Wed Jul 20 09:31:20 2022
 
  

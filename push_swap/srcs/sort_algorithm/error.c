@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:38:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/06 10:33:32 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/19 11:26:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,24 @@ void is_dup(t_stack *lst)
 	int i;
 	int j;
 
-	i = 0;
-	j = 0;
-	while (j < lst->len_a)
+	i = -1;
+	while (++i < lst->len_a)
 	{
-		while (i < lst->len_a)
+		j = i;
+		while (++j < lst->len_a)
 		{
 			if (lst->stack_a[j] == lst->stack_a[i])
 			{
 				ft_puterror("Error\n");
 				exit(0);
 			}
-			i++;
 		}
-		j++;
 	}
 }
 
-int error(char *arg)
+void error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
-	{
 		ft_puterror("Error\n");
-		return (1);
-	}
-	return (0);
+	exit(0);
 }
