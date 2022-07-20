@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/nfs/homes/ngrenoux/42/42_projects'
-make: Leaving directory '/nfs/homes/ngrenoux/42/42_projects'
+make: Entering directory '/home/nico/Documents/42_projects'
+make: Leaving directory '/home/nico/Documents/42_projects'
  
 make: *** No targets specified and no makefile found.  Stop.
 

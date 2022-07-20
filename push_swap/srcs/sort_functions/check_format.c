@@ -6,7 +6,13 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:33:36 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/19 13:33:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/20 12:34:54 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/push_swap.h"
+
+int	check_space(t_stack *lst)
+{
+	
+}
