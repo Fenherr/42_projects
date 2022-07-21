@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:34:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 12:12:19 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:22:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_format(char *av)
 {
-	
-	if (ft_strchr(av, ' ') != NULL)
-		ft_printf("J'ai trouvé");
+	(void)av;
+	// if (ft_strchr(av, ' '))
+	// 	ft_split(av, ' '); Ne fonctionne pas
 }

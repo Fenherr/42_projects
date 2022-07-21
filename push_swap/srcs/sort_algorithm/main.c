@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:34:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 12:08:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:19:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ int main(int ac, char **av)
 	int i;
 
 	i = 0;
-	if (ac == 2)
+	if (ac >= 2)
 	{
 		lst = init(ac);
 		while (++i < ac)
 		{
-			check_format(av[i]);
 			if (error(av[i]) == 1)
 				exit(0);
 			lst->stack_a[i - 1] = ft_atoi(av[i]);
