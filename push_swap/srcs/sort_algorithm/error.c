@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:38:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 13:40:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/21 16:05:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int is_number(char *arg)
 		i++;
 	while (arg[i])
 	{
-		if (!ft_isdigit(arg[i]))
+		if (!ft_isdigit(arg[i]) && arg[i] != ' ')
 			return (1);
 		i++;
 	}
