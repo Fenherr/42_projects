@@ -1,56 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 09:34:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 12:08:54 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/20 14:09:15 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/20 14:33:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void lstaff(t_stack *lst)
+void rotate_a(t_stack *lst)
 {
 	int i;
+	int tmp;
 
 	i = 0;
-	while (i < lst->len_a)
+	tmp = lst->stack_a[0];
+	while (i < lst->len_a - 1)
 	{
-		ft_printf("%d\n", lst->stack_a[i]);
+		lst->stack_a[i] = lst->stack_a[i + 1];
 		i++;
 	}
-	ft_printf("--stack a--\n");
-	i = 0;
-	while (i < lst->len_b)
-	{
-		ft_printf("%d\n", lst->stack_b[i]);
-		i++;
-	}
-	ft_printf("--stack b--\n");
+	lst->stack_a[i] = tmp;
 }
 
-int main(int ac, char **av)
+void rotate_b(t_stack *lst)
 {
-	t_stack *lst;
 	int i;
+	int tmp;
 
 	i = 0;
-	if (ac == 2)
+	tmp = lst->stack_b[0];
+	while (i < lst->len_b - 1)
 	{
-		lst = init(ac);
-		while (++i < ac)
-		{
-			check_format(av[i]);
-			if (error(av[i]) == 1)
-				exit(0);
-			lst->stack_a[i - 1] = ft_atoi(av[i]);
-		}
+		lst->stack_b[i] = lst->stack_b[i + 1];
+		i++;
 	}
-	is_dup(lst);
-	push_b(lst);
-	lstaff(lst);
-	return (0);
+	lst->stack_b[i] = tmp;
 }

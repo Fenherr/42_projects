@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:38:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/19 11:26:28 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:54:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,12 @@ void is_dup(t_stack *lst)
 	}
 }
 
-void error(char *arg)
+int error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
+	{
 		ft_puterror("Error\n");
-	exit(0);
+		return (1);
+	}
+	return (0);
 }
