@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_format.c                                     :+:      :+:    :+:   */
+/*   sort3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 10:34:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 13:41:25 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/21 13:53:14 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/21 14:11:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-char	**check_format(char *av)
+static void one_move(t_stack *lst)
 {
-	char	**arr;
+	int first;
+	int second;
+	int third;
 
-	if (ft_strchr(av, ' '))
-		arr = ft_split(av, ' ');
-	return (arr);
+	first = lst->stack_a[0];
+	second = lst->stack_a[1];
+	third = lst->stack_a[lst->len_a];
+	if (first > second && third > second && third > first)
+	{
+		swap_a(lst);
+		ft_printf("sa\n");
+	}
+}
+
+void sort3(t_stack *lst)
+{
+	one_move(lst);
 }

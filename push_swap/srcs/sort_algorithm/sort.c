@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_format.c                                     :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 10:34:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 13:41:25 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/07/21 13:29:55 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/07/21 14:13:39 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-char	**check_format(char *av)
+void	sort(t_stack *lst)
 {
-	char	**arr;
-
-	if (ft_strchr(av, ' '))
-		arr = ft_split(av, ' ');
-	return (arr);
+	if (lst->len_a <= 3)
+		sort3(lst);
 }

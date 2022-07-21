@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:21:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 13:22:07 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:09:36 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 
 t_stack *init(int ac);
 int error(char *arg);
+char **check_format(char *av);
 void is_dup(t_stack *lst);
 void swap_a(t_stack *lst);
 void swap_b(t_stack *lst);
@@ -35,6 +36,7 @@ void reverse_rot_a(t_stack *lst);
 void reverse_rot_b(t_stack *lst);
 void push_a(t_stack *lst);
 void push_b(t_stack *lst);
-void check_format(char *av);
+void sort(t_stack *lst);
+void sort3(t_stack *lst);
 
 #endif
