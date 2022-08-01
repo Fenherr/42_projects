@@ -1,55 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 09:34:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/01 14:51:54 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/01 10:31:44 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/01 13:48:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void lstaff(t_stack *lst)
+int	search_pos_min(t_stack *lst)
 {
-	int i;
+	int	pos;
+	int	i;
+	int	j;
 
 	i = 0;
+	pos = 0;
+	j = lst->stack_a[i];
 	while (i < lst->len_a)
 	{
-		ft_printf("%d\n", lst->stack_a[i]);
+		if (lst->stack_a[i] < j)
+		{
+			j = lst->stack_a[i];
+			pos = i;
+		}
 		i++;
 	}
-	ft_printf("--stack a--\n");
-	i = 0;
-	while (i < lst->len_b)
-	{
-		ft_printf("%d\n", lst->stack_b[i]);
-		i++;
-	}
-	ft_printf("--stack b--\n");
+	return (pos);
 }
 
-int main(int ac, char **av)
+void	min_to_first_pos(t_stack *lst)
 {
-	t_stack *lst;
-	int i;
+	int	len;
+	int	position;
 
-	i = 0;
-	if (ac >= 2)
+	len = lst->len_a;
+	position = search_pos_min(lst);
+	while (position != 0)
 	{
-		lst = init(ac);
-		while (++i < ac)
+		if (position <= len / 2)
 		{
-			if (error(av[i]) == 1)
-				exit(0);
-			lst->stack_a[i - 1] = ft_atoi(av[i]);
+			rotate_a(lst);
+			ft_printf("ra\n");
 		}
+		else
+		{
+			reverse_rot_a(lst);
+			ft_printf("rra\n");
+		}
+		position = search_pos_min(lst);
 	}
-	is_dup(lst);
-	sort(lst);
-	//lstaff(lst);
-	return (0);
 }

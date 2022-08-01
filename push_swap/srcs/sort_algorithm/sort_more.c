@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_more.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 13:29:55 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/01 14:42:49 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/01 14:38:37 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/01 14:55:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void sort(t_stack *lst)
+void	sort_more(t_stack *lst)
 {
-	if (lst->len_a <= 3)
-		sort3(lst);
-	else if (lst->len_a >= 4 && lst->len_a <= 5)
-		sort5(lst);
-	else if (lst->len_a > 5)
-		sort_more(lst);
+	while (lst->len_a != 1)
+	{
+		min_to_first_pos(lst);
+		push_b(lst);
+		ft_printf("pb\n");
+	}
+	while (lst->len_b != 0)
+	{
+		push_a(lst);
+		ft_printf("pa\n");
+	}
 }
