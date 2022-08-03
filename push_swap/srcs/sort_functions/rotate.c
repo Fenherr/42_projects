@@ -6,16 +6,16 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:09:15 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/20 14:33:12 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:46:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void rotate_a(t_stack *lst)
+void	rotate_a(t_stack *lst)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = 0;
 	tmp = lst->stack_a[0];
@@ -27,10 +27,10 @@ void rotate_a(t_stack *lst)
 	lst->stack_a[i] = tmp;
 }
 
-void rotate_b(t_stack *lst)
+void	rotate_b(t_stack *lst)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = 0;
 	tmp = lst->stack_b[0];

@@ -6,16 +6,16 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:26:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 12:41:20 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:36:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int ft_countline(char const *s, char c)
+static int	ft_countline(char const *s, char c)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -28,9 +28,9 @@ static int ft_countline(char const *s, char c)
 	return (j);
 }
 
-static int ft_ilen(char const *s, char c, int i)
+static int	ft_ilen(char const *s, char c, int i)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[i] && s[i] != c)
@@ -41,18 +41,18 @@ static int ft_ilen(char const *s, char c, int i)
 	return (len);
 }
 
-static void ft_niel(char **str, int i)
+static void	ft_niel(char **str, int i)
 {
 	while (i-- > 0)
 		free(str[i]);
 	free(str);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int i;
-	int j;
-	char **str;
+	int		i;
+	int		j;
+	char	**str;
 
 	i = 0;
 	j = -1;

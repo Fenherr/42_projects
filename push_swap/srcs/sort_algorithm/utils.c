@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 10:31:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/01 13:48:18 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:51:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ int	search_pos_min(t_stack *lst)
 {
 	int	pos;
 	int	i;
-	int	j;
+	int	tmp;
 
 	i = 0;
 	pos = 0;
-	j = lst->stack_a[i];
+	tmp = lst->stack_a[i];
 	while (i < lst->len_a)
 	{
-		if (lst->stack_a[i] < j)
+		if (lst->stack_a[i] < tmp)
 		{
-			j = lst->stack_a[i];
+			tmp = lst->stack_a[i];
 			pos = i;
 		}
 		i++;

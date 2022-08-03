@@ -6,15 +6,15 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:38:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 16:05:56 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:49:03 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void ft_puterror(char *str)
+static void	ft_puterror(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -24,9 +24,9 @@ static void ft_puterror(char *str)
 	}
 }
 
-static int is_number(char *arg)
+static int	is_number(char *arg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arg[0] == '-' && arg[1])
@@ -40,9 +40,9 @@ static int is_number(char *arg)
 	return (0);
 }
 
-static int check_limits(char *arg)
+static int	check_limits(char *arg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arg[i])
@@ -54,10 +54,10 @@ static int check_limits(char *arg)
 	return (0);
 }
 
-void is_dup(t_stack *lst)
+void	is_dup(t_stack *lst)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < lst->len_a)
@@ -74,7 +74,7 @@ void is_dup(t_stack *lst)
 	}
 }
 
-int error(char *arg)
+int	error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
 	{

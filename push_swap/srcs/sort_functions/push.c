@@ -6,13 +6,13 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 09:32:15 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/21 09:58:19 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:46:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void push_b(t_stack *lst)
+void	push_b(t_stack *lst)
 {
 	if (lst->len_a != 0)
 	{
@@ -29,7 +29,7 @@ void push_b(t_stack *lst)
 	}
 }
 
-void push_a(t_stack *lst)
+void	push_a(t_stack *lst)
 {
 	if (lst->len_b != 0)
 	{

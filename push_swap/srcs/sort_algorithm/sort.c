@@ -6,13 +6,13 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:29:55 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/01 14:42:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:49:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void sort(t_stack *lst)
+void	sort(t_stack *lst)
 {
 	if (lst->len_a <= 3)
 		sort3(lst);
