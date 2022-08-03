@@ -1,12 +1,14 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
+# Built for x86_64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 20 12:33:52 2022
+# Make data base, printed on Wed Aug  3 10:17:09 2022
 
 # Variables
 
@@ -15,15 +17,17 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-SSH_AGENT_LAUNCHER = gnome-keyring
-# environment
-SNAP_INSTANCE_KEY = 
+PULSE_SERVER = unix:/run/flatpak/pulse/native
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_CWD = /home/nico
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101014/vscode-ipc-5adf95dc-b59e-4138-b6cb-1ac17fb5de48.sock
+# environment
+SBX_CHROME_API_RQ = 1
+# environment
+VSCODE_CWD = /nfs/homes/ngrenoux
+# environment
+GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -31,87 +35,105 @@ QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
-SNAP_INSTANCE_NAME = code
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/101/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
-# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/nico/Documents/42_projects
+PWD = /nfs/homes/ngrenoux/42/42_projects
+# environment
+ZYPAK_ZYGOTE_STRATEGY_SPAWN = 1
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
+GI_TYPELIB_PATH = /app/lib/girepository-1.0
 # environment
-XDG_DATA_DIRS = /usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-OLDPWD = /home/nico
+XDG_DATA_DIRS = /app/share:/usr/share:/usr/share/runtime/share:/run/host/user-share:/run/host/share
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/nico/.config/Code/CachedData/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
+VSCODE_CODE_CACHE_PATH = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.06IHP1
+XAUTHORITY = /run/flatpak/Xauthority
 # default
 .LOADED := 
 # default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+.INCLUDE_DIRS = /usr/include /usr/include
+# environment
+ALSA_CONFIG_DIR = /usr/share/alsa
 # makefile
 MAKEFLAGS = pqrR
+# environment
+ZYPAK_SPAWN_LATEST_ON_REEXEC = 0
 # makefile
-CURDIR := /home/nico/Documents/42_projects
+CURDIR := /nfs/homes/ngrenoux/42/42_projects
+# environment
+VSCODE_PIPE_LOGGING = true
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
+ZYPAK_LIB = /app/bin/../lib
+# environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+SSH_AUTH_SOCK = /run/flatpak/ssh-auth
 # default
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
+XDG_CONFIG_DIRS = /app/etc/xdg:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+ALSA_CONFIG_PATH = /usr/share/alsa/alsa-flatpak.conf
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # makefile
 MAKEFILE_LIST := 
 # environment
-SNAP_REEXEC = 
+FLATPAK_SANDBOX_DIR = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/sandbox
 # automatic
 @F = $(notdir $@)
 # environment
-ZSH = /home/nico/.oh-my-zsh
+VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5529
+VSCODE_PID = 23
 # environment
-XDG_SESSION_TYPE = wayland
+KRB5CCNAME = FILE:/tmp/krb5cc_101014_Oa4Esw
+# environment
+XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+AT_SPI_BUS_ADDRESS = unix:path=/run/flatpak/at-spi-bus
 # environment
-SESSION_MANAGER = local/nico-ubuntu:@/tmp/.ICE-unix/2007,unix/nico-ubuntu:/tmp/.ICE-unix/2007
+XDG_DATA_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data
+# environment
+SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
+# environment
+SESSION_MANAGER = local/1B2.42angouleme.fr:@/tmp/.ICE-unix/214164,unix/1B2.42angouleme.fr:/tmp/.ICE-unix/214164
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/flatpak/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"8e1a08857df44efaeace20a1f4372f40.fr","_translationsConfigFile":"/home/nico/.config/Code/clp/8e1a08857df44efaeace20a1f4372f40.fr/tcf.json","_cacheRoot":"/home/nico/.config/Code/clp/8e1a08857df44efaeace20a1f4372f40.fr","_resolvedLanguagePackCoreLocation":"/home/nico/.config/Code/clp/8e1a08857df44efaeace20a1f4372f40.fr/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a","_corruptedFile":"/home/nico/.config/Code/clp/8e1a08857df44efaeace20a1f4372f40.fr/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/57fd6d0195bb9b9d1b49f6da5db789060795de47","_corruptedFile":"/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
+# environment
+__EGL_EXTERNAL_PLATFORM_CONFIG_DIRS = /etc/egl/egl_external_platform.d:/usr/lib/x86_64-linux-gnu/GL/egl/egl_external_platform.d:/usr/share/egl/egl_external_platform.d
 # default
-MAKE_HOST := x86_64-pc-linux-gnu
+MAKE_HOST := x86_64-unknown-linux-gnu
 # environment
 GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # makefile
@@ -121,7 +143,11 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
+LD_LIBRARY_PATH = /app/lib
+# environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SANDBOX_LD_LIBRARY_PATH = /app/lib
 # environment
 SHLVL = 0
 # environment
@@ -129,123 +155,111 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-SNAP_COOKIE = lEaP4HQ91_KCsTmfJoW0zZFR_EPEcUHQ_mLkY2SwFK9qZ90Q0cop
-# environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /app/bin:/app/bin:/app/bin:/usr/bin:/nfs/homes/ngrenoux/.var/app/com.visualstudio.code/data/node_modules/bin
 # default
 MAKEFILES := 
+# environment
+LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
 # environment
-SNAP_USER_COMMON = /home/nico/snap/code/common
+DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
-SNAP = /snap/code/101
+XDG_CONFIG_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = 2b786fc71e934aa5b00f4d3e2eb0e00d
+INVOCATION_ID = bf958d3b5363464ca24a2cf2e565e62a
 # environment
-SNAP_REVISION = 101
-# environment
-SNAP_REAL_HOME = /home/nico
-# environment
-USERNAME = nico
-# environment
-GNOME_SETUP_DISPLAY = :1
+VSCODE_LOG_NATIVE = false
 # automatic
 ?F = $(notdir $?)
 # environment
 XDG_CURRENT_DESKTOP = Unity
-# environment
-LS_COLORS = 
 # automatic
 +F = $(notdir $+)
 # environment
-LESS = -R
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
 DESKTOP_SESSION = ubuntu
+# environment
+GST_PLUGIN_SYSTEM_PATH = /app/lib/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-LOGNAME = nico
+LOGNAME = ngrenoux
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+container = flatpak
 # environment
-SNAP_ARCH = amd64
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/flatpak/exports/share/applications/com.visualstudio.code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 2040
-# environment
-DISPLAY = :0
-# environment
-USER = nico
+NPM_CONFIG_GLOBALCONFIG = /app/etc/npmrc
 # environment
 GTK_MODULES = gail:atk-bridge
+# environment
+USER = ngrenoux
+# environment
+DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-DISABLE_WAYLAND = 1
+MANAGERPID = 213722
 # environment
-SNAP_DATA = /var/snap/code/101
+GIO_LAUNCHED_DESKTOP_FILE_PID = 236930
 # environment
-SNAP_CONTEXT = lEaP4HQ91_KCsTmfJoW0zZFR_EPEcUHQ_mLkY2SwFK9qZ90Q0cop
+SSH_AGENT_PID = 214126
 # environment
-MANAGERPID = 1808
+_ = /usr/bin/make
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5474
+XDG_RUNTIME_DIR = /run/user/101014
 # environment
-PAGER = less
+GPG_AGENT_INFO = /run/user/101014/gnupg/S.gpg-agent:0:1
 # environment
-_ = /snap/code/101/usr/share/code/code
+PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-GDK_PIXBUF_MODULE_FILE = /home/nico/snap/code/common/.cache/gdk-pixbuf-loaders.cache
-# environment
-JOURNAL_STREAM = 8:36891
+JOURNAL_STREAM = 9:706698
 # environment
 XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/nico
+HOME = /nfs/homes/ngrenoux
 # environment
 QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-785f64db-1.69.1-main.sock
+VSCODE_IPC_HOOK = /run/user/101014/vscode-e884ae5a-1.67.0-main.sock
 # environment
-SNAP_NAME = code
-# environment
-GSETTINGS_SCHEMA_DIR = /snap/code/101/usr/share/glib-2.0/schemas
+IM_CONFIG_PHASE = 1
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# environment
-SNAP_VERSION = b06ae3b2
 # default
 SUFFIXES := 
+# environment
+XDG_CACHE_HOME = /nfs/homes/ngrenoux/.var/app/com.visualstudio.code/cache
 # environment
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-SNAP_COMMON = /var/snap/code/common
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/ngrenoux
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/nico/snap/code/101
+FLATPAK_ID = com.visualstudio.code
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-GDMSESSION = ubuntu
+ZYPAK_BIN = /app/bin
 # environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=117/1024=11%, Rehash=0, Collisions=4/144=3%
+# Load=123/1024=12%, Rehash=0, Collisions=15/148=10%
 
 # Pattern-specific Variable Values
 
@@ -253,7 +267,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66306, inode 7480035): 12 files, no impossibilities.
+# . (device 55, inode 70321327): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -265,6 +279,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Not a target:
 Makefile:
+ 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -282,9 +297,6 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # Not a target:
 makefile:
@@ -308,12 +320,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 172 B / avg = 8 B
-# current buf: size = 8162 B / used = 172 B / count = 20 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 156 B / avg = 8 B
+# current buf: size = 8162 B / used = 156 B / count = 19 / avg = 8 B
 
-# strcache performance: lookups = 23 / hit rate = 13%
+# strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/23=0%
-# Finished Make data base on Wed Jul 20 12:33:52 2022
+# Load=19/8192=0%, Rehash=0, Collisions=0/22=0%
+# Finished Make data base on Wed Aug  3 10:17:09 2022
 
  
