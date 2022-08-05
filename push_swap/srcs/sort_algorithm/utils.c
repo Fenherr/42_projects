@@ -6,13 +6,13 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 10:31:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/03 12:51:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/04 13:08:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	search_pos_min(t_stack *lst)
+int	search_pos_min(t_stack *lst, int len)
 {
 	int	pos;
 	int	i;
@@ -21,7 +21,7 @@ int	search_pos_min(t_stack *lst)
 	i = 0;
 	pos = 0;
 	tmp = lst->stack_a[i];
-	while (i < lst->len_a)
+	while (i < len)
 	{
 		if (lst->stack_a[i] < tmp)
 		{
@@ -33,16 +33,16 @@ int	search_pos_min(t_stack *lst)
 	return (pos);
 }
 
-void	min_to_first_pos(t_stack *lst)
+void	min_to_first_pos(t_stack *lst, int len)
 {
-	int	len;
+	int	mid;
 	int	position;
 
-	len = lst->len_a;
-	position = search_pos_min(lst);
+	mid = lst->len_a / 2;
+	position = search_pos_min(lst, len);
 	while (position != 0)
 	{
-		if (position <= len / 2)
+		if (position <= mid)
 		{
 			rotate_a(lst);
 			ft_printf("ra\n");
@@ -52,6 +52,6 @@ void	min_to_first_pos(t_stack *lst)
 			reverse_rot_a(lst);
 			ft_printf("rra\n");
 		}
-		position = search_pos_min(lst);
+		position = search_pos_min(lst, len);
 	}
 }

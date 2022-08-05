@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 15:53:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/03 12:50:09 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/04 13:09:06 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	sort4(t_stack *lst)
 
 void	sort5(t_stack *lst)
 {
-	min_to_first_pos(lst);
+	min_to_first_pos(lst, lst->len_a);
 	if (lst->len_a == 4)
 		sort4(lst);
 	else if (lst->len_a == 5)
 	{
 		push_b(lst);
 		ft_printf("pb\n");
-		min_to_first_pos(lst);
+		min_to_first_pos(lst, lst->len_a);
 		sort4(lst);
 		push_a(lst);
 		ft_printf("pa\n");
