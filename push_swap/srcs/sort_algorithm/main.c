@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:34:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/04 13:23:15 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/16 13:30:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ void lstaff(t_stack *lst)
 		i++;
 	}
 	ft_printf("--stack b--\n");
+	while (i < lst->len_a)
+	{
+		ft_printf("%d\n", lst->sort_tab[i]);
+		i++;
+	}
+	ft_printf("--stack tmp--\n");
 }
 
 int main(int ac, char **av)
@@ -50,6 +56,6 @@ int main(int ac, char **av)
 	}
 	is_dup(lst);
 	sort(lst);
-	lstaff(lst);
+	//lstaff(lst);
 	return (0);
 }

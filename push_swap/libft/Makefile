@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+         #
+#    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/06/07 15:41:02 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/08/16 09:20:52 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,6 @@ all:	$(NAME)
 
 clean:
 	@$(RM) $(OBJS)
-	@echo "\033[32mNettoyage effectué...\033[0m"
 
 fclean:	clean
 	@$(RM) $(NAME)

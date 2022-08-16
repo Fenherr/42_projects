@@ -1,26 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   tmp_tab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 15:27:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/16 09:25:44 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/16 11:25:14 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/16 12:53:09 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_stack	*init(int ac)
+void	filling_tab(t_stack *lst)
 {
-	t_stack	*lst;
+	int	i;
 
-	lst = malloc(sizeof(t_stack));
-	lst->len_a = ac - 1;
-	lst->len_b = 0;
-	lst->stack_a = ft_calloc(sizeof(int), lst->len_a);
-	lst->stack_b = ft_calloc(sizeof(int), lst->len_a);
-	lst->sort_tab = ft_calloc(sizeof(int), lst->len_a);
-	return (lst);
+	i = 0;
+	while (i < lst->len_a)
+	{
+		lst->sort_tab[i] = lst->stack_a[i];
+		i++;
+	}
+}
+
+void	sort_tmp_tab(t_stack *lst)
+{
+	int	i;
+	int	j;
+	int	swap;
+
+	i = 0;
+	while (i < lst->len_a - 1)
+	{
+		j = i + 1;
+		while (j < lst->len_a)
+		{
+			if (lst->sort_tab[i] > lst->sort_tab[j])
+			{
+				swap = lst->sort_tab[i];
+				lst->sort_tab[i] = lst->sort_tab[j];
+				lst->sort_tab[j] = swap;
+			}
+			j++;
+		}
+		i++;
+	}
 }

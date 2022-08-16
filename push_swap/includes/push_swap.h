@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:21:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/04 13:08:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/16 12:39:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_stack
 {
 	int	*stack_a;
 	int	*stack_b;
+	int	*sort_tab;
 	int	len_a;
 	int	len_b;
 }	t_stack;
@@ -43,5 +44,7 @@ void	sort4(t_stack *lst);
 void	sort5(t_stack *lst);
 void	min_to_first_pos(t_stack *lst, int len);
 void	sort100(t_stack *lst);
+void	filling_tab(t_stack *lst);
+void	sort_tmp_tab(t_stack *lst);
 
 #endif
