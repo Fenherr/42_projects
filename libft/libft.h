@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:30:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 14:38:03 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/19 10:25:35 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -55,6 +55,7 @@ int		ft_printpercent(void);
 int		ft_len_hexa(unsigned int nb);
 int		ft_nblen(unsigned int nb);
 int		ft_len_ptr(unsigned long long nb);
+int		ft_atoi_base(const char *str, int str_base);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
