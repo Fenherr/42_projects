@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/08/16 09:20:52 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/08/22 09:00:27 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCS_OTHER =	ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_itoa.c \
-				ft_split.c
+				ft_split.c	\
+				ft_atoi_base.c
 SRCS_PUT = 		ft_putchar.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \
@@ -58,7 +59,8 @@ SRCS_PUT = 		ft_putchar.c \
 				ft_putnbr_fd.c \
 				ft_putstr.c \
 				ft_putstr_fd.c \
-				ft_putunbr.c
+				ft_putunbr.c	\
+				ft_putnbr_base.c
 SRCS_STR =		ft_strchr.c \
 				ft_strcpy.c \
 				ft_strdup.c \
