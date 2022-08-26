@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 15:53:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/26 11:08:14 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/26 11:48:50 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/26 15:29:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sort4(t_stack *lst)
+int	is_sorted(t_stack *lst)
 {
-	push_b(lst);
-	sort3(lst);
-	push_a(lst);
-}
+	int	i;
 
-void	sort5(t_stack *lst)
-{
-	min_to_first_pos(lst, lst->len_a);
-	if (lst->len_a == 4)
-		sort4(lst);
-	else if (lst->len_a == 5)
+	i = 0;
+	while (i < lst->len_a - 1)
 	{
-		push_b(lst);
-		min_to_first_pos(lst, lst->len_a);
-		sort4(lst);
-		push_a(lst);
+		if (lst->stack_a[i] > lst->stack_a[i + 1])
+			return (0);
+		i++;
 	}
+	return (1);
 }
