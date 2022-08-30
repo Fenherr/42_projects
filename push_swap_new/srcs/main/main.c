@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:42:39 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 16:18:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:42:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ void	lstaff(t_stack *lst)
 		i++;
 	}
 	ft_printf("-----------\n");
-	// i = 0;
-	// ft_printf("--stack b--\n");
-	// while (i < lst->len_b)
-	// {
-	// 	ft_printf("%d\n", lst->stack_b[i]);
-	// 	i++;
-	// }
-	// ft_printf("-----------\n");
 }
 
 int	main(int ac, char **av)
@@ -45,7 +37,7 @@ int	main(int ac, char **av)
 		if (is_sorted(lst) == 0)
 			sort(lst);
 	}
-	lstaff(lst);
+	//lstaff(lst);
 	free_stack(lst);
 	return (0);
 }

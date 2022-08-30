@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:47:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 16:16:58 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 09:57:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	reverse_rot_a(t_stack *lst)
 	}
 	lst->stack_a[0] = tmp;
 	ft_printf("rra\n");
-	lstaff(lst);
 }
 
 void	reverse_rot_b(t_stack *lst)
@@ -43,5 +42,4 @@ void	reverse_rot_b(t_stack *lst)
 	}
 	lst->stack_b[0] = tmp;
 	ft_printf("rrb\n");
-	lstaff(lst);
 }

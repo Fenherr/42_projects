@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:16:31 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 16:16:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:58:07 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	rotate_a(t_stack *lst);
 void	rotate_b(t_stack *lst);
 void	sort(t_stack *lst);
 void	sort3(t_stack *lst);
+void	sort4(t_stack *lst);
 void	sort5(t_stack *lst);
 void	sort_more(t_stack *lst);
-void	min_to_first_pos(t_stack *lst, int len);
+void	min_to_first_pos(t_stack *lst);
 void	filling_index(t_stack *lst);
 void	lstaff(t_stack *lst);
 
