@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:07:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 15:08:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:29:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ static void	one_move_swap(t_stack *lst)
 	third = lst->stack_a[2];
 	if ((lst->len_a == 2 && first > second)
 		|| (first > second && third > second && third > first))
+	{
 		swap_a(lst);
+		ft_printf("sa\n");
+	}
 }
 
 static void	one_move_rotate(t_stack *lst)
@@ -38,9 +41,15 @@ static void	one_move_rotate(t_stack *lst)
 	if (lst->len_a == 3)
 	{
 		if (first > second && first > third && second < third)
+		{
 			rotate_a(lst);
+			ft_printf("ra\n");
+		}
 		else if (first > third && second > first && second > third)
+		{
 			reverse_rot_a(lst);
+			ft_printf("rra\n");
+		}
 	}
 }
 

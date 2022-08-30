@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:59:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 15:05:27 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:13:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ void	sort_tmp_tab(t_stack *lst)
 	int	j;
 	int	swap;
 
-	i = 0;
-	while (i < lst->len_a - 1)
+	j = 1;
+	while (j < lst->len_a)
 	{
-		j = i + 1;
-		while (j < lst->len_a)
+		i = 0;
+		while (i < lst->len_a - 1)
 		{
-			if (lst->tmp_tab[i] > lst->tmp_tab[j])
+			if (lst->tmp_tab[i] > lst->tmp_tab[i + 1])
 			{
-				swap = lst->index_tab[i];
-				lst->tmp_tab[i] = lst->tmp_tab[j];
-				lst->tmp_tab[j] = swap;
+				swap = lst->tmp_tab[i];
+				lst->tmp_tab[i] = lst->tmp_tab[i + 1];
+				lst->tmp_tab[i + 1] = swap;
 			}
-			j++;
+			i++;
 		}
-		i++;
+		j++;
 	}
 }
 

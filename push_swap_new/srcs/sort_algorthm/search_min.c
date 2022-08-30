@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:53:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 11:07:19 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:29:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,23 @@ static int	search_pos_min(t_stack *lst)
 
 void	min_to_first_pos(t_stack *lst)
 {
+	int	mid;
 	int	position;
 
+	mid = lst->len_a / 2;
 	position = search_pos_min(lst);
-	ft_printf("La position du plus petit : %d\n", position);
+	while (position != 0)
+	{
+		if (position <= mid)
+		{
+			rotate_a(lst);
+			ft_printf("ra\n");
+		}
+		else
+		{
+			reverse_rot_a(lst);
+			ft_printf("rra\n");
+		}
+		position = search_pos_min(lst);
+	}
 }

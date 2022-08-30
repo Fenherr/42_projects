@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:42:39 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 10:42:46 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:58:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 		if (is_sorted(lst) == 0)
 			sort(lst);
 	}
-	//lstaff(lst);
+	lstaff(lst);
 	free_stack(lst);
 	return (0);
 }
