@@ -6,33 +6,11 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:42:39 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/31 12:48:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:31:15 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	lstaff(t_stack *lst)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("--stack a--\n");
-	while (i < lst->len_a)
-	{
-		ft_printf("%d\n", lst->stack_a[i]);
-		i++;
-	}
-	ft_printf("-----------\n");
-	i = 0;
-	ft_printf("--stack b--\n");
-	while (i < lst->len_b)
-	{
-		ft_printf("%d\n", lst->stack_b[i]);
-		i++;
-	}
-	ft_printf("-----------\n");
-}
 
 int	main(int ac, char **av)
 {
@@ -45,7 +23,6 @@ int	main(int ac, char **av)
 		if (is_sorted(lst) == 0)
 			sort(lst);
 	}
-	lstaff(lst);
 	free_stack(lst);
 	return (0);
 }
