@@ -6,13 +6,13 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/06/30 15:13:13 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/08/31 13:50:42 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
 CC		= gcc
-FLAGS		= -Wall -Wextra -Werror -Iincludes -g
+FLAGS		= -Wall -Wextra -Werror -Iincludes -g3
 
 #==================================EXECUTABLE==================================#
 NAME		= push_swap

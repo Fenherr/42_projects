@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:02:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 14:57:10 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:46:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,25 @@ static void	radix(t_stack *lst, int len, int mask)
 	i = 0;
 	while (i < len)
 	{
-		if (!(lst->stack_a[0] & (1 << mask)))
-		{
-			push_b(lst);
-			ft_printf("pb\n");
-		}
-		else
-		{
+		if (lst->stack_a[0] & (1 << mask))
 			rotate_a(lst);
-			ft_printf("ra\n");
-		}
+		else
+			push_b(lst);
 		i++;
 	}
 	while (lst->len_b > 0)
-	{
 		push_a(lst);
-		ft_printf("pa\n");
-	}
-	if (is_sorted(lst) == 1)
-		return ;
 }
 
 void	sort_more(t_stack *lst)
 {
 	int	len;
 	int	mask;
-	
+
 	mask = 0;
-	len = lst->len_a - 1;
+	len = lst->len_a;
 	stack_replacement(lst);
-	while (mask < 32)
+	while (!is_sorted(lst))
 	{
 		radix(lst, len, mask);
 		mask++;

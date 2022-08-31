@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:47:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 11:25:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:07:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	swap_a(t_stack *lst)
 	tmp = lst->stack_a[0];
 	lst->stack_a[0] = lst->stack_a[1];
 	lst->stack_a[1] = tmp;
+	ft_printf("sa\n");
 }
 
 void	swap_b(t_stack *lst)
@@ -28,4 +29,5 @@ void	swap_b(t_stack *lst)
 	tmp = lst->stack_b[0];
 	lst->stack_b[0] = lst->stack_b[1];
 	lst->stack_b[1] = tmp;
+	ft_printf("sb\n");
 }

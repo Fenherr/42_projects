@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:42:39 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 13:58:34 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 12:48:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ void	lstaff(t_stack *lst)
 	while (i < lst->len_a)
 	{
 		ft_printf("%d\n", lst->stack_a[i]);
+		i++;
+	}
+	ft_printf("-----------\n");
+	i = 0;
+	ft_printf("--stack b--\n");
+	while (i < lst->len_b)
+	{
+		ft_printf("%d\n", lst->stack_b[i]);
 		i++;
 	}
 	ft_printf("-----------\n");

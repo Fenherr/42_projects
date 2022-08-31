@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:53:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/30 11:29:31 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:15:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,9 @@ void	min_to_first_pos(t_stack *lst)
 	while (position != 0)
 	{
 		if (position <= mid)
-		{
 			rotate_a(lst);
-			ft_printf("ra\n");
-		}
 		else
-		{
 			reverse_rot_a(lst);
-			ft_printf("rra\n");
-		}
 		position = search_pos_min(lst);
 	}
 }
