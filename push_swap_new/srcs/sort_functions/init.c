@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:24:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/31 15:49:47 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:03:39 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,13 @@ int	len_stack(int ac, char *av)
 	len = 0;
 	if (ac == 2)
 	{
-		if (check_space(av))
+		while (av[i])
 		{
-			ft_putstr_fd("Error\n", 2);
-			exit(0);
+			if (av[i] == ' ' && av[i + 1] != ' ')
+				len++;
+			i++;
 		}
-		else
-		{
-			while (av[i])
-			{
-				if (av[i] == ' ')
-					len++;
-				i++;
-			}
-			return (len + 1);
-		}
+		return (len + 1);
 	}
 	return (ac - 1);
 }
