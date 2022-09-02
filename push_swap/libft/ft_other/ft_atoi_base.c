@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 10:22:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/19 10:38:30 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:00:38 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_base(int c, int base)
 	return (-1);
 }
 
-int    ft_atoi_base(const char *str, int str_base)
+int	ft_atoi_base(const char *str, int str_base)
 {
 	int	i;
 	int	nbr;

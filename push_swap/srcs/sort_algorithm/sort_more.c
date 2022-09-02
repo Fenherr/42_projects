@@ -1,57 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_more.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 10:31:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/04 13:08:27 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/30 13:02:13 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/01 12:36:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	search_pos_min(t_stack *lst, int len)
+static void	stack_replacement(t_stack *lst)
 {
-	int	pos;
 	int	i;
-	int	tmp;
 
 	i = 0;
-	pos = 0;
-	tmp = lst->stack_a[i];
-	while (i < len)
+	filling_index(lst);
+	while (i < lst->len_a)
 	{
-		if (lst->stack_a[i] < tmp)
-		{
-			tmp = lst->stack_a[i];
-			pos = i;
-		}
+		lst->stack_a[i] = lst->index_tab[i];
 		i++;
 	}
-	return (pos);
 }
 
-void	min_to_first_pos(t_stack *lst, int len)
+static void	radix(t_stack *lst, int len, int mask)
 {
-	int	mid;
-	int	position;
+	int	i;
 
-	mid = lst->len_a / 2;
-	position = search_pos_min(lst, len);
-	while (position != 0)
+	i = 0;
+	while (i < len)
 	{
-		if (position <= mid)
-		{
+		if (lst->stack_a[0] & (1 << mask))
 			rotate_a(lst);
-			ft_printf("ra\n");
-		}
 		else
-		{
-			reverse_rot_a(lst);
-			ft_printf("rra\n");
-		}
-		position = search_pos_min(lst, len);
+			push_b(lst);
+		i++;
+	}
+	while (lst->len_b > 0)
+		push_a(lst);
+}
+
+void	sort_more(t_stack *lst)
+{
+	int	len;
+	int	mask;
+
+	mask = 0;
+	len = lst->len_a;
+	stack_replacement(lst);
+	while (!is_sorted(lst))
+	{
+		radix(lst, len, mask);
+		mask++;
 	}
 }

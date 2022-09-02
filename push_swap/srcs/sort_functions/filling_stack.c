@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:35:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/29 14:32:21 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/01 14:31:55 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 static t_stack	*seperate_arg(t_stack *lst, char *av)
 {
 	int		i;
-	int		len;
 	char	**tmp;
 
-	i = -1;
-	len = 0;
+	i = 0;
 	tmp = ft_split(av, ' ');
-	while (tmp[len])
-		len++;
-	while (++i < len)
+	while (tmp[i])
 	{
-		error(tmp[i]);
+		if (error(tmp[i]))
+		{
+			free_split(tmp);
+			free_stack(lst);
+			exit(0);
+		}
 		lst->stack_a[i] = ft_atoi(tmp[i]);
-		free(tmp[i]);
+		i++;
 	}
-	free(tmp);
+	free_split(tmp);
 	return (lst);
 }
 

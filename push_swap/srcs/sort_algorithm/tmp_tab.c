@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 11:25:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/23 13:19:14 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/29 14:59:13 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/01 14:53:08 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	filling_tab(t_stack *lst)
 	i = 0;
 	while (i < lst->len_a)
 	{
-		lst->sort_tab[i] = lst->stack_a[i];
+		lst->tmp_tab[i] = lst->stack_a[i];
 		i++;
 	}
 }
@@ -30,21 +30,21 @@ void	sort_tmp_tab(t_stack *lst)
 	int	j;
 	int	swap;
 
-	i = 0;
-	while (i < lst->len_a - 1)
+	j = 1;
+	while (j < lst->len_a)
 	{
-		j = i + 1;
-		while (j < lst->len_a)
+		i = 0;
+		while (i < lst->len_a - 1)
 		{
-			if (lst->sort_tab[i] > lst->sort_tab[j])
+			if (lst->tmp_tab[i] > lst->tmp_tab[i + 1])
 			{
-				swap = lst->sort_tab[i];
-				lst->sort_tab[i] = lst->sort_tab[j];
-				lst->sort_tab[j] = swap;
+				swap = lst->tmp_tab[i];
+				lst->tmp_tab[i] = lst->tmp_tab[i + 1];
+				lst->tmp_tab[i + 1] = swap;
 			}
-			j++;
+			i++;
 		}
-		i++;
+		j++;
 	}
 }
 
@@ -61,8 +61,8 @@ void	filling_index(t_stack *lst)
 		j = 0;
 		while (j < lst->len_a)
 		{
-			if (lst->stack_a[i] == lst->sort_tab[j])
-				lst->index[i] = j;
+			if (lst->stack_a[i] == lst->tmp_tab[j])
+				lst->index_tab[i] = j + 1;
 			j++;
 		}
 		i++;

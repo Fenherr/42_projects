@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 15:53:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/26 11:08:14 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/30 10:51:11 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/31 13:15:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	sort4(t_stack *lst)
 {
+	min_to_first_pos(lst);
 	push_b(lst);
 	sort3(lst);
 	push_a(lst);
@@ -21,14 +22,8 @@ void	sort4(t_stack *lst)
 
 void	sort5(t_stack *lst)
 {
-	min_to_first_pos(lst, lst->len_a);
-	if (lst->len_a == 4)
-		sort4(lst);
-	else if (lst->len_a == 5)
-	{
-		push_b(lst);
-		min_to_first_pos(lst, lst->len_a);
-		sort4(lst);
-		push_a(lst);
-	}
+	min_to_first_pos(lst);
+	push_b(lst);
+	sort4(lst);
+	push_a(lst);
 }

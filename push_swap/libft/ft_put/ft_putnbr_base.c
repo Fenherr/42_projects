@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 10:47:33 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/22 08:58:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/29 13:59:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	error_base(char *base)
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int	len;
-	int nb;
+	int	nb;
 
 	len = 0;
 	nb = nbr;

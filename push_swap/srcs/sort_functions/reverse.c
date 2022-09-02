@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 09:17:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/26 11:07:08 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/29 14:47:14 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/31 13:06:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rot_a(t_stack *lst)
 	int	tmp;
 	int	i;
 
-	i = lst->len_a;
+	i = lst->len_a - 1;
 	tmp = lst->stack_a[lst->len_a - 1];
 	while (i > 0)
 	{

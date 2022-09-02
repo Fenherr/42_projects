@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 13:29:55 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/11 16:20:16 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/29 14:58:26 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/08/31 13:05:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	sort(t_stack *lst)
 {
 	if (lst->len_a <= 3)
 		sort3(lst);
-	else if (lst->len_a >= 4 && lst->len_a <= 5)
+	else if (lst->len_a == 4)
+		sort4(lst);
+	else if (lst->len_a == 5)
 		sort5(lst);
 	else if (lst->len_a > 5)
-		sort100(lst);
+		sort_more(lst);
 }

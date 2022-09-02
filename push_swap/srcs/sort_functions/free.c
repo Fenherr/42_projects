@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/29 14:47:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/31 13:07:13 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/29 14:18:37 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/01 14:22:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	swap_a(t_stack *lst)
+void	free_stack(t_stack *lst)
 {
-	int	tmp;
-
-	tmp = lst->stack_a[0];
-	lst->stack_a[0] = lst->stack_a[1];
-	lst->stack_a[1] = tmp;
-	ft_printf("sa\n");
+	free(lst->index_tab);
+	free(lst->stack_a);
+	free(lst->stack_b);
+	free(lst->tmp_tab);
+	free(lst);
 }
 
-void	swap_b(t_stack *lst)
+void	free_split(char **arg_split)
 {
-	int	tmp;
+	int	i;
 
-	tmp = lst->stack_b[0];
-	lst->stack_b[0] = lst->stack_b[1];
-	lst->stack_b[1] = tmp;
-	ft_printf("sb\n");
+	i = 0;
+	while (arg_split[i])
+	{
+		free(arg_split[i]);
+		i++;
+	}
+	free(arg_split);
 }

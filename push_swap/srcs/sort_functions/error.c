@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 09:38:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/03 12:49:03 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/08/29 13:28:05 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/01 14:24:21 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	ft_puterror(char *str)
+int	check_space(char *arg)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (arg[i])
 	{
-		write(2, &str[i], 1);
+		if (arg[i] == ' ' && arg[i + 1] == ' ')
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
 static int	is_number(char *arg)
@@ -67,7 +69,8 @@ void	is_dup(t_stack *lst)
 		{
 			if (lst->stack_a[j] == lst->stack_a[i])
 			{
-				ft_puterror("Error\n");
+				ft_putstr_fd("Error\n", 2);
+				free_stack(lst);
 				exit(0);
 			}
 		}
@@ -78,7 +81,7 @@ int	error(char *arg)
 {
 	if (is_number(arg) == 1 || check_limits(arg) == 1)
 	{
-		ft_puterror("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	return (0);
