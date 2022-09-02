@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:26:47 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:23:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:36:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		str[j] = ft_substr(s, i, ft_ilen(s, c, i));
 		str[j][ft_ilen(s, c, i)] = 0;
-		if (!str)
+		if (!str[j])
 		{
 			ft_niel(str, j);
 			return (str = ft_calloc(sizeof(char), 1));

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
+/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 11:54:10 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/03 12:36:54 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/03/31 15:05:33 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/06/09 11:33:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	i = 0;
-	if (!s)
-		return (0);
-	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (str1[i] && str2[i] && (str1[i] == str2[i]))
 		i++;
-	}
-	return (0);
+	return (str1[i] - str2[i]);
 }

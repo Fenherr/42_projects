@@ -6,7 +6,7 @@
 /*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 09:16:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:22:26 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/06/09 11:35:06 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_checkminmax(int n)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int					i;
-	int					sign;
-	unsigned long long	nbr;
+	int			i;
+	long long	sign;
+	long long	nbr;
 
 	i = 0;
 	nbr = 0;
@@ -41,7 +41,7 @@ int	ft_atoi(const char *nptr)
 		nbr = nbr * 10 + (nptr[i] - 48);
 		i++;
 	}
-	if (i > 19 || nbr >= 9223372036854775808ULL)
+	if (i > 19)
 		return (ft_checkminmax(sign));
 	return (nbr * sign);
 }

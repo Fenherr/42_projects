@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+         #
+#    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/05/03 15:51:07 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/08/22 09:00:27 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCS_OTHER =	ft_atoi.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_itoa.c \
-				ft_split.c
+				ft_split.c	\
+				ft_atoi_base.c
 SRCS_PUT = 		ft_putchar.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \
@@ -58,7 +59,8 @@ SRCS_PUT = 		ft_putchar.c \
 				ft_putnbr_fd.c \
 				ft_putstr.c \
 				ft_putstr_fd.c \
-				ft_putunbr.c
+				ft_putunbr.c	\
+				ft_putnbr_base.c
 SRCS_STR =		ft_strchr.c \
 				ft_strcpy.c \
 				ft_strdup.c \
@@ -72,7 +74,8 @@ SRCS_STR =		ft_strchr.c \
 				ft_strnstr.c \
 				ft_strrchr.c \
 				ft_strtrim.c \
-				ft_substr.c
+				ft_substr.c  \
+				ft_strcmp.c
 SRCS_TO =		ft_tolower.c \
 				ft_toupper.c
 SRCS_GNL =		get_next_line.c
@@ -106,7 +109,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
 	@gcc $(CFLAGS) -c $< -o $(<:.c=.o)
-	@echo -n "*"
 
 $(NAME):	$(OBJS)
 	@$(CC) -o $(NAME) $(OBJS)
@@ -116,7 +118,6 @@ all:	$(NAME)
 
 clean:
 	@$(RM) $(OBJS)
-	@echo "\033[32mNettoyage effectué...\033[0m"
 
 fclean:	clean
 	@$(RM) $(NAME)

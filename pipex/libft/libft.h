@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:30:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/09 11:38:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/08/22 09:02:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -96,6 +97,7 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_putstr(char *str);
 void		ft_putptr(unsigned long long nb);
 void		ft_puthexa(unsigned int nb, const char form);
+void		ft_putnbr_base(int nbr, char *base);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 size_t		ft_strlen(const char *s);
