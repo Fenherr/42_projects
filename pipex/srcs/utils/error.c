@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iscntrl.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:13:51 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/05 11:24:37 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/05 13:52:40 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/06 09:54:50 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iscntrl(int c)
+#include "../../includes/pipex.h"
+
+void	ft_error_files(char *file1, char *file2)
 {
-	return ((c >= 0 || c <= 32) || c == 127);
+	t_pipex *pipex;
+	
+	pipex->infile = open(file1, O_RDONLY);
+	pipex->outfile = open(file2, O_CREAT);
+	if (pipex->outfile == -1)
+		perror(file2);
+	else if (pipex->infile == -1)
+		perror(file1);
+	close(pipex->infile);
+	close(pipex->outfile);
+	exit(0);
+}
+
+void	ft_error(char *file1, char *file2)
+{
+	ft_error_files(file1, file2);
 }

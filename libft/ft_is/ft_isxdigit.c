@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isxdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 12:35:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:18:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:24:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 int	ft_isxdigit(int c)
 {

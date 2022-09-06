@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 13:28:05 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/01 14:24:21 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:05:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	is_number(char *arg)
 	int	i;
 
 	i = 0;
-	if (arg[0] == '-' && arg[1])
+	if ((arg[0] == '-' || arg[0] == '+') && arg[1])
 		i++;
 	while (arg[i])
 	{
@@ -44,14 +44,7 @@ static int	is_number(char *arg)
 
 static int	check_limits(char *arg)
 {
-	int	i;
-
-	i = 0;
-	while (arg[i])
-		i++;
-	if ((i > 11 && arg[0] == '-') || (i > 10 && arg[0] != '-'))
-		return (1);
-	else if (ft_atoi(arg) > 2147483647 || ft_atoi(arg) < -2147483648)
+	if (ft_atoll(arg) > 2147483647 || ft_atoll(arg) < -2147483648)
 		return (1);
 	return (0);
 }

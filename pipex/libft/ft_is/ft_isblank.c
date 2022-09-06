@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:09:01 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:16:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:24:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 int	ft_isblank(int c)
 {

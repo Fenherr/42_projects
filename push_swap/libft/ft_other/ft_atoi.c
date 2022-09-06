@@ -3,27 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 09:16:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/06/09 11:35:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:21:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-
-int	ft_checkminmax(int n)
+int	ft_atoi(const char *nptr)
 {
-	if (n == 1)
-		return (-1);
-	return (0);
-}
-
-long long	ft_atoi(const char *nptr)
-{
-	int			i;
-	long long	sign;
-	long long	nbr;
+	int	i;
+	int	sign;
+	int	nbr;
 
 	i = 0;
 	nbr = 0;
@@ -41,7 +32,5 @@ long long	ft_atoi(const char *nptr)
 		nbr = nbr * 10 + (nptr[i] - 48);
 		i++;
 	}
-	if (i > 19)
-		return (ft_checkminmax(sign));
 	return (nbr * sign);
 }

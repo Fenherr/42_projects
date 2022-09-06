@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iscntrl.c                                       :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:13:51 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/05 11:24:37 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/05 11:20:46 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/05 12:18:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iscntrl(int c)
+long long	ft_atoll(const char *nptr)
 {
-	return ((c >= 0 || c <= 32) || c == 127);
+	int			i;
+	long long	sign;
+	long long	nbr;
+
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (nbr * sign);
 }

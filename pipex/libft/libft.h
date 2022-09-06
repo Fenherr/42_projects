@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:30:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/08/22 09:02:40 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:18:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_islower(int c);
 int			ft_isspace(int c);
 int			ft_isupper(int c);
 int			ft_isxdigit(int c);
-long long	ft_atoi(const char *nptr);
+int			ft_atoi(const char *nptr);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
@@ -57,6 +57,7 @@ int			ft_printpercent(void);
 int			ft_len_hexa(unsigned int nb);
 int			ft_nblen(unsigned int nb);
 int			ft_len_ptr(unsigned long long nb);
+long long	ft_atoll(const char *nptr);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *big, const char *little, size_t len);

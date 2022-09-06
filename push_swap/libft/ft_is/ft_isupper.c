@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 12:34:17 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:18:39 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:24:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 int	ft_isupper(int c)
 {

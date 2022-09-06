@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iscntrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:13:51 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:16:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:24:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../libft.h"
 
 int	ft_iscntrl(int c)
 {

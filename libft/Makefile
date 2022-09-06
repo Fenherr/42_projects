@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/08/22 09:00:27 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/05 11:22:56 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS_MEM =		ft_memchr.c \
 				ft_memmove.c \
 				ft_memset.c
 SRCS_OTHER =	ft_atoi.c \
+				ft_atoll.c	\
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_itoa.c \
@@ -105,7 +106,7 @@ CC = ar rcs
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 .c.o:
 	@gcc $(CFLAGS) -c $< -o $(<:.c=.o)
