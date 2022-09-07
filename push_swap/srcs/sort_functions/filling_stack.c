@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:35:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/06 14:20:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:13:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,25 @@ static t_stack	*seperate_arg(t_stack *lst, char *av)
 static void	filling_stack_utils(int ac, char **av, t_stack *lst, int i)
 {
 	if (ac == 2)
+	{
+		if (av[1][0] == '\0')
 		{
-			if (av[1][0] == '\0')
-			{
-				free_stack(lst);
-				exit(0);
-			}
-			else if (ft_strchr(av[1], ' '))
-				lst = seperate_arg(lst, av[1]);
+			ft_putstr_fd("Error\n", 2);
+			free_stack(lst);
+			exit(0);
 		}
-		else
+		else if (ft_strchr(av[1], ' '))
+			lst = seperate_arg(lst, av[1]);
+	}
+	else
+	{
+		if (error(av[i]))
 		{
-			if (error(av[i]))
-			{
-				free_stack(lst);
-				exit(0);
-			}
-			lst->stack_a[i - 1] = ft_atoll(av[i]);
+			free_stack(lst);
+			exit(0);
 		}
+		lst->stack_a[i - 1] = ft_atoll(av[i]);
+	}
 }
 
 void	filling_stack(t_stack *lst, int ac, char **av)
