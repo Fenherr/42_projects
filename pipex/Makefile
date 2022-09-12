@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 11:04:32 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/09/06 08:58:56 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/12 14:10:26 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ LIBFT		= libft
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
 			  srcs/utils/error.c \
+			  srcs/utils/init.c	\
+			  srcs/env/env.c \
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
