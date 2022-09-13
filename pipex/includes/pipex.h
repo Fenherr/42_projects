@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:57 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/12 14:04:34 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:07:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,4 @@ typedef struct s_pipex
 
 void	ft_error_files(char *file1, char *file2);
 t_pipex	*ft_init(void);
-void	ft_get_cmd_path(char **envp);
+void	test(char **envp, t_pipex *pipex);
