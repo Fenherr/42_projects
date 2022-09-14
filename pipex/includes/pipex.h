@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:57 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/13 16:07:12 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/14 11:47:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@
 
 typedef struct s_pipex
 {
-	char	*cmd;
 	char	*cmd_path;
-	char	**path;
-	int		pipefd[2];
+	char	**cmd;
+	char	**av;
+	char	**envp;
+	int		*pipe;
+	int		*pid;
+	int		ac;
 	int		infile;
 	int		outfile;
-	pid_t	pid;
 }	t_pipex;
 
-void	ft_error_files(char *file1, char *file2);
-t_pipex	*ft_init(void);
-void	test(char **envp, t_pipex *pipex);
+void	ft_free(char *str, char **strs);
+void	ft_error(char *str);
+char	*get_cmd(char *cmd, t_pipex *pipex);
+t_pipex	*ft_init(int ac, char **av, char **envp);

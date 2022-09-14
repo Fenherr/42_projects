@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/09/05 11:22:56 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/14 15:43:02 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ SRCS_STR =		ft_strchr.c \
 				ft_strcpy.c \
 				ft_strdup.c \
 				ft_striteri.c \
-				ft_strjoin.c \
+				ft_strjoin.c	\
+				ft_strjoin_gnl.c \
 				ft_strlcat.c \
 				ft_strlcpy.c \
 				ft_strlen.c \

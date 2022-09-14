@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 08:49:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:14:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:43:57 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_rd_save(int fd, char *save)
 			return (NULL);
 		}
 		buff[rd] = '\0';
-		save = ft_strjoin(save, buff);
+		save = ft_strjoin_gnl(save, buff);
 	}
 	free(buff);
 	return (save);

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:11:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/13 16:07:02 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:49:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,38 +43,65 @@ static char	**ft_path_with_slash(char **path)
 	{
 		tmp = path[i];
 		path[i] = ft_strjoin(path[i], "/");
-		free(tmp);
+		ft_free(tmp, NULL);
 		i++;
 	}
 	return (path);
 }
 
-static char	**ft_usable_path(char **path, char **envp)
+static char	**ft_usable_path(char **envp)
 {
 	char	*env_path;
+	char	**path;
 	
 	env_path = ft_search_env_path(envp);
 	if (!env_path)
-	{
-		perror("Environment path error");
-		exit(0);
-	}
+		return (NULL);
 	path = ft_split(env_path, ':');
 	if (!path)
-	{
-		perror("Path error");
-		exit(0);
-	}
+		return (NULL);
 	path = ft_path_with_slash(path);
-	free(env_path);
+	if (!path)
+		return (NULL);
 	return (path);
 }
 
-void	test(char **envp, t_pipex *pipex)
+static char	*get_cmd_path(char *cmd, char **path)
 {
-	char **path;
+	int		i;
+	char	*cmd_path;
 
-	path = pipex->path;
-	path = ft_usable_path(path, envp);
-	ft_printf("%s\n", path);
+	i = 0;
+	cmd_path = NULL;
+	while (path[i])
+	{
+		cmd_path = ft_strjoin(path[i], cmd);
+		if (!cmd_path)
+		{
+			ft_free(NULL, path);
+			ft_error(path[i]);
+		}
+		if (access(cmd_path, F_OK | X_OK) == 0)
+			return (cmd_path);
+		ft_free(cmd_path, NULL);
+		i++;
+	}
+	return (NULL);
+}
+
+char	*get_cmd(char *cmd, t_pipex *pipex)
+{
+	char	**env_path;
+	char	*cmd_path;
+
+	if (access(cmd, F_OK | X_OK) == 0)
+		return (ft_strdup(cmd));
+	env_path = ft_usable_path(pipex->envp);
+	if (!env_path)
+		return (NULL);
+	cmd_path = get_cmd_path(cmd, env_path);
+	if (!cmd_path)
+		ft_error(cmd_path);
+	ft_free(NULL, env_path);
+	return (cmd_path);
 }

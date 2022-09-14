@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngrenoux <ngrenoux@student.42angoulem      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 13:28:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/05/02 12:10:25 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/14 15:38:02 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/14 15:58:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	int		i;
+	size_t	len;
+	char	*s;
 
-	if (!s1)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	s = ft_calloc(len + 1, sizeof(char));
+	if (!s)
+		return (NULL);
+	len = 0;
+	while (s1[len])
 	{
-		s1 = (char *)malloc(sizeof(char) + 1);
-		*s1 = '\0';
+		s[len] = s1[len];
+		len++;
 	}
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (NULL);
-	i = -1;
-	j = 0;
-	while (s1[++i] != '\0')
-		str[i] = s1[i];
-	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
-	return (str);
+	i = 0;
+	while (s2[i])
+	{
+		s[len + 1] = s2[i];
+		i++;
+	}
+	return (s);
 }
