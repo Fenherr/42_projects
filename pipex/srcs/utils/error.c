@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:52:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/14 11:42:00 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/15 10:03:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void	ft_error(char *str)
 {
 	perror(str);
-	ft_free(str, NULL);
 	exit(0);
 }

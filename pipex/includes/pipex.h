@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:57 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/14 11:47:40 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/15 10:29:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ typedef struct s_pipex
 	int		ac;
 	int		infile;
 	int		outfile;
+	int		nb_cmd;
+	int		child;
 }	t_pipex;
 
 void	ft_free(char *str, char **strs);
 void	ft_error(char *str);
 char	*get_cmd(char *cmd, t_pipex *pipex);
-t_pipex	*ft_init(int ac, char **av, char **envp);
+t_pipex	ft_init(int ac, char **av, char **envp);
