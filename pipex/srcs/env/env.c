@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:11:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/14 15:49:18 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/16 11:04:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ft_search_env_path(char **envp)
 		if (env_path)
 		{
 			env_path = ft_substr(envp[i], 5, ft_strlen(env_path));
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -53,7 +53,7 @@ static char	**ft_usable_path(char **envp)
 {
 	char	*env_path;
 	char	**path;
-	
+
 	env_path = ft_search_env_path(envp);
 	if (!env_path)
 		return (NULL);
@@ -89,14 +89,14 @@ static char	*get_cmd_path(char *cmd, char **path)
 	return (NULL);
 }
 
-char	*get_cmd(char *cmd, t_pipex *pipex)
+char	*get_cmd(char *cmd, t_pipex *data)
 {
 	char	**env_path;
 	char	*cmd_path;
 
 	if (access(cmd, F_OK | X_OK) == 0)
 		return (ft_strdup(cmd));
-	env_path = ft_usable_path(pipex->envp);
+	env_path = ft_usable_path(data->envp);
 	if (!env_path)
 		return (NULL);
 	cmd_path = get_cmd_path(cmd, env_path);

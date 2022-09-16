@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/15 10:29:44 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/16 11:04:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int ac, char **av, char **envp)
 	
 	pipex = ft_init(ac, av, envp);
 	ft_printf("%s\n", get_cmd("ls", &pipex));
+	//Ne pas oublier de free get_cmd
 	
 	return (0);
 }

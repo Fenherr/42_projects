@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   files.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 15:38:02 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/16 10:56:44 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/16 10:28:39 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/16 10:46:22 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../includes/pipex.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	get_infile(t_pipex *data)
 {
-	int		i;
-	size_t	len;
-	char	*s;
+	data->infile = open(data->av[1], O_RDONLY);
+	if (data->infile == -1)
+		ft_error(data->av[1]);
+}
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	s = ft_calloc(len + 1, sizeof(char));
-	if (!s)
-		return (NULL);
-	len = 0;
-	while (s1[len])
-	{
-		s[len] = s1[len];
-		len++;
-	}
-	i = 0;
-	while (s2[i])
-	{
-		s[len + 1] = s2[i];
-		i++;
-	}
-	return (s);
+void	get_outfile(t_pipex *data)
+{
+	data->outfile = open(data->av[data->ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
+	if (data->outfile == -1)
+		ft_error(data->av[data->ac - 1]);
 }

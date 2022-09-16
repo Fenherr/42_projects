@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 11:04:32 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/09/14 09:25:38 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/16 10:35:27 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS		= srcs/main.c \
 			  srcs/utils/error.c \
 			  srcs/utils/init.c	\
 			  srcs/utils/free.c \
+			  srcs/utils/files.c \
 			  srcs/env/env.c \
 
 #====================================OBJECTS===================================#
