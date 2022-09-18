@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:48:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/16 14:40:18 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:16:25 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	build_pipes(t_pipex *data)
 	while (i < data->nb_cmd - 1)
 	{
 		if (pipe(data->pipe + 2 * i) == -1)
-			ft_error("Pipe error");
+			ft_error(error_msg("Could not create pipe", "", "", 1), data);
 		i++;
 	}
 }
@@ -54,12 +54,12 @@ t_pipex	ft_init(int ac, char **av, char **envp)
 	data.nb_cmd = ac - 3;
 	get_infile(&data);
 	get_outfile(&data);
+	data.pid = malloc(sizeof * data.pid * data.nb_cmd);
+	if (!data.pid)
+		ft_error(error_msg("PID error", strerror(errno), "", 1), &data);
+	data.pipe = malloc(sizeof(data.pipe) * 2 * (data.nb_cmd - 1));
+	if (!data.pipe)
+		ft_error(error_msg("Pipe error", "", "", 1), &data);
 	build_pipes(&data);
-	// data.pid = malloc(sizeof * data.pid * data.nb_cmd);
-	// if (!data.pid)
-	// 	ft_error("PID error");
-	// data.pipe = malloc(sizeof(data.pipe) * 2 * (data.nb_cmd - 1));
-	// if (!data.pipe)
-	// 	ft_error("Pipe error");
 	return (data);
 }
