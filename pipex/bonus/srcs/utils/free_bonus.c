@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 15:38:02 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 10:19:00 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/14 09:25:22 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/19 13:57:49 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../includes/pipex_bonus.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	ft_free(char *str, char **strs)
 {
-	int		i;
-	size_t	len;
-	char	*s;
+	int	i;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	s = ft_calloc(len + 1, sizeof(char));
-	if (!s)
-		return (NULL);
-	len = 0;
-	while (s1[len])
-	{
-		s[len] = s1[len];
-		len++;
-	}
 	i = 0;
-	while (s2[i])
+	if (str != NULL)
 	{
-		s[len + i] = s2[i];
-		i++;
+		free(str);
+		str = NULL;
 	}
-	return (s);
+	if (strs != NULL)
+	{
+		while (strs[i])
+		{
+			free(strs[i]);
+			i++;
+		}
+		free(strs);
+		strs = NULL;
+	}
 }

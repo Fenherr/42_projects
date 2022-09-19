@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/09/14 15:43:02 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/19 11:30:56 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ SRCS_STR =		ft_strchr.c \
 				ft_strcmp.c
 SRCS_TO =		ft_tolower.c \
 				ft_toupper.c
-SRCS_GNL =		get_next_line.c
+SRCS_GNL =		get_next_line.c \
+				simpler_gnl.c
 SRCS_PRINTF =	ft_len_hexa.c \
 				ft_printchar.c \
 				ft_printf.c \

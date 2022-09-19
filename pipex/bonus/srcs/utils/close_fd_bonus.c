@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   close_fd_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 15:38:02 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 10:19:00 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/18 14:26:31 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/19 13:57:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../includes/pipex_bonus.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+static void	close_fd_pipe(t_pipex *data)
 {
-	int		i;
-	size_t	len;
-	char	*s;
+	int	i;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	s = ft_calloc(len + 1, sizeof(char));
-	if (!s)
-		return (NULL);
-	len = 0;
-	while (s1[len])
-	{
-		s[len] = s1[len];
-		len++;
-	}
 	i = 0;
-	while (s2[i])
+	while (i < (data->nb_cmd - 1) * 2)
 	{
-		s[len + i] = s2[i];
+		close(data->pipe[i]);
 		i++;
 	}
-	return (s);
+}
+
+void	close_fd(t_pipex *data)
+{
+	if (data->infile != -1)
+		close(data->infile);
+	if (data->outfile != -1)
+		close(data->outfile);
+	close_fd_pipe(data);
 }

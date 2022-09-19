@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:30:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/14 15:42:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/19 11:30:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char		*find_line(char *save);
 char		*ft_save(char *save);
 char		*ft_rd_save(int fd, char *save);
 char		*get_next_line(int fd);
+char		*simpler_gnl(int fd);
 char		*ft_uitoa(unsigned int n);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
