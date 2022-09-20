@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 14:50:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 13:58:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:31:54 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	ft_pipex(t_pipex *d)
 {
 	int	exit_code;
 
-	if (pipe(d->pipe) == -1)
-		ft_error(error_msg("pipe", ": ", strerror(errno), 1), d);
 	d->child = 0;
 	while (d->child < d->nb_cmd)
 	{
