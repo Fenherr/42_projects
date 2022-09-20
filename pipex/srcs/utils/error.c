@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:52:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/18 21:22:39 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:12:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ft_error(int erno, t_pipex *data)
 		if (data->cmd != NULL || data->cmd_path != NULL)
 			ft_free(data->cmd_path, data->cmd);
 	}
-	if (data->heredoc == 1)
-		unlink(".heredoc.tmp");
 	exit(erno);
 }
 

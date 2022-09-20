@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 14:50:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/20 11:34:52 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:14:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_pipex(t_pipex *d)
 	d->child = 0;
 	while (d->child < d->nb_cmd)
 	{
-		d->cmd = ft_split(d->av[d->child + 2 + d->heredoc], ' ');
+		d->cmd = ft_split(d->av[d->child + 2], ' ');
 		if (!d->cmd)
 			ft_error(error_msg("unexpected error", "", "", 1), d);
 		d->cmd_path = get_cmd(d->cmd[0], d);
@@ -79,7 +79,5 @@ int	ft_pipex(t_pipex *d)
 		d->child++;
 	}
 	exit_code = ft_parent(d);
-	if (d->heredoc == 1)
-		unlink(".heredoc.tmp");
 	return (exit_code);
 }

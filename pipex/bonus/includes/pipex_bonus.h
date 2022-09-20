@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:57 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 14:13:38 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:10:57 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <errno.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <sys/wait.h>
 # include "../libft/libft.h"

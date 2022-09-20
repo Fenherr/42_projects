@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:48:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 09:56:42 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:13:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static t_pipex	ft_clear_data(void)
 	data.child = -1;
 	data.nb_cmd = -1;
 	data.infile = -1;
-	data.heredoc = 0;
 	data.outfile = -1;
 	data.av = NULL;
 	data.cmd = NULL;
@@ -52,11 +51,9 @@ t_pipex	ft_init(int ac, char **av, char **envp)
 	data.ac = ac;
 	data.av = av;
 	data.envp = envp;
-	if (!ft_strncmp("here_doc", av[1], 9))
-		data.heredoc = 1;
 	get_infile(&data);
 	get_outfile(&data);
-	data.nb_cmd = ac - 3 - data.heredoc;
+	data.nb_cmd = ac - 3;
 	data.pid = malloc(sizeof * data.pid * data.nb_cmd);
 	if (!data.pid)
 		ft_error(error_msg("PID error", strerror(errno), "", 1), &data);

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:56:57 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 15:05:19 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:11:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <errno.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <sys/wait.h>
 # include "../libft/libft.h"
@@ -33,7 +32,6 @@ typedef struct s_pipex
 	int		nb_cmd;
 	int		infile;
 	int		outfile;
-	int		heredoc;
 }	t_pipex;
 
 void	close_fd(t_pipex *data);

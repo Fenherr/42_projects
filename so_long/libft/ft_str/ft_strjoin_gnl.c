@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin_gnl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 16:02:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/05 11:23:35 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/22 13:28:13 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/18 21:20:03 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
+	size_t	i;
+	size_t	j;
 	char	*str;
 
-	str = s;
-	while (n > 0)
+	if (!s1)
 	{
-		str[n - 1] = 0;
-		n--;
+		s1 = (char *)malloc(sizeof(char) + 1);
+		*s1 = '\0';
 	}
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	while (s1[++i] != '\0')
+		str[i] = s1[i];
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }

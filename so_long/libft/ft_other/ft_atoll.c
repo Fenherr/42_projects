@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 15:38:02 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 10:19:00 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/09/05 11:20:46 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/05 12:18:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-
-char	*ft_strjoin(char *s1, char *s2)
+long long	ft_atoll(const char *nptr)
 {
-	int		i;
-	size_t	len;
-	char	*s;
+	int			i;
+	long long	sign;
+	long long	nbr;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	s = ft_calloc(len + 1, sizeof(char));
-	if (!s)
-		return (NULL);
-	len = 0;
-	while (s1[len])
-	{
-		s[len] = s1[len];
-		len++;
-	}
 	i = 0;
-	while (s2[i])
+	nbr = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		s[len + i] = s2[i];
+		if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return (s);
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (nbr * sign);
 }

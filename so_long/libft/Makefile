@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ngrenoux <ngrenoux@student.42angouleme.fr> +#+  +:+       +#+         #
+#    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/06/07 15:41:02 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/19 11:30:56 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,12 @@ SRCS_MEM =		ft_memchr.c \
 				ft_memmove.c \
 				ft_memset.c
 SRCS_OTHER =	ft_atoi.c \
+				ft_atoll.c	\
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_itoa.c \
-				ft_split.c
+				ft_split.c	\
+				ft_atoi_base.c
 SRCS_PUT = 		ft_putchar.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \
@@ -58,12 +60,14 @@ SRCS_PUT = 		ft_putchar.c \
 				ft_putnbr_fd.c \
 				ft_putstr.c \
 				ft_putstr_fd.c \
-				ft_putunbr.c
+				ft_putunbr.c	\
+				ft_putnbr_base.c
 SRCS_STR =		ft_strchr.c \
 				ft_strcpy.c \
 				ft_strdup.c \
 				ft_striteri.c \
-				ft_strjoin.c \
+				ft_strjoin.c	\
+				ft_strjoin_gnl.c \
 				ft_strlcat.c \
 				ft_strlcpy.c \
 				ft_strlen.c \
@@ -76,7 +80,8 @@ SRCS_STR =		ft_strchr.c \
 				ft_strcmp.c
 SRCS_TO =		ft_tolower.c \
 				ft_toupper.c
-SRCS_GNL =		get_next_line.c
+SRCS_GNL =		get_next_line.c \
+				simpler_gnl.c
 SRCS_PRINTF =	ft_len_hexa.c \
 				ft_printchar.c \
 				ft_printf.c \
@@ -103,7 +108,7 @@ CC = ar rcs
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 .c.o:
 	@gcc $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -116,7 +121,6 @@ all:	$(NAME)
 
 clean:
 	@$(RM) $(OBJS)
-	@echo "\033[32mNettoyage effectué...\033[0m"
 
 fclean:	clean
 	@$(RM) $(NAME)
