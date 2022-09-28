@@ -6,14 +6,18 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/07/07 11:23:21 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:25:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "../libft/libft.h"
-#include "../lib/mlx_linux/mlx.h"
+#ifndef SO_LONG_H
+# define SOL_LONG_H
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <math.h>
+# include "../libft/libft.h"
+# include "../lib/mlx_linux/mlx.h"
 
 typedef struct s_player
 {
@@ -31,3 +35,14 @@ typedef struct	s_maps
 	int	collectible;
 	t_player	*player;
 }	t_maps;
+
+typedef struct s_images
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_images;
+
+#endif

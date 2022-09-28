@@ -6,13 +6,13 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/06/20 15:31:49 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/23 10:11:31 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
 CC		= gcc
-FLAGS		= -Wall -Wextra -Werror -Iincludes -Imlx_linux -g
+FLAGS		= -Wall -Wextra -Werror -Iincludes -Imlx_linux -lm -g3
 
 #==================================EXECUTABLE==================================#
 NAME		= so_long

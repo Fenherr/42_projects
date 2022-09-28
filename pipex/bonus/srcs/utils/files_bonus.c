@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 10:28:39 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/20 11:06:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:53:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	get_infile(t_pipex *data)
 void	get_outfile(t_pipex *d)
 {
 	if (d->heredoc == 1)
-		d->outfile = open(d->av[d->ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		d->outfile = open(d->av[d->ac - 1], O_WRONLY | O_CREAT | O_APPEND, 0644);
 	else
 		d->outfile = open(d->av[d->ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (d->outfile == -1)
