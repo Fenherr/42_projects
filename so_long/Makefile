@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/09/23 10:11:31 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/09/28 12:57:14 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT		= libft
 MINILIBX	= lib/mlx_linux
 
 #=================================SOURCE FILES=================================#
-SRCS		= ${wildcard srcs/*.c}
+SRCS		= srcs/main.c \
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

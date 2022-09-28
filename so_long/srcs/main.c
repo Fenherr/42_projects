@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/23 16:11:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:00:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,19 +152,26 @@ void	ft_put_pixel(t_images *data, int x, int y, int color)
 	}
 }
 
+int	ft_close(t_window *window)
+{
+	mlx_destroy_window(window->mlx, window->win);
+	return (0);
+}
+
 int main(void)
 {
-	void 	*mlx;
-	void 	*mlx_win;
+	t_window	data;
 	t_images	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 500, 500, "Hello world");
-	img.img = mlx_new_image(mlx, 500, 500);
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, 500, 500, "So_long");
+	img.img = mlx_new_image(data.mlx, 500, 500);
 	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_len, &img.endian);
 	ft_put_pixel(&img, 200, 200, 0xFFFFFF);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_put_image_to_window(data.mlx, data.win, img.img, 0, 0);
+	mlx_hook(data.win, 17, 1L<<17, ft_close, (void *)0);
+	mlx_hook(data.win, 2, 1L<<0, ft_close, &data);
 
-	mlx_loop(mlx);
-	mlx_destroy_window(mlx, mlx_win);
+	mlx_loop(data.mlx);
+	free(data.mlx);
 }

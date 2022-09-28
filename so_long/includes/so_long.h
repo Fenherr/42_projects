@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/23 15:25:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:56:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
+# include <X11/Xlib.h>
 # include "../libft/libft.h"
 # include "../lib/mlx_linux/mlx.h"
+
+typedef struct s_window
+{
+	void	*mlx;
+	void	*win;
+}	t_window;
+
 
 typedef struct s_player
 {
