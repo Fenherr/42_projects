@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/28 15:56:12 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:26:25 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <X11/Xlib.h>
+# include <X11/keysym.h>
 # include "../libft/libft.h"
 # include "../lib/mlx_linux/mlx.h"
 
@@ -26,6 +27,13 @@ typedef struct s_window
 	void	*win;
 }	t_window;
 
+typedef struct s_images
+{
+	void	*img;
+	char	*path;
+	int		width;
+	int		height;
+}	t_images;
 
 typedef struct s_player
 {
@@ -43,14 +51,5 @@ typedef struct	s_maps
 	int	collectible;
 	t_player	*player;
 }	t_maps;
-
-typedef struct s_images
-{
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_images;
 
 #endif
