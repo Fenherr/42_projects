@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/29 15:26:25 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:25:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,20 @@
 # include "../libft/libft.h"
 # include "../lib/mlx_linux/mlx.h"
 
-typedef struct s_window
-{
-	void	*mlx;
-	void	*win;
-}	t_window;
-
-typedef struct s_images
+typedef struct s_image
 {
 	void	*img;
 	char	*path;
 	int		width;
 	int		height;
-}	t_images;
+}	t_image;
 
-typedef struct s_player
+typedef struct s_data
 {
-	int	x;
-	int	y;
-}	t_player;
+	void	*mlx;
+	void	*win;
+	t_image	img;
+}	t_data;
 
-typedef struct	s_maps
-{
-	int	x;
-	int	y;
-	int	wall;
-	int	begin;
-	int	exit;
-	int	collectible;
-	t_player	*player;
-}	t_maps;
 
 #endif
