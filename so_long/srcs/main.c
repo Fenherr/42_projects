@@ -6,14 +6,18 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/30 15:27:43 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:29:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_nothing(void)
+int	ft_test(t_data *data)
 {
+	data->img.path = "./resources/tiles/floor.xpm";
+	data->img.img = mlx_xpm_file_to_image(data->mlx, data->img.path,
+		&data->img.width, &data->img.height);
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 	return (0);
 }
 
@@ -26,16 +30,13 @@ int	ft_esc_close(int keycode, t_data *data)
 
 int main(void)
 {
-	t_data	data;
+	//t_data	data;
 
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, 600, 600, "Test");
-
-	data.img.path = "../resources/tiles/floor.xpm";
-	data.img.img = mlx_xpm_file_to_image(data.mlx, data.img.path, &data.img.width, &data.img.height);
-	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
+	// data.mlx = mlx_init();
+	// data.win = mlx_new_window(data.mlx, 600, 600, "Test");
 	
-	mlx_loop_hook(data.mlx, &ft_nothing, 0);
-	mlx_hook(data.win, 2, 1L<<0, &ft_esc_close, &data);
-	mlx_loop(data.mlx);
+	// mlx_loop_hook(data.mlx, &ft_test, &data);
+	// mlx_hook(data.win, 2, 1L<<0, &ft_esc_close, &data);
+	// mlx_loop(data.mlx);
+	test();
 }

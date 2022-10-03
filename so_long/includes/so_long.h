@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/30 15:25:34 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/03 13:28:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <math.h>
 # include <X11/Xlib.h>
 # include <X11/keysym.h>
@@ -33,8 +34,14 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
+	char	**map;
+	int		item;
+	int		exit;
+	int		player;
 	t_image	img;
 }	t_data;
 
+void	ft_init(t_data *data);
+void	test(void);
 
 #endif
