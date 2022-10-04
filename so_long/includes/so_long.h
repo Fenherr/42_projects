@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/03 13:28:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:54:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
+	char	*map_name;
 	char	**map;
 	int		item;
 	int		exit;
@@ -41,7 +42,7 @@ typedef struct s_data
 	t_image	img;
 }	t_data;
 
-void	ft_init(t_data *data);
-void	test(void);
+void	ft_init(t_data *data, char *name);
+void	ft_check_len_map(t_data data);
 
 #endif

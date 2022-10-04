@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/03 13:29:00 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:07:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,17 @@ int	ft_esc_close(int keycode, t_data *data)
 	return (0);
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-	//t_data	data;
-
-	// data.mlx = mlx_init();
-	// data.win = mlx_new_window(data.mlx, 600, 600, "Test");
+	t_data	data;
 	
-	// mlx_loop_hook(data.mlx, &ft_test, &data);
-	// mlx_hook(data.win, 2, 1L<<0, &ft_esc_close, &data);
-	// mlx_loop(data.mlx);
-	test();
+	if (ac != 2)
+		return (0);
+	ft_init(&data, av[1]);
+	ft_check_len_map(data);
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, 600, 600, "So_long");
+	mlx_loop_hook(data.mlx, &ft_test, &data);
+	mlx_hook(data.win, 2, 1L<<0, &ft_esc_close, &data);
+	mlx_loop(data.mlx);
 }
