@@ -6,11 +6,11 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:36:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/04 16:06:44 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:41:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 // void	test(void)
 // {
@@ -30,11 +30,13 @@
 // 	close(fd);
 // }
 
-void	ft_init(t_data *data, char *name)
+void	ft_init(t_data *data, char *map_name)
 {
 	data->exit = 0;
 	data->item = 0;
 	data->player = 0;
-	data->map_name = ft_strjoin("./maps/", name);
+	data->map_width = 0;
+	data->map_length = 0;
+	data->map_name = ft_strjoin("./maps/", map_name);
 	//data->map = malloc(sizeof());
 }
