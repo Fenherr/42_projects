@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:24:46 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/10 13:46:08 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:55:23 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,11 @@ void	ft_free(char *str, char **arr)
 		free(arr);
 		arr = NULL;
 	}
+}
+
+void	ft_free_all(t_data *data)
+{
+	ft_free(data->map_path, data->map);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
 }
