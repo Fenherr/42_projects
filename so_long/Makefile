@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/10/05 13:49:25 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/10/10 13:31:44 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ MINILIBX	= lib/mlx_linux
 SRCS		= srcs/main.c \
 			  srcs/utils/init.c \
 			  srcs/utils/error.c \
-			  srcs/map/check_map.c \
-			  srcs/map/map_parsing.c
+			  srcs/utils/free.c \
+			  srcs/map_functions/check_map.c \
+			  srcs/map_functions/map_parsing.c
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

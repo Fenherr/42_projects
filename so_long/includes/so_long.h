@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/05 14:11:11 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:38:03 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_image
 {
 	void	*img;
 	char	*path;
-	int		width;
+	int		height;
 	int		length;
 }	t_image;
 
@@ -34,9 +34,9 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	char	*map_name;
+	char	*map_path;
 	char	**map;
-	int		map_width;
+	int		map_height;
 	int		map_length;
 	int		item;
 	int		exit;
@@ -44,10 +44,11 @@ typedef struct s_data
 	t_image	img;
 }	t_data;
 
-void	ft_error_msg(char *str);
 void	ft_error_elm(t_data *data);
 void	ft_check_map(t_data *data);
+void	ft_map_parsing(t_data *data);
+void	ft_free(char *str, char **arr);
 void	ft_init(t_data *data, char *map_name);
-void	ft_map_len(t_data *data);
+void	ft_error_msg(char *str, char *free_str, char **free_arr);
 
 #endif
