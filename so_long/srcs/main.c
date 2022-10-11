@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/10 16:13:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:40:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,10 @@ int	ft_test(t_data *data)
 	return (0);
 }
 
-int	ft_esc_close(int keycode, t_data *data)
+int	keys_management(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
-		mlx_destroy_window(data->mlx, data->win);
-	return (0);
-}
-
-int	ft_cross_close(t_data *data)
-{
-	mlx_destroy_window(data->mlx, data->win);
+		ft_exit(data);
 	return (0);
 }
 
@@ -44,10 +38,10 @@ int main(int ac, char **av)
 	ft_init(&data, av[1]);
 	ft_map_parsing(&data);
 	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, data.map_length * 32, data.map_height * 32, "So_long");
+	data.win = mlx_new_window(data.mlx, data.map_height * 32,
+		data.map_length * 32, "So_long");
 	mlx_loop_hook(data.mlx, &ft_test, &data);
-	mlx_hook(data.win, 17, 1L<<17, &ft_cross_close, &data);
-	mlx_hook(data.win, 2, 1L<<0, &ft_esc_close, &data);
+	mlx_hook(data.win, 17, 1L<<17, ft_exit, &data);
+	mlx_hook(data.win, 2, 1L<<0, &keys_management, &data);
 	mlx_loop(data.mlx);
-	ft_free_all(&data);
 }

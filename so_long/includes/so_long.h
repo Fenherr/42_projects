@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/10 15:26:30 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:44:29 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ typedef struct s_data
 	t_image	img;
 }	t_data;
 
-void	ft_free_all(t_data *data);
+int		ft_exit(t_data *data);
 void	ft_error_elm(t_data *data);
 void	ft_check_map(t_data *data);
+void	ft_check_wall(t_data *data);
 void	ft_map_parsing(t_data *data);
 void	ft_free(char *str, char **arr);
 void	ft_init(t_data *data, char *map_name);

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/10 13:55:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:52:12 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,23 @@ void	ft_check_map(t_data *data)
 	}
 	ft_error_elm(data);
 	close (fd);
+}
+
+void	ft_check_wall(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->map_length - 1)
+	{
+		if (data->map[0][i] != '1')
+			ft_error_msg("Map not closed", data->map_path, data->map);
+		else if (data->map[data->map_height - 1][i] != '1')
+			ft_error_msg("Map not closed", data->map_path, data->map);
+		else if (data->map[i][0] != '1')
+			ft_error_msg("Map not closed", data->map_path, data->map);
+		else if (data->map[i][data->map_length - 1] != '1')
+			ft_error_msg("Map not closed", data->map_path, data->map);
+		i++;
+	}
 }
