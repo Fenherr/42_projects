@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:27:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/11 13:19:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:44:38 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ void	ft_map_parsing(t_data *data)
 	data->map[i] = NULL;
 	close (fd);
 	ft_check_wall(data);
+	ft_check_if_solvable(data);
 }

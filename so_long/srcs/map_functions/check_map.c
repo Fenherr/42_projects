@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/11 13:52:12 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/13 11:17:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static void	ft_check_char_map(t_data *data, char *line)
 			&& line[i] != '1' && line[i] != '0' && line[i] != '\n')
 			ft_error_msg("Invalid character", line, NULL);
 		if (line[i] == 'P')
-			data->player++;
+			data->nb_player++;
 		if (line[i] == 'C')
-			data->item++;
+			data->nb_item++;
 		if (line[i] == 'E')
-			data->exit++;
+			data->nb_exit++;
 		i++;
 	}
 }
@@ -73,14 +73,22 @@ void	ft_check_wall(t_data *data)
 	i = 0;
 	while (i < data->map_length - 1)
 	{
-		if (data->map[0][i] != '1')
-			ft_error_msg("Map not closed", data->map_path, data->map);
-		else if (data->map[data->map_height - 1][i] != '1')
-			ft_error_msg("Map not closed", data->map_path, data->map);
-		else if (data->map[i][0] != '1')
-			ft_error_msg("Map not closed", data->map_path, data->map);
-		else if (data->map[i][data->map_length - 1] != '1')
+		if (data->map[0][i] != '1'
+			|| data->map[data->map_height - 1][i] != '1')
 			ft_error_msg("Map not closed", data->map_path, data->map);
 		i++;
 	}
+	i = 0;
+	while (i < data->map_height - 2)
+	{
+		if (data->map[i][0] != '1'
+			|| data->map[i][data->map_length - 2] != '1')
+			ft_error_msg("Map not closed", data->map_path, data->map);
+		i++;
+	}
+}
+
+void	ft_check_if_solvable(t_data *data)
+{
+	solve_map(data);
 }

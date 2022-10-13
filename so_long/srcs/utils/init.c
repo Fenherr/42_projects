@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:36:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/10 13:41:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:44:23 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ static void	check_map_extension(char *map_name)
 void	ft_init(t_data *data, char *map_name)
 {
 	check_map_extension(map_name);
-	data->exit = 0;
-	data->item = 0;
-	data->player = 0;
+	data->nb_exit = 0;
+	data->nb_item = 0;
+	data->nb_player = 0;
 	data->map_height = 0;
 	data->map_length = 0;
 	data->map_path = ft_strjoin("./maps/", map_name);
 	if (open(data->map_path, O_RDONLY) == -1)
 		ft_error_msg("File not found", data->map_path, NULL);
+	data->player.x = 0;
+	data->player.y = 0;
 }

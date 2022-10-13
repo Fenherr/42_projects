@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/10/11 11:43:55 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/10/13 13:53:56 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,11 @@ SRCS		= srcs/main.c \
 			  srcs/utils/error.c \
 			  srcs/utils/free.c \
 			  srcs/utils/utils.c \
+			  srcs/map_functions/map_utils.c \
 			  srcs/map_functions/check_map.c \
-			  srcs/map_functions/map_parsing.c
+			  srcs/map_functions/map_parsing.c \
+			  srcs/map_functions/map_solving.c \
+			  srcs/map_functions/map_solving_utils.c
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
