@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:34:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/13 14:22:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/14 09:43:09 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ static int	**allocate_solving_tab(t_data *data)
 	solving_tab = (int **)ft_calloc((data->map_height + 1), sizeof(int *));
 	if (!solving_tab)
 		return (0);
-	while (i < data->map_height - 1)
+	while (i < data->map_height)
 	{
 		solving_tab[i] = (int *)ft_calloc((data->map_length), sizeof(int));
 		if (!solving_tab)
 			return (0);
 		i++;
 	}
+	solving_tab[i] = NULL;
 	return (solving_tab);
 }
 
@@ -60,7 +61,7 @@ int	**filling_solving_tab(t_data *data)
 
 	i = 0;
 	solving_tab = allocate_solving_tab(data);
-	while (i < data->map_height - 1)
+	while (solving_tab[i] != NULL)
 	{
 		solving_tab = replace_for_solving_tab(data, i, solving_tab);
 		i++;
