@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/12 14:29:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:25:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int main(int ac, char **av)
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, data.map_length * 32,
 		data.map_height * 32, "So_long");
-	mlx_loop_hook(data.mlx, &ft_test, &data);
+	place_img_in_game(&data);
+	ft_graphics(&data);
 	mlx_hook(data.win, 17, 1L<<17, ft_exit, &data);
 	mlx_hook(data.win, 2, 1L<<0, &keys_management, &data);
 	mlx_loop(data.mlx);
