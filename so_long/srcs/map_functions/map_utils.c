@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 10:20:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/12 13:04:44 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:06:15 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_search_player_pos(t_data *data)
 			j++;
 		if (data->map[i][j] == 'P')
 		{
-			data->player.x = j;
-			data->player.y = i;
+			data->player.x = i;
+			data->player.y = j;
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:34:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/14 09:43:09 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:47:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,12 @@ int	**filling_solving_tab(t_data *data)
 		i++;
 	}
 	return (solving_tab);
+}
+
+int	**filling_null_tab(t_data *data)
+{
+	int	**tmp_null_tab;
+
+	tmp_null_tab = allocate_solving_tab(data);
+	return (tmp_null_tab);
 }

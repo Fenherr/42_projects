@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/14 16:00:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:37:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	ft_check_wall(t_data *data)
 
 void	ft_check_if_solvable(t_data *data)
 {
-	solve_map(data);
+	if (solve_map(data) == 1)
+		ft_printf("C'est solvable !");
 }

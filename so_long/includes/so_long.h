@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/14 10:25:18 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:37:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 
 int		ft_exit(t_data *data);
 int		solve_map(t_data *data);
+int		**filling_null_tab(t_data *data);
 int		**filling_solving_tab(t_data *data);
 void	ft_error_elm(t_data *data);
 void	ft_check_map(t_data *data);
