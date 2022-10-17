@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:15:08 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 17:55:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:27:25 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,14 @@ int solve_map(t_data *data)
 		}
 		maze.start++;
 	}
+	for (int X = 0; X < data->map_height; X++)
+	{
+		for (int Y = 0; Y < data->map_width; Y++)
+			ft_printf("%d", maze.solve_mtx[X][Y]);
+		ft_printf("\n");
+	}
+	ft_printf("Nombre d'item dans la map : %d\n", data->nb_item);
+	ft_printf("Nombre d'item du compteur : %d\n", maze.count_item);
 	ft_free_mtx(maze.solve_mtx);
 	return (0);
 }

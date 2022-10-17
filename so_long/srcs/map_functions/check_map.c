@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 18:00:26 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:20:23 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void ft_check_wall(t_data *data)
 
 void ft_check_if_solvable(t_data *data)
 {
-	if (solve_map(data) == 0)
-		ft_error_msg("Impossible to resolve the game",
-			data->map_path, data->map);
+	ft_printf("%d\n", solve_map(data));
+	// if (solve_map(data) == 0)
+	// 	ft_error_msg("Impossible to resolve the game",
+	// 		data->map_path, data->map);
+	
 }
