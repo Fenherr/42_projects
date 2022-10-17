@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:27:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/12 12:44:38 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:54:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_map_len(t_data *data)
 	while (line)
 	{
 		data->map_height++;
-		data->map_length = ft_strlen(line);
+		data->map_width = ft_strlen(line);
 		free(line);
 		line = simpler_gnl(fd);
 	}

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/16 21:24:35 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:41:23 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@
 typedef struct	s_image
 {
 	void	*img;
-	char	*path;
 	int		height;
-	int		length;
+	int		width;
 }	t_image;
 
 typedef struct	s_player
@@ -57,6 +56,15 @@ typedef struct	s_exit
 	t_image	img;
 }	t_exit;
 
+typedef struct s_maze_solver
+{
+	int	**solve_mtx;
+	int	x;
+	int	y;
+	int	start;
+	int	count_item;
+}	t_maze_solver;
+
 typedef struct	s_data
 {
 	void		*mlx;
@@ -64,7 +72,7 @@ typedef struct	s_data
 	char		*map_path;
 	char		**map;
 	int			map_height;
-	int			map_length;
+	int			map_width;
 	int			nb_item;
 	int			nb_exit;
 	int			nb_player;
@@ -77,7 +85,7 @@ typedef struct	s_data
 
 int		ft_exit(t_data *data);
 int		solve_map(t_data *data);
-int		**filling_solving_tab(t_data *data);
+int		**filling_solving_mtx(t_data *data);
 void	ft_graphics(t_data *data);
 void	ft_error_elm(t_data *data);
 void	ft_check_map(t_data *data);

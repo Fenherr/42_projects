@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 10:20:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/16 14:06:15 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:53:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_search_player_pos(t_data *data)
 	while (i < data->map_height - 1)
 	{
 		j = 0;
-		while (data->map[i][j] != 'P' && j < data->map_length - 1)
+		while (data->map[i][j] != 'P' && j < data->map_width - 1)
 			j++;
 		if (data->map[i][j] == 'P')
 		{

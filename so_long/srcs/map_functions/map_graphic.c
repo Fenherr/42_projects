@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:03:23 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/16 21:31:26 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:30:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@ void	place_img_in_game(t_data *data)
 void	ft_graphics(t_data *data)
 {
 	int	height;
-	int	length;
+	int	width;
 
 	height = 0;
 	while (height < data->map_height)
 	{
-		length = 0;
-		while (data->map[height][length])
+		width = 0;
+		while (data->map[height][width])
 		{
-			if (data->map[height][length] == '1')
+			if (data->map[height][width] == '1')
 				mlx_put_image_to_window(data->mlx, data->win,
-					data->wall.img.img,	length * 32, height * 32);
-			if (data->map[height][length] == '0')
+					data->wall.img.img,	width * 64, height * 64);
+			if (data->map[height][width] == '0')
 				mlx_put_image_to_window(data->mlx, data->win,
-					data->floor.img.img, length * 32, height * 32);
-			if (data->map[height][length] == 'E')
+					data->floor.img.img, width * 64, height * 64);
+			if (data->map[height][width] == 'E')
 				mlx_put_image_to_window(data->mlx, data->win,
-					data->exit.img.img, length * 32, height * 32);
-			if (data->map[height][length] == 'C')
+					data->exit.img.img, width * 64, height * 64);
+			if (data->map[height][width] == 'C')
 				mlx_put_image_to_window(data->mlx, data->win,
-					data->item.img.img, length * 32, height * 32);
-			length++;
+					data->item.img.img, width * 64, height * 64);
+			width++;
 		}
 		height++;
 	}
