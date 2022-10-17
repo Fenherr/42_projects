@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 15:10:43 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:00:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void ft_check_wall(t_data *data)
 	i = 0;
 	while (i < data->map_width - 1)
 	{
-		if (data->map[0][i] != '1' || data->map[data->map_height - 1][i] != '1')
+		if (data->map[0][i] != '1'
+			|| data->map[data->map_height - 1][i] != '1')
 			ft_error_msg("Map not closed", data->map_path, data->map);
 		i++;
 	}
@@ -88,6 +89,7 @@ void ft_check_wall(t_data *data)
 
 void ft_check_if_solvable(t_data *data)
 {
-	// if (solve_map(data) == 1)
-	ft_printf("%d", solve_map(data));
+	if (solve_map(data) == 0)
+		ft_error_msg("Impossible to resolve the game",
+			data->map_path, data->map);
 }

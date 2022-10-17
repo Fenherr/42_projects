@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:24:46 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/11 11:37:31 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:52:14 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void	ft_free(char *str, char **arr)
 		free(arr);
 		arr = NULL;
 	}
+}
+
+void	ft_free_mtx(int **mtx)
+{
+	int	i;
+
+	i = 0;
+	while (mtx[i])
+	{
+		free(mtx[i]);
+		i++;
+	}
+	free(mtx);
+	mtx = NULL;
 }
 
 void	ft_free_all(t_data *data)

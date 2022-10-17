@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 15:41:23 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:52:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct	s_data
 int		ft_exit(t_data *data);
 int		solve_map(t_data *data);
 int		**filling_solving_mtx(t_data *data);
+void	ft_free_mtx(int **mtx);
 void	ft_graphics(t_data *data);
 void	ft_error_elm(t_data *data);
 void	ft_check_map(t_data *data);
