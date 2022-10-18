@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:34:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 14:29:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:17:09 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	**allocate_solving_mtx(t_data *data)
 static int	**replace_for_solving_mtx(t_data *data, int i, int **solving_mtx)
 {
 	int	j;
-	
+
 	j = 0;
 	while (j < data->map_width - 1)
 	{

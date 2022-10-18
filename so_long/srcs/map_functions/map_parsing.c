@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 13:27:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 14:54:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:14:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_map_len(t_data *data)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
 	fd = open(data->map_path, O_RDONLY);
@@ -39,7 +39,7 @@ void	ft_map_parsing(t_data *data)
 	ft_check_map(data);
 	ft_map_len(data);
 	fd = open(data->map_path, O_RDONLY);
-	data->map = malloc((data->map_height + 1 ) * sizeof(char *));
+	data->map = malloc((data->map_height + 1) * sizeof(char *));
 	line = simpler_gnl(fd);
 	while (line)
 	{

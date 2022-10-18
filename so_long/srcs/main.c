@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 14:53:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:19:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 int	ft_test(t_data *data)
 {
 	(void)data;
-	// data->img.path = "./resources/tiles/floor.xpm";
-	// data->img.img = mlx_xpm_file_to_image(data->mlx, data->img.path,
-	// 	&data->img.height, &data->img.width);
-	// mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 	return (0);
 }
 
@@ -29,17 +25,17 @@ int	keys_management(int keycode, t_data *data)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	data;
-	
+
 	if (ac != 2)
 		return (0);
 	ft_init(&data, av[1]);
 	ft_map_parsing(&data);
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, (data.map_width - 1) * 64,
-		data.map_height * 64, "So_long");
+			data.map_height * 64, "So_long");
 	place_img_in_game(&data);
 	ft_graphics(&data);
 	mlx_hook(data.win, 17, 1L<<17, ft_exit, &data);

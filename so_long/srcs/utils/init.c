@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:36:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 14:53:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:59:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	check_map_extension(char *map_name)
 {
-	char *extension;
+	char	*extension;
 
 	extension = ft_strchr(map_name, '.');
 	if (extension == NULL || ft_strcmp(extension, ".ber") != 0)

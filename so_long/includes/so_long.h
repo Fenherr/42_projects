@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 17:52:34 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:21:14 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,36 @@
 # include "../libft/libft.h"
 # include "../lib/mlx_linux/mlx.h"
 
-typedef struct	s_image
+typedef struct s_image
 {
 	void	*img;
 	int		height;
 	int		width;
 }	t_image;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	int		x;
 	int		y;
 	t_image	img;
 }	t_player;
 
-typedef struct	s_wall
+typedef struct s_wall
 {
 	t_image	img;
 }	t_wall;
 
-typedef struct	s_floor
+typedef struct s_floor
 {
 	t_image	img;
 }	t_floor;
 
-typedef struct	s_item
+typedef struct s_item
 {
 	t_image	img;
 }	t_item;
 
-typedef struct	s_exit
+typedef struct s_exit
 {
 	t_image	img;
 }	t_exit;
@@ -61,11 +61,12 @@ typedef struct s_maze_solver
 	int	**solve_mtx;
 	int	x;
 	int	y;
+	int	end;
 	int	start;
 	int	count_item;
 }	t_maze_solver;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void		*mlx;
 	void		*win;

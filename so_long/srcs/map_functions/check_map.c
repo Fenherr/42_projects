@@ -6,17 +6,17 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/17 21:20:23 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:11:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static size_t len_line(t_data *data)
+static size_t	len_line(t_data *data)
 {
-	char *line;
-	size_t len;
-	int fd;
+	char	*line;
+	size_t	len;
+	int		fd;
 
 	len = 0;
 	fd = open(data->map_path, O_RDONLY);
@@ -27,9 +27,9 @@ static size_t len_line(t_data *data)
 	return (len);
 }
 
-static void ft_check_char_map(t_data *data, char *line)
+static void	ft_check_char_map(t_data *data, char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
@@ -47,15 +47,16 @@ static void ft_check_char_map(t_data *data, char *line)
 	}
 }
 
-void ft_check_map(t_data *data)
+void	ft_check_map(t_data *data)
 {
-	int fd;
-	char *line;
-	size_t len;
+	int		fd;
+	char	*line;
+	size_t	len;
 
 	len = len_line(data);
 	fd = open(data->map_path, O_RDONLY);
-	while ((line = simpler_gnl(fd)))
+	line = simpler_gnl(fd);
+	while (line)
 	{
 		if (ft_strlen(line) != len)
 			ft_error_msg("Wrong map width", line, NULL);
@@ -66,9 +67,9 @@ void ft_check_map(t_data *data)
 	close(fd);
 }
 
-void ft_check_wall(t_data *data)
+void	ft_check_wall(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->map_width - 1)
@@ -87,11 +88,9 @@ void ft_check_wall(t_data *data)
 	}
 }
 
-void ft_check_if_solvable(t_data *data)
+void	ft_check_if_solvable(t_data *data)
 {
-	ft_printf("%d\n", solve_map(data));
-	// if (solve_map(data) == 0)
-	// 	ft_error_msg("Impossible to resolve the game",
-	// 		data->map_path, data->map);
-	
+	if (solve_map(data) == 0)
+		ft_error_msg("Impossible to resolve the game",
+			data->map_path, data->map);
 }
