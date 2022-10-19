@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 16:11:46 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:25:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_check_map(t_data *data)
 			ft_error_msg("Wrong map width", line, NULL);
 		ft_check_char_map(data, line);
 		free(line);
+		line = simpler_gnl(fd);
 	}
 	ft_error_elm(data);
 	close(fd);

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:36:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 15:59:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:55:50 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	check_map_extension(char *map_name)
 void	ft_init(t_data *data, char *map_name)
 {
 	check_map_extension(map_name);
+	data->step = 0;
 	data->nb_exit = 0;
 	data->nb_item = 0;
 	data->nb_player = 0;

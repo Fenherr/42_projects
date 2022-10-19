@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:03:23 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 16:01:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:13:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	place_img_in_game(t_data *data)
 			"resources/tiles/item.xpm", &i, &j);
 	data->exit.img.img = mlx_xpm_file_to_image(data->mlx,
 			"resources/tiles/door_close.xpm", &i, &j);
+	data->player.img.img = mlx_xpm_file_to_image(data->mlx,
+			"resources/caracter/player.xpm", &i, &j);
 }
 
 void	ft_graphics(t_data *data)
@@ -50,6 +52,9 @@ void	ft_graphics(t_data *data)
 			if (data->map[height][width] == 'C')
 				mlx_put_image_to_window(data->mlx, data->win,
 					data->item.img.img, width * 64, height * 64);
+			if (data->map[height][width] == 'P')
+				mlx_put_image_to_window(data->mlx, data->win,
+					data->player.img.img, width * 64, height * 64);
 			width++;
 		}
 		height++;

@@ -6,22 +6,25 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 16:19:24 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:24:08 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_test(t_data *data)
-{
-	(void)data;
-	return (0);
-}
-
 int	keys_management(int keycode, t_data *data)
 {
+	ft_search_player_pos(data);
 	if (keycode == XK_Escape)
 		ft_exit(data);
+	if (keycode == XK_w || keycode == XK_W || keycode == XK_Up)
+		ft_up_move(data);
+	if (keycode == XK_s || keycode == XK_S || keycode == XK_Down)
+		ft_down_move(data);
+	if (keycode == XK_a || keycode == XK_A || keycode == XK_Left)
+		ft_left_move(data);
+	if (keycode == XK_d || keycode == XK_D || keycode == XK_Right)
+		ft_right_move(data);
 	return (0);
 }
 
@@ -38,7 +41,7 @@ int	main(int ac, char **av)
 			data.map_height * 64, "So_long");
 	place_img_in_game(&data);
 	ft_graphics(&data);
-	mlx_hook(data.win, 17, 1L<<17, ft_exit, &data);
-	mlx_hook(data.win, 2, 1L<<0, &keys_management, &data);
+	mlx_hook(data.win, DestroyNotify, StructureNotifyMask, ft_exit, &data);
+	mlx_hook(data.win, KeyPress, KeyPressMask, &keys_management, &data);
 	mlx_loop(data.mlx);
 }
