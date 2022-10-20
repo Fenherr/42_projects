@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:24:46 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 15:59:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:43:55 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_free_mtx(int **mtx)
 
 void	ft_free_all(t_data *data)
 {
-	ft_free(data->map_path, data->map);
+	ft_free(NULL, data->map);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 }

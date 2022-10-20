@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 10:36:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 12:55:50 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:44:51 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	ft_init(t_data *data, char *map_name)
 	data->nb_player = 0;
 	data->map_height = 0;
 	data->map_width = 0;
-	data->map_path = ft_strjoin("./maps/", map_name);
+	data->map_path = map_name;
 	if (open(data->map_path, O_RDONLY) == -1)
-		ft_error_msg("File not found", data->map_path, NULL);
+		ft_error_msg("File not found", NULL, NULL);
 	data->player.x = 0;
 	data->player.y = 0;
 }

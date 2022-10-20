@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:40:31 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 16:18:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:45:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_exit(t_data *data)
 	destroy_img(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
-	ft_free(data->map_path, data->map);
+	ft_free(NULL, data->map);
 	free(data->mlx);
 	ft_printf("Good bye !\n");
 	exit(1);
@@ -38,7 +38,7 @@ int	ft_exit_if_win(t_data *data)
 	destroy_img(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
-	ft_free(data->map_path, data->map);
+	ft_free(NULL, data->map);
 	free(data->mlx);
 	ft_printf("Congratulation ! You win !\n");
 	exit(1);

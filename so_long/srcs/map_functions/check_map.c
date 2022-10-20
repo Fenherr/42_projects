@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:24:30 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 10:25:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:44:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static size_t	len_line(t_data *data)
 	len = 0;
 	fd = open(data->map_path, O_RDONLY);
 	line = simpler_gnl(fd);
+	if (line == NULL)
+		ft_error_msg("No map detected", NULL, NULL);
 	len = ft_strlen(line);
 	free(line);
 	close(fd);
@@ -77,14 +79,14 @@ void	ft_check_wall(t_data *data)
 	{
 		if (data->map[0][i] != '1'
 			|| data->map[data->map_height - 1][i] != '1')
-			ft_error_msg("Map not closed", data->map_path, data->map);
+			ft_error_msg("Map not closed", NULL, data->map);
 		i++;
 	}
 	i = 0;
 	while (i < data->map_height - 2)
 	{
 		if (data->map[i][0] != '1' || data->map[i][data->map_width - 2] != '1')
-			ft_error_msg("Map not closed", data->map_path, data->map);
+			ft_error_msg("Map not closed", NULL, data->map);
 		i++;
 	}
 }
@@ -93,5 +95,5 @@ void	ft_check_if_solvable(t_data *data)
 {
 	if (solve_map(data) == 0)
 		ft_error_msg("Impossible to resolve the game",
-			data->map_path, data->map);
+			NULL, data->map);
 }

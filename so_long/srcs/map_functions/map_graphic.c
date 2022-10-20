@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:03:23 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 13:13:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 10:07:32 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ void	place_img_in_game(t_data *data)
 			"resources/caracter/player.xpm", &i, &j);
 }
 
+static void	graphics_util(t_data *data, int height, int width)
+{
+	if (data->map[height][width] == '1')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->wall.img.img, width * 64, height * 64);
+	if (data->map[height][width] == '0')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->floor.img.img, width * 64, height * 64);
+	if (data->map[height][width] == 'E')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->exit.img.img, width * 64, height * 64);
+	if (data->map[height][width] == 'C')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->item.img.img, width * 64, height * 64);
+	if (data->map[height][width] == 'P')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->player.img.img, width * 64, height * 64);
+}
+
 void	ft_graphics(t_data *data)
 {
 	int	height;
@@ -40,21 +59,7 @@ void	ft_graphics(t_data *data)
 		width = 0;
 		while (data->map[height][width])
 		{
-			if (data->map[height][width] == '1')
-				mlx_put_image_to_window(data->mlx, data->win,
-					data->wall.img.img, width * 64, height * 64);
-			if (data->map[height][width] == '0')
-				mlx_put_image_to_window(data->mlx, data->win,
-					data->floor.img.img, width * 64, height * 64);
-			if (data->map[height][width] == 'E')
-				mlx_put_image_to_window(data->mlx, data->win,
-					data->exit.img.img, width * 64, height * 64);
-			if (data->map[height][width] == 'C')
-				mlx_put_image_to_window(data->mlx, data->win,
-					data->item.img.img, width * 64, height * 64);
-			if (data->map[height][width] == 'P')
-				mlx_put_image_to_window(data->mlx, data->win,
-					data->player.img.img, width * 64, height * 64);
+			graphics_util(data, height, width);
 			width++;
 		}
 		height++;

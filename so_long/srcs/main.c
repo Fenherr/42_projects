@@ -6,11 +6,27 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:53:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 16:24:08 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:15:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	check_if_win(t_data *data)
+{
+	int	i;
+	int	j;
+
+	ft_search_exit_pos(data);
+	if (data->nb_item == 0)
+	{
+		mlx_destroy_image(data->mlx, data->exit.img.img);
+		data->exit.img.img = mlx_xpm_file_to_image(data->mlx,
+				"resources/tiles/door_open.xpm", &i, &j);
+		mlx_put_image_to_window(data->mlx, data->win, data->exit.img.img,
+			data->exit.x * 64, data->exit.y * 64);
+	}
+}
 
 int	keys_management(int keycode, t_data *data)
 {
@@ -25,6 +41,9 @@ int	keys_management(int keycode, t_data *data)
 		ft_left_move(data);
 	if (keycode == XK_d || keycode == XK_D || keycode == XK_Right)
 		ft_right_move(data);
+	check_if_win(data);
+	if (data->map[data->player.y][data->player.x] == 'E')
+		ft_exit_if_win(data);
 	return (0);
 }
 

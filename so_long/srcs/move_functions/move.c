@@ -6,96 +6,120 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 09:49:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 15:56:32 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 10:09:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	ft_up_move(t_data *data)
+void	ft_up_move(t_data *d)
 {
-	if (data->map[data->player.y - 1][data->player.x] == 'C')
+	if (d->map[d->player.y - 1][d->player.x] == 'C')
 	{
-		data->map[data->player.y - 1][data->player.x] = '0';
-		data->nb_item--;
+		d->map[d->player.y - 1][d->player.x] = '0';
+		d->nb_item--;
 	}
-	if (data->map[data->player.y - 1][data->player.x] != '1'
-		&& data->map[data->player.y - 1][data->player.x] != 'E')
+	if (d->map[d->player.y - 1][d->player.x] != '1'
+		&& d->map[d->player.y - 1][d->player.x] != 'E' && d->nb_item != 0)
 	{
-		data->map[data->player.y][data->player.x] = '0';
-		data->player.y--;
-		data->step++;
-		ft_printf("%d\n", data->step);
+		d->map[d->player.y][d->player.x] = '0';
+		d->player.y--;
+		d->step++;
+		ft_printf("%d\n", d->step);
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->player.img.img,
-		data->player.x * 64, data->player.y * 64);
-	if (data->map[data->player.y + 1][data->player.x] == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->floor.img.img,
-			data->player.x * 64, (data->player.y + 1) * 64);
+	if (d->nb_item == 0 && d->map[d->player.y - 1][d->player.x] != '1')
+	{
+		d->player.y--;
+		d->step++;
+		ft_printf("%d\n", d->step);
+	}
+	mlx_put_image_to_window(d->mlx, d->win, d->player.img.img,
+		d->player.x * 64, d->player.y * 64);
+	if (d->map[d->player.y + 1][d->player.x] == '0')
+		mlx_put_image_to_window(d->mlx, d->win, d->floor.img.img,
+			d->player.x * 64, (d->player.y + 1) * 64);
 }
 
-void	ft_down_move(t_data *data)
+void	ft_down_move(t_data *d)
 {
-	if (data->map[data->player.y + 1][data->player.x] == 'C')
+	if (d->map[d->player.y + 1][d->player.x] == 'C')
 	{
-		data->map[data->player.y + 1][data->player.x] = '0';
-		data->nb_item--;
+		d->map[d->player.y + 1][d->player.x] = '0';
+		d->nb_item--;
 	}
-	if (data->map[data->player.y + 1][data->player.x] != '1'
-		&& data->map[data->player.y + 1][data->player.x] != 'E')
+	if (d->map[d->player.y + 1][d->player.x] != '1'
+		&& d->map[d->player.y + 1][d->player.x] != 'E' && d->nb_item != 0)
 	{
-		data->map[data->player.y][data->player.x] = '0';
-		data->player.y++;
-		data->step++;
-		ft_printf("%d\n", data->step);
+		d->map[d->player.y][d->player.x] = '0';
+		d->player.y++;
+		d->step++;
+		ft_printf("%d\n", d->step);
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->player.img.img,
-		data->player.x * 64, data->player.y * 64);
-	if (data->map[data->player.y - 1][data->player.x] == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->floor.img.img,
-			data->player.x * 64, (data->player.y - 1) * 64);
+	if (d->nb_item == 0 && d->map[d->player.y + 1][d->player.x] != '1')
+	{
+		d->player.y++;
+		d->step++;
+		ft_printf("%d\n", d->step);
+	}
+	mlx_put_image_to_window(d->mlx, d->win, d->player.img.img,
+		d->player.x * 64, d->player.y * 64);
+	if (d->map[d->player.y - 1][d->player.x] == '0')
+		mlx_put_image_to_window(d->mlx, d->win, d->floor.img.img,
+			d->player.x * 64, (d->player.y - 1) * 64);
 }
 
-void	ft_left_move(t_data *data)
+void	ft_left_move(t_data *d)
 {
-	if (data->map[data->player.y][data->player.x - 1] == 'C')
+	if (d->map[d->player.y][d->player.x - 1] == 'C')
 	{
-		data->map[data->player.y][data->player.x - 1] = '0';
-		data->nb_item--;
+		d->map[d->player.y][d->player.x - 1] = '0';
+		d->nb_item--;
 	}
-	if (data->map[data->player.y][data->player.x - 1] != '1'
-		&& data->map[data->player.y][data->player.x - 1] != 'E')
+	if (d->map[d->player.y][d->player.x - 1] != '1'
+		&& d->map[d->player.y][d->player.x - 1] != 'E' && d->nb_item != 0)
 	{
-		data->map[data->player.y][data->player.x] = '0';
-		data->player.x--;
-		data->step++;
-		ft_printf("%d\n", data->step);
+		d->map[d->player.y][d->player.x] = '0';
+		d->player.x--;
+		d->step++;
+		ft_printf("%d\n", d->step);
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->player.img.img,
-		data->player.x * 64, data->player.y * 64);
-	if (data->map[data->player.y][data->player.x + 1] == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->floor.img.img,
-			(data->player.x + 1) * 64, data->player.y * 64);
+	if (d->nb_item == 0 && d->map[d->player.y][d->player.x - 1] != '1')
+	{
+		d->player.x--;
+		d->step++;
+		ft_printf("%d\n", d->step);
+	}
+	mlx_put_image_to_window(d->mlx, d->win, d->player.img.img,
+		d->player.x * 64, d->player.y * 64);
+	if (d->map[d->player.y][d->player.x + 1] == '0')
+		mlx_put_image_to_window(d->mlx, d->win, d->floor.img.img,
+			(d->player.x + 1) * 64, d->player.y * 64);
 }
 
-void	ft_right_move(t_data *data)
+void	ft_right_move(t_data *d)
 {
-	if (data->map[data->player.y][data->player.x + 1] == 'C')
+	if (d->map[d->player.y][d->player.x + 1] == 'C')
 	{
-		data->map[data->player.y][data->player.x + 1] = '0';
-		data->nb_item--;
+		d->map[d->player.y][d->player.x + 1] = '0';
+		d->nb_item--;
 	}
-	if (data->map[data->player.y][data->player.x + 1] != '1'
-		&& data->map[data->player.y][data->player.x + 1] != 'E')
+	if (d->map[d->player.y][d->player.x + 1] != '1'
+		&& d->map[d->player.y][d->player.x + 1] != 'E' && d->nb_item != 0)
 	{
-		data->map[data->player.y][data->player.x] = '0';
-		data->player.x++;
-		data->step++;
-		ft_printf("%d\n", data->step);
+		d->map[d->player.y][d->player.x] = '0';
+		d->player.x++;
+		d->step++;
+		ft_printf("%d\n", d->step);
 	}
-	mlx_put_image_to_window(data->mlx, data->win, data->player.img.img,
-		data->player.x * 64, data->player.y * 64);
-	if (data->map[data->player.y][data->player.x - 1] == '0')
-		mlx_put_image_to_window(data->mlx, data->win, data->floor.img.img,
-			(data->player.x - 1) * 64, data->player.y * 64);
+	if (d->nb_item == 0 && d->map[d->player.y][d->player.x + 1] != '1')
+	{
+		d->player.x++;
+		d->step++;
+		ft_printf("%d\n", d->step);
+	}
+	mlx_put_image_to_window(d->mlx, d->win, d->player.img.img,
+		d->player.x * 64, d->player.y * 64);
+	if (d->map[d->player.y][d->player.x - 1] == '0')
+		mlx_put_image_to_window(d->mlx, d->win, d->floor.img.img,
+			(d->player.x - 1) * 64, d->player.y * 64);
 }
