@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/19 16:19:04 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:57:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include <X11/Xlib.h>
 # include <X11/keysym.h>

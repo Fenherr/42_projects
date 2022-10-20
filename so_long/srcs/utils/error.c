@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:34:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/18 16:00:24 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:07:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_error_msg(char *str, char *free_str, char **free_arr)
 
 void	ft_error_elm(t_data *data)
 {
+	if (data->nb_exit == 0 && data->nb_item == 0 && data->nb_player == 0)
+		ft_error_msg("No elements detected", NULL, NULL);
 	if (data->nb_exit > 1 || data->nb_exit < 1)
 		ft_error_msg("We need one and only one exit", NULL, NULL);
 	if (data->nb_player > 1 || data->nb_player < 1)
