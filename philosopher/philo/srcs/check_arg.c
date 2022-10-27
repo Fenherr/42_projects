@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:02:17 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/27 13:42:42 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/10/26 13:38:55 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/10/27 13:47:44 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	main(int ac, char **av)
+static int	ft_check_nb_arg(int ac)
 {
-	t_data	data;
+	if (ac < 5 || ac > 6)
+		return (ERROR);
+	else
+		return (SUCCESS);
+}
 
-	if (ft_check_arg(ac, av))
+int	ft_check_arg(int ac, char **av)
+{
+	if (ft_check_nb_arg(ac))
 	{
-		if (init(&data, av))
+		if (ft_arg_are_digit(av))
 		{
-			printf("Je suis good");
+			if (!ft_arg_outside_limits(av))
+				return (TRUE);
+			return (ft_error_limits());
 		}
+		else
+			return (ft_error_args());
 	}
+	return (ft_error_syntax());
 }

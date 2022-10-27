@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/10/24 15:51:00 by ngrenoux         ###   ########.fr        #
+#    Updated: 2022/10/27 12:31:46 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ NAME		= philo
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
 			  srcs/init.c \
-			  
+			  srcs/error.c \
+			  srcs/ft_atoi.c \
+			  srcs/ft_atoll.c \
+			  srcs/check_arg.c \
+			  srcs/check_arg_are_digit.c \
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
@@ -45,22 +49,15 @@ all:	$(NAME)
 	@$(CC) $(FLAGS) -c $< -o $@ 
 
 $(NAME):	$(OBJS)
-	@echo "$(BLUE)Compilation de la librairie...$(NOC)"
-	@make -sC $(LIBFT)
-	@echo "$(BLUE)Copie de la librairie...$(NOC)"
-	@cp $(LIBFT)/libft.a ./libft.a
-	@echo "$(GREEN)Copie effectuée.$(NOC)"
 	@echo "$(BLUE)Création de l'executable$(NOC)"
-	@$(CC) -o $(NAME) $(OBJS) libft.a
+	@$(CC) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Exécutable créé.$(NOC)"
 
 clean:
-	@make -sC $(LIBFT) clean
 	@rm -f $(OBJS)
 
 fclean:	clean
-	@make -sC $(LIBFT) fclean
-	@rm -f $(NAME) libft.a
+	@rm -f $(NAME)
 
 re:	fclean all
 

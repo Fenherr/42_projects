@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:02:17 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/10/27 13:42:42 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/04/01 09:16:45 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/09/05 11:21:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
-
-int	main(int ac, char **av)
+int	ft_atoi(const char *nptr)
 {
-	t_data	data;
+	int	i;
+	int	sign;
+	int	nbr;
 
-	if (ft_check_arg(ac, av))
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (init(&data, av))
-		{
-			printf("Je suis good");
-		}
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
 	}
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (nbr * sign);
 }

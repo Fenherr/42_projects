@@ -35,7 +35,8 @@
 		"push_swap.h": "c",
 		"unistd.h": "c",
 		"stdlib.h": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"philo.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
