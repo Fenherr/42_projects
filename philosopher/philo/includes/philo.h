@@ -49,7 +49,6 @@ typedef struct s_data
 	int				time_to_die;
 	int				time_to_sleep;
 	int				starting_time;
-	struct timeval	time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	mutex;
 	pthread_mutex_t	*left_fork;
@@ -72,6 +71,24 @@ int			ft_atoi(const char *nptr);
 long long	ft_atoll(const char *nptr);
 
 /*Init function*/
-int			init(t_data *data, char **av);
+int			ft_init(t_data *data, char **av);
+
+/*Action functions*/
+int			ft_take_forks(t_philo *philo);
+int			ft_dead_philo(t_philo *philo);
+int			ft_take_forks_utils(t_philo *philo);
+void		ft_eating(t_philo *philo);
+void		ft_sleeping(t_philo *philo);
+void		ft_thinking(t_philo *philo);
+
+/*Utils functions*/
+int			ft_getting_time(void);
+void		ft_free(t_data *data);
+void		ft_sleep(int time, t_philo *philo);
+void		ft_message(char *str, t_philo *philo);
+
+/*Patterns functions*/
+void		thread_join(t_data *data);
+void		ft_begin_patterns(t_data *data);
 
 #endif

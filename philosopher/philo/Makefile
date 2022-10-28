@@ -12,7 +12,7 @@
 
 #=================================COMPILATION==================================#
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror -lpthread -Iincludes -g3
+FLAGS		= -Wall -Wextra -Werror -Iincludes -g3
 
 #==================================EXECUTABLE==================================#
 NAME		= philo
@@ -21,9 +21,12 @@ NAME		= philo
 SRCS		= srcs/main.c \
 			  srcs/init.c \
 			  srcs/error.c \
+			  srcs/action.c \
 			  srcs/ft_atoi.c \
 			  srcs/ft_atoll.c \
 			  srcs/check_arg.c \
+			  srcs/philo_utils.c \
+			  srcs/philo_patterns.c \
 			  srcs/check_arg_are_digit.c \
 		  
 #====================================OBJECTS===================================#
@@ -50,7 +53,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS)
 	@echo "$(BLUE)Création de l'executable$(NOC)"
-	@$(CC) -o $(NAME) $(OBJS)
+	@$(CC) -o $(NAME) $(OBJS) -lpthread
 	@echo "$(GREEN)Exécutable créé.$(NOC)"
 
 clean:

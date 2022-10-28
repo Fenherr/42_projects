@@ -54,7 +54,7 @@ static int	init_mutex(t_data *data)
 	return (SUCCESS);
 }
 
-int	init(t_data *data, char **av)
+int	ft_init(t_data *data, char **av)
 {
 	data->is_dead = 0;
 	data->starting_time = 0;
