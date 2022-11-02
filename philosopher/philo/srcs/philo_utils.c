@@ -15,11 +15,9 @@
 int	ft_getting_time(void)
 {
 	struct timeval	time;
-	int				get_time;
 
 	gettimeofday(&time, NULL);
-	get_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (get_time);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
 void	ft_message(char *str, t_philo *philo)

@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:38:55 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/11/02 16:15:08 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/10/24 13:05:33 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/10/27 12:46:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static int	ft_check_nb_arg(int ac)
+int	ft_nb_limits(char *str)
 {
-	if (ac < 5 || ac > 6)
-		return (ERROR);
-	else
-		return (SUCCESS);
+	if (ft_atoll(str) > 2147483647)
+		return (TRUE);
+	return (FALSE);
 }
 
-int	ft_check_arg(int ac, char **av)
+void	error_message(char *str)
 {
-	if (ft_check_nb_arg(ac))
-	{
-		if (ft_arg_are_digit(av))
-		{
-			if (!ft_arg_outside_limits(av))
-				return (TRUE);
-			return (ft_error_limits());
-		}
-		else
-			return (ft_error_args());
-	}
-	return (ft_error_syntax());
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	write(2, "Error : ", 8);
+	write(2, str, len);
+	write(2, "\n", 1);
+}
+
+void	ft_error(int error)
+{
+	if (error == 1)
+		error_message("One argument is not correct");
+	if (error == 2)
+		error_message("Fatal error during mutex initialization");
 }

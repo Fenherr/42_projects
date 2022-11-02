@@ -33,21 +33,18 @@ static int	check_if_philo_is_dead(t_data *data)
 	while (i < data->nb_philo)
 	{
 		if (check_last_eat(&data->philo[i]) == ERROR)
-			return (ERROR);
+			return (TRUE);
 		i++;
 	}
-	return (SUCCESS);
+	return (FALSE);
 }
 
-void	*ft_begin(void *args)
+static void	*ft_begin(t_data *data)
 {
-	t_data	*data;
-
-	data = (t_data *)args;
 	while (1)
 	{
 		pthread_mutex_lock(&data->mutex);
-		if (check_if_philo_is_dead(data) == ERROR)
+		if (check_if_philo_is_dead(data) == TRUE)
 		{
 			usleep(100);
 			pthread_mutex_unlock(&data->mutex);

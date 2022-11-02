@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 13:38:55 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/11/02 16:15:08 by ngrenoux         ###   ########.fr       */
+/*   Created: 2022/10/24 13:05:33 by ngrenoux          #+#    #+#             */
+/*   Updated: 2022/10/27 12:46:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static int	ft_check_nb_arg(int ac)
+int	main(int ac, char **av)
 {
-	if (ac < 5 || ac > 6)
-		return (ERROR);
-	else
-		return (SUCCESS);
-}
+	t_data	data;
 
-int	ft_check_arg(int ac, char **av)
-{
-	if (ft_check_nb_arg(ac))
-	{
-		if (ft_arg_are_digit(av))
-		{
-			if (!ft_arg_outside_limits(av))
-				return (TRUE);
-			return (ft_error_limits());
-		}
-		else
-			return (ft_error_args());
-	}
-	return (ft_error_syntax());
+	if (ac != 5 || ac != 6)
+		printf("Wrong amount of arguments");
+	ft_init(&data, av);
+	if (ft_begin(&data))
+		printf("Error while creating the thread");
+	return (0);
 }
