@@ -15,11 +15,10 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
+	int		error;
 
-	if (ac != 5 || ac != 6)
-		printf("Wrong amount of arguments");
-	ft_init(&data, av);
-	if (ft_begin(&data))
-		printf("Error while creating the thread");
-	return (0);
+	error = 0;
+	error = ft_init(&data, ac, av);
+	if (error == 0)
+		ft_begin(&data);
 }

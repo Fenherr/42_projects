@@ -12,13 +12,6 @@
 
 #include "../includes/philo.h"
 
-int	ft_nb_limits(char *str)
-{
-	if (ft_atoll(str) > 2147483647)
-		return (TRUE);
-	return (FALSE);
-}
-
 void	error_message(char *str)
 {
 	int	len;
@@ -34,7 +27,9 @@ void	error_message(char *str)
 void	ft_error(int error)
 {
 	if (error == 1)
+		error_message("Wrong amount of arguments");
+	else if (error == 2)
+		error_message("Ther emust be at least a philosohper");
+	else if (error == 3)
 		error_message("One argument is not correct");
-	if (error == 2)
-		error_message("Fatal error during mutex initialization");
 }

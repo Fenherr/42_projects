@@ -31,7 +31,7 @@ typedef struct s_philo
 	int				nb_ate;
 	int				left_fork;
 	int				right_fork;
-	long long		time_last_meal;
+	long long		time_meal;
 	struct s_data	*data;
 	pthread_t		thread;
 }	t_philo;
@@ -45,29 +45,27 @@ typedef struct s_data
 	int				nb_eat;
 	int				is_dead;
 	int				ate_goal;
-	long long		starting_time;
+	struct timeval	start;
 	pthread_mutex_t	check_meal;
-	pthread_mutex_t	*fork;
+	pthread_mutex_t	fork[250];
 	pthread_mutex_t	writing;
-	t_philo			*philo;
+	t_philo			philo[250];
 }	t_data;
 
 /*Initialize function*/
-void		ft_init(t_data *data, char **av);
+int			ft_init(t_data *data, int ac, char **av);
 
 /*Error functions*/
-int			ft_nb_limits(char *str);
 void		ft_error(int error);
 void		error_message(char *str);
 
 /*Utils functions*/
 int			ft_atoi(const char *nptr);
-long long	ft_atoll(const char *nptr);
-long long	ft_get_time(void);
+long int	ft_get_time(struct timeval starting_time);
 void		ft_sleep_smartly(t_data *data, long long time);
 void		ft_actions_messages(t_data *data, int id, char *str);
 
 /*Patterns functions*/
-int			ft_begin(t_data *data);
+void		ft_begin(t_data *data);
 
 #endif
