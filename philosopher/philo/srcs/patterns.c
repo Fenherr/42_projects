@@ -84,7 +84,7 @@ static void ft_check_if_is_dead(t_data *d, t_philo *p)
 	while (!(d->ate_goal))
 	{
 		i = 0;
-		while (i < d->nb_philo && !(d->is_dead))
+		while (i < d->nb_philo && !d->is_dead)
 		{
 			pthread_mutex_lock(&(d->check_meal));
 			if ((ft_get_time(d->start) - p[i].time_meal) > d->time_to_die)
