@@ -31,6 +31,7 @@ void	*ft_patterns(void *args)
 	data = philo->data;
 	if (philo->id % 2)
 		usleep(15000);
+	pthread_mutex_lock(&data->reaper);
 	while (!data->is_dead && data->nb_philo != 1)
 	{
 		ft_eating(philo);
@@ -40,6 +41,7 @@ void	*ft_patterns(void *args)
 		ft_smart_sleep(data, data->time_to_sleep);
 		ft_print_message(data, philo->id, "is thinking");
 	}
+	pthread_mutex_unlock(&data->reaper);
 	return (NULL);
 }
 

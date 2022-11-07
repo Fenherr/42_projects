@@ -43,8 +43,10 @@ void	ft_check_if_is_dead(t_data *data, t_philo *philo)
 			return ;
 		}
 		pthread_mutex_unlock(&data->meal_check);
+		pthread_mutex_lock(&data->reaper);
 		if (data->is_dead)
 			break ;
+		pthread_mutex_unlock(&data->reaper);
 		while (data->meal_goal != -1 && i < data->nb_philo
 			&& philo[i].nb_ate >= data->meal_goal)
 			i++;

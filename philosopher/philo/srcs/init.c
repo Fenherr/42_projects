@@ -20,6 +20,7 @@ static void	init_mutex(t_data *data)
 	while (i >= 0)
 	{
 		pthread_mutex_init(&(data->writing), NULL);
+		pthread_mutex_init(&(data->reaper), NULL);
 		pthread_mutex_init(&(data->check_meal), NULL);
 		pthread_mutex_init(&(data->fork[i]), NULL);
 		i--;
@@ -35,9 +36,9 @@ static void	init_philo(t_data *data)
 	{
 		data->philo[i].id = i;
 		data->philo[i].nb_ate = 0;
-		data->philo[i].left_fork = i;
-		data->philo[i].right_fork = (i + 1) % data->nb_philo;
-		data->philo[i].time_meal = 0;
+		data->philo[i].l_fork = i;
+		data->philo[i].r_fork = (i + 1) % data->nb_philo;
+		data->philo[i].meal_time = 0;
 		data->philo[i].data = data;
 		i--;
 	}
@@ -51,7 +52,7 @@ int	ft_init(t_data *data, int ac, char **av)
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
 	data->time_to_sleep = ft_atoi(av[4]);
-	data->ate_goal = 0;
+	data->all_eat = 0;
 	data->is_dead = 0;
 	if (data->nb_philo < 1)
 		return (2);
@@ -60,11 +61,11 @@ int	ft_init(t_data *data, int ac, char **av)
 		return (3);
 	gettimeofday(&data->start, NULL);
 	if (ac == 6 && ft_atoi(av[5]) > 0)
-		data->nb_eat = ft_atoi(av[5]);
+		data->meal_goal = ft_atoi(av[5]);
 	else if (ac == 6 && ft_atoi(av[5]) < 1)
 		return (3);
 	else
-		data->nb_eat = -1;
+		data->meal_goal = -1;
 	init_mutex(data);
 	init_philo(data);
 	return (0);

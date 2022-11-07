@@ -75,3 +75,15 @@ void	ft_actions_messages(t_data *data, int id, char *str)
 	pthread_mutex_unlock(&(data->writing));
 	return ;
 }
+
+void	ft_check_all_eat(t_data *data, t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (data->meal_goal != -1 && i < data->nb_philo
+		&& philo[i].nb_ate >= data->meal_goal)
+		i++;
+	if (i == data->nb_philo)
+		data->all_eat = 1;
+}
