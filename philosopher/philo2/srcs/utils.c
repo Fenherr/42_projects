@@ -25,7 +25,7 @@ int	ft_atoi(const char *nptr)
 	return (nbr * sign);
 }
 
-int	ft_get_time(struct timeval start)
+long int	ft_get_time(struct timeval start)
 {
 	struct timeval	time;
 	int				t_sec;
@@ -44,7 +44,7 @@ void	ft_print_message(t_data *data, int id, char *str)
 {
 	pthread_mutex_lock(&data->writing);
 	if (!data->is_dead)
-		printf("%i %i %s\n", ft_get_time(data->start), id + 1, str);
+		printf("%li %i %s\n", ft_get_time(data->start), id + 1, str);
 	pthread_mutex_unlock(&data->writing);
 	return ;
 }

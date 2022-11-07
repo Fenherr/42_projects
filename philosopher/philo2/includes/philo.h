@@ -42,21 +42,21 @@ typedef struct s_data
 }	t_data;
 
 /*Init function*/
-int		ft_init(t_data *data, int ac, char **av);
+int			ft_init(t_data *data, int ac, char **av);
 
 /*Error function*/
-void	ft_error(int nb_error);
+void		ft_error(int nb_error);
 
 /*Utils functions*/
-int		ft_atoi(const char *nptr);
-int		ft_get_time(struct timeval start);
-void	ft_print_message(t_data *data, int id, char *str);
-void	ft_smart_sleep(t_data *data, int time);
+int			ft_atoi(const char *nptr);
+long int	ft_get_time(struct timeval start);
+void		ft_print_message(t_data *data, int id, char *str);
+void		ft_smart_sleep(t_data *data, int time);
 
 /*Patterns function*/
-void	ft_begin(t_data *data);
+void		ft_begin(t_data *data);
 
 /*Check death function*/
-void	ft_check_if_is_dead(t_data *data);
+void		ft_check_if_is_dead(t_data *data, t_philo *philo);
 
 #endif

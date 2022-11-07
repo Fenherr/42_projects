@@ -75,6 +75,6 @@ void	ft_begin(t_data *data)
 		philo[i].meal_time = ft_get_time(data->start);
 		i++;
 	}
-	ft_check_if_is_dead(data);
+	ft_check_if_is_dead(data, philo);
 	ft_exit(data, philo);
 }
