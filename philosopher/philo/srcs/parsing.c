@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,38 @@
 
 #include "../includes/philo.h"
 
-int	main(int ac, char **av)
+static int	ft_isdigit(char c)
 {
-	t_data	data;
-	int		error;
-
-	error = 0;
-	if (ft_arg_are_num(av))
-	{
-		error = ft_init(&data, ac, av);
-		if (error == 0)
-			ft_begin(&data);
-		else
-			ft_error(error);
-	}
+	if (c >= '0' && c <= '9')
+		return (TRUE);
+	return (FALSE);
 }
+
+static int	ft_string_is_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == FALSE)
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}
+
+int	ft_arg_are_num(char **av)
+{
+	int	i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (!ft_string_is_digit(av[i]))
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}
+

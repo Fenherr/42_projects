@@ -22,6 +22,7 @@ SRCS		= srcs/main.c \
 			  srcs/init.c \
 			  srcs/error.c \
 			  srcs/utils.c \
+			  srcs/parsing.c \
 			  srcs/patterns.c \
 		  
 #====================================OBJECTS===================================#

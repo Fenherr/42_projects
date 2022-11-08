@@ -66,6 +66,7 @@ long int	ft_get_time(struct timeval starting_time);
 void		ft_sleep_smartly(t_data *data, long long time);
 void		ft_actions_messages(t_data *data, int id, char *str);
 void		ft_check_all_eat(t_data *data, t_philo *philo);
+int			ft_arg_are_num(char **av);
 
 /*Patterns functions*/
 void		ft_begin(t_data *data);

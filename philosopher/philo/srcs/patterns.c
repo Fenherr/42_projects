@@ -19,18 +19,18 @@ static void	ft_eating(t_philo *philo)
 	data = philo->data;
 	if (data->nb_philo != 1)
 	{
-		pthread_mutex_lock(&(data->fork[philo->l_fork]));
+		pthread_mutex_lock(&data->fork[philo->l_fork]);
 		ft_actions_messages(data, philo->id, "has taken a fork");
-		pthread_mutex_lock(&(data->fork[philo->r_fork]));
+		pthread_mutex_lock(&data->fork[philo->r_fork]);
 		ft_actions_messages(data, philo->id, "has taken a fork");
-		pthread_mutex_lock(&(data->check_meal));
+		pthread_mutex_lock(&data->check_meal);
 		ft_actions_messages(data, philo->id, "is eating");
 		philo->meal_time = ft_get_time(data->start);
-		pthread_mutex_unlock(&(data->check_meal));
+		pthread_mutex_unlock(&data->check_meal);
 		ft_sleep_smartly(data, data->time_to_eat);
-		(philo->nb_ate)++;
-		pthread_mutex_unlock(&(data->fork[philo->l_fork]));
-		pthread_mutex_unlock(&(data->fork[philo->r_fork]));
+		philo->nb_ate++;
+		pthread_mutex_unlock(&data->fork[philo->l_fork]);
+		pthread_mutex_unlock(&data->fork[philo->r_fork]);
 	}
 }
 
@@ -75,28 +75,28 @@ static void	ft_exit(t_data *data, t_philo *philo)
 	i = 0;
 	while (i < data->nb_philo)
 	{
-		pthread_mutex_destroy(&(data->fork[i]));
+		pthread_mutex_destroy(&data->fork[i]);
 		i++;
 	}
-	pthread_mutex_destroy(&(data->writing));
+	pthread_mutex_destroy(&data->writing);
 }
 
 static void	ft_check_if_is_dead(t_data *d, t_philo *p)
 {
 	int	i;
 
-	while (!(d->all_eat))
+	while (!d->all_eat)
 	{
 		i = -1;
 		while (++i < d->nb_philo && !d->is_dead)
 		{
-			pthread_mutex_lock(&(d->reaper));
+			pthread_mutex_lock(&d->reaper);
 			if ((ft_get_time(d->start) - p[i].meal_time) > d->time_to_die)
 			{
 				ft_actions_messages(d, i, "died");
 				d->is_dead = 1;
 			}
-			pthread_mutex_unlock(&(d->reaper));
+			pthread_mutex_unlock(&d->reaper);
 			usleep(100);
 		}
 		pthread_mutex_lock(&d->reaper);
