@@ -33,17 +33,25 @@ static int	ft_string_is_digit(char *str)
 	return (TRUE);
 }
 
+static int	ft_out_of_limits(char *str)
+{
+	if (ft_atoll(str) > 2147483647)
+		return (TRUE);
+	return (FALSE);
+}
+
 int	ft_arg_are_num(char **av)
 {
 	int	i;
 
 	i = 1;
-	while (av[i])
+	while (av[i] && ft_atoi(av[i]) >= 0)
 	{
 		if (!ft_string_is_digit(av[i]))
+			return (FALSE);
+		if (ft_out_of_limits(av[i]))
 			return (FALSE);
 		i++;
 	}
 	return (TRUE);
 }
-

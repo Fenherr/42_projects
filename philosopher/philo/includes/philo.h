@@ -16,7 +16,6 @@
 # include <sys/time.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <string.h>
 # include <pthread.h>
 
@@ -58,10 +57,11 @@ int			ft_init(t_data *data, int ac, char **av);
 
 /*Error functions*/
 void		ft_error(int error);
-void		error_message(char *str);
+void		ft_error_message(char *str);
 
 /*Utils functions*/
 int			ft_atoi(const char *nptr);
+long long	ft_atoll(const char *nptr);
 long int	ft_get_time(struct timeval starting_time);
 void		ft_sleep_smartly(t_data *data, long long time);
 void		ft_actions_messages(t_data *data, int id, char *str);

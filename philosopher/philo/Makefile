@@ -18,12 +18,13 @@ FLAGS		= -Wall -Wextra -Werror -Iincludes -g3
 NAME		= philo
 
 #=================================SOURCE FILES=================================#
-SRCS		= srcs/main.c \
+SRCS		= srcs/main.c\
 			  srcs/init.c \
 			  srcs/error.c \
-			  srcs/utils.c \
+			  srcs/utils.c  \
 			  srcs/parsing.c \
 			  srcs/patterns.c \
+			  srcs/utils_lib.c \
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

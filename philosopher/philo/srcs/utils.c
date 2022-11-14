@@ -12,31 +12,6 @@
 
 #include "../includes/philo.h"
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	sign;
-	int	nbr;
-
-	i = 0;
-	nbr = 0;
-	sign = 1;
-	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
-	{
-		nbr = nbr * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (nbr * sign);
-}
-
 long int	ft_get_time(struct timeval start)
 {
 	struct timeval	time;
@@ -53,9 +28,13 @@ long int	ft_get_time(struct timeval start)
 void	ft_sleep_smartly(t_data *data, long long time)
 {
 	long long	start;
+	int			end;
 
+	pthread_mutex_lock(&data->reaper);
+	end = data->is_dead;
+	pthread_mutex_unlock(&data->reaper);
 	start = ft_get_time(data->start);
-	while (!data->is_dead)
+	while (!end)
 	{
 		if (ft_get_time(data->start) - start >= time)
 			break ;
@@ -65,8 +44,13 @@ void	ft_sleep_smartly(t_data *data, long long time)
 
 void	ft_actions_messages(t_data *data, int id, char *str)
 {
+	int	end;
+
+	pthread_mutex_lock(&data->reaper);
+	end = data->is_dead;
+	pthread_mutex_unlock(&data->reaper);
 	pthread_mutex_lock(&(data->writing));
-	if (!data->is_dead)
+	if (!end)
 	{
 		printf("%li ", ft_get_time(data->start));
 		printf("%i ", id + 1);
@@ -79,11 +63,20 @@ void	ft_actions_messages(t_data *data, int id, char *str)
 void	ft_check_all_eat(t_data *data, t_philo *philo)
 {
 	int	i;
+	int	ate_count;
 
 	i = 0;
+	pthread_mutex_lock(&data->check_meal);
+	ate_count = philo[i].nb_ate;
+	pthread_mutex_unlock(&data->check_meal);
 	while (data->meal_goal != -1 && i < data->nb_philo
-		&& philo[i].nb_ate >= data->meal_goal)
+		&& ate_count >= data->meal_goal)
+	{
 		i++;
+		pthread_mutex_lock(&data->check_meal);
+		ate_count = philo[i].nb_ate;
+		pthread_mutex_unlock(&data->check_meal);
+	}
 	if (i == data->nb_philo)
 		data->all_eat = 1;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   utils_lib.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,24 +12,52 @@
 
 #include "../includes/philo.h"
 
-void	ft_error_message(char *str)
+int	ft_atoi(const char *nptr)
 {
-	int	len;
+	int	i;
+	int	sign;
+	int	nbr;
 
-	len = 0;
-	while (str[len])
-		len++;
-	write(2, "Error : ", 8);
-	write(2, str, len);
-	write(2, "\n", 1);
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (nbr * sign);
 }
 
-void	ft_error(int error)
+long long	ft_atoll(const char *nptr)
 {
-	if (error == 1)
-		ft_error_message("Wrong amount of arguments");
-	else if (error == 2)
-		ft_error_message("There must be at least a philosohper");
-	else if (error == 3)
-		ft_error_message("One argument is not correct");
+	int			i;
+	long long	sign;
+	long long	nbr;
+
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (nptr[i] == ' ' || (nptr[i] <= '\r' && nptr[i] >= '\t'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= 48 && nptr[i] <= 57 && nptr)
+	{
+		nbr = nbr * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (nbr * sign);
 }

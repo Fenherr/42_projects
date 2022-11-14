@@ -26,4 +26,6 @@ int	main(int ac, char **av)
 		else
 			ft_error(error);
 	}
+	else
+		printf("Error : Arguments must be integers\n");
 }
