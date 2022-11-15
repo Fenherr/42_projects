@@ -12,7 +12,7 @@
 
 #include "../includes/philo.h"
 
-static void	ft_eating(t_philo *philo)
+void	ft_eating(t_philo *philo)
 {
 	t_data	*data;
 
@@ -40,31 +40,12 @@ static void	*ft_patterns(void *args)
 {
 	t_philo	*philo;
 	t_data	*data;
-	int		end;
-	int		meal;
 
 	philo = (t_philo *)args;
 	data = philo->data;
-	pthread_mutex_lock(&data->reaper);
-	end = data->is_dead;
-	pthread_mutex_unlock(&data->reaper);
-	pthread_mutex_lock(&data->check_meal);
-	meal = data->all_eat;
-	pthread_mutex_unlock(&data->check_meal);
 	if (philo->id % 2)
 		usleep(15000);
-	while (!end && data->nb_philo != 1)
-	{
-		ft_eating(philo);
-		if (meal)
-			break ;
-		ft_actions_messages(data, philo->id, "is sleeping");
-		ft_sleep_smartly(data, data->time_to_sleep);
-		ft_actions_messages(data, philo->id, "is thinking");
-		pthread_mutex_lock(&data->reaper);
-		end = data->is_dead;
-		pthread_mutex_unlock(&data->reaper);
-	}
+	ft_patterns_utils(data, philo);
 	return (NULL);
 }
 
@@ -89,24 +70,9 @@ static void	ft_exit(t_data *data, t_philo *philo)
 
 static void	ft_check_if_is_dead(t_data *d, t_philo *p)
 {
-	int	i;
-
 	while (d->all_eat == 0)
 	{
-		i = -1;
-		while (++i < d->nb_philo && !d->is_dead)
-		{
-			pthread_mutex_lock(&d->check_meal);
-			if ((ft_get_time(d->start) - p[i].meal_time) > d->time_to_die)
-			{
-				ft_actions_messages(d, i, "died");
-				pthread_mutex_lock(&d->reaper);
-				d->is_dead = 1;
-				pthread_mutex_unlock(&d->reaper);
-			}
-			pthread_mutex_unlock(&d->check_meal);
-			usleep(100);
-		}
+		ft_check_death_utils(d, p);
 		pthread_mutex_lock(&d->reaper);
 		if (d->is_dead)
 		{

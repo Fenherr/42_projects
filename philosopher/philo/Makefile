@@ -25,6 +25,7 @@ SRCS		= srcs/main.c\
 			  srcs/parsing.c \
 			  srcs/patterns.c \
 			  srcs/utils_lib.c \
+			  srcs/patterns_utils.c \
 		  
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

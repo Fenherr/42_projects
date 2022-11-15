@@ -70,5 +70,8 @@ int			ft_arg_are_num(char **av);
 
 /*Patterns functions*/
 void		ft_begin(t_data *data);
+void		ft_eating(t_philo *philo);
+void		ft_patterns_utils(t_data *data, t_philo *philo);
+void		ft_check_death_utils(t_data *d, t_philo *p);
 
 #endif
