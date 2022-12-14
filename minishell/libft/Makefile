@@ -5,69 +5,108 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aderouba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/17 14:20:53 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/12/13 09:21:31 by aderouba         ###   ########.fr        #
+#    Created: 2022/09/26 12:24:51 by aderouba          #+#    #+#              #
+#    Updated: 2022/12/10 12:55:59 by aderouba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS = --no-print-directory
 
 #=================================COMPILATION==================================#
-CC			= clang
-FLAGS		= -Wall -Wextra -Werror -Iincludes -g3
+CC = clang
+CFLAGS = -g -Wall -Wextra -Werror
 
 #==================================EXECUTABLE==================================#
-NAME		= minishell
+NAME = libft.a
 
 #===================================INCLUDES===================================#
-LIBFT		= libft
+INCLUDE = -I .
 
 #=================================SOURCE FILES=================================#
-SRCS		= srcs/main.c \
-			  srcs/parsing/parsing.c \
-			  srcs/parsing/parsing_utils.c \
-			  srcs/parsing/command.c \
-			  srcs/parsing/command_utils.c \
-			  srcs/parsing/variable.c \
-			  srcs/parsing/variable_utils.c \
-			  srcs/parsing/variable_utils2.c \
-			  srcs/parsing/env.c \
-			  srcs/parsing/redirection.c \
-			  srcs/parsing/redirection_utils.c \
-			  srcs/parsing/redirection_utils2.c \
-			  srcs/parsing/here_doc.c \
-			  srcs/parsing/here_doc_utils.c \
-			  srcs/parsing/quote.c \
-			  srcs/signal/signal.c \
-			  srcs/execution/execution.c \
-			  srcs/execution/execution_utils.c \
-			  srcs/execution/execution_utils2.c \
-			  srcs/execution/builtins.c \
-			  srcs/execution/exit.c \
-			  srcs/execution/builtins_utils.c \
-			  srcs/execution/export.c \
-			  srcs/execution/export_utils.c \
-			  srcs/execution/echo.c \
-			  srcs/utils/init.c \
-			  srcs/utils/error.c \
-			  srcs/utils/error_utils.c \
-
+SRCS =	ft_atof.c \
+		ft_atoi_base.c \
+		ft_atoi.c \
+		ft_bzero.c \
+		ft_calloc.c \
+		ft_ftoa.c \
+		ft_isalnum.c \
+		ft_isalpha.c \
+		ft_isascii.c \
+		ft_isdigit.c \
+		ft_isprime.c \
+		ft_isprint.c \
+		ft_itoa_base.c \
+		ft_itoa.c \
+		ft_lstadd_back.c \
+		ft_lstadd_front.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstlast.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_lstr.c \
+		ft_lstsize.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_memcpy.c \
+		ft_memmove.c \
+		ft_memset.c \
+		ft_pow.c \
+		ft_putchar_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_base_fd.c \
+		ft_putnbr_fd.c \
+		ft_putstr_fd.c \
+		ft_putunbr_base_fd.c \
+		ft_putunbr_fd.c \
+		ft_split.c \
+		ft_sqrt.c \
+		ft_strcat.c \
+		ft_strchr.c \
+		ft_strcmp.c \
+		ft_strcpy.c \
+		ft_strdup.c \
+		ft_striteri.c \
+		ft_strjoin_free_1st_p.c \
+		ft_strjoin.c \
+		ft_strlcat.c \
+		ft_strlcpy.c \
+		ft_strlen.c \
+		ft_strmapi.c \
+		ft_strncmp.c \
+		ft_strnstr.c \
+		ft_strrchr.c \
+		ft_strstr.c \
+		ft_strsuperjoin_free_1st_p.c \
+		ft_strsuperjoin.c \
+		ft_strtrim.c \
+		ft_substr.c \
+		ft_supersplit.c \
+		ft_tolower.c \
+		ft_toupper.c \
+		gnl.c \
+		printf_fd.c \
+		printf.c
 
 #====================================OBJECTS===================================#
-OBJS		= $(SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
 #====================================COLORS====================================#
-NOC			= \e[0m
-BOLD		= \e[1m
-UNDERLINE	= \e[4m
-BLACK		= \e[1;30m
+NOC			= \033[0m
+BOLD		= \033[1m
+UNDERLINE	= \033[4m
+BLACK		= \033[1;30m
 RED			= \e[1m\e[38;5;196m
 GREEN		= \e[1m\e[38;5;76m
 YELLOW		= \e[1m\e[38;5;220m
 BLUE		= \e[1m\e[38;5;33m
-VIOLET		= \e[1;35m
-CYAN		= \e[1;36m
-WHITE		= \e[1;37m
+VIOLET		= \033[1;35m
+CYAN		= \033[1;36m
+WHITE		= \033[1;37m
+
+NORMAL		= \e[25
+BLINK		= \e[5m
 
 #==============================PROGRESS BAR UTILS==============================#
 PERCENT = 0
@@ -76,41 +115,28 @@ TOTAL_COMPIL = $(words $(OBJS))
 PROGRESS_BAR_DETAIL = 4
 
 #=====================================RULES====================================#
-all: $(NAME)
+all : $(NAME)
 
-.c.o:
-	$(if $(filter $(NB_COMPIL),0), @echo "$(BLUE)Compilation de minishell...$(NOC)")
+%.o : %.c
 	$(if $(filter $(NB_COMPIL),0), @echo "$(YELLOW)$(NB_COMPIL) 0%$(NOC)")
 	$(if $(filter $(NB_COMPIL),0), @make create_progressbar)
 	$(eval NB_COMPIL=$(shell echo $$(($(NB_COMPIL)+1))))
 	$(eval PERCENT=$(shell echo $$(($(NB_COMPIL) * 100 / $(TOTAL_COMPIL)))))
-	@$(CC) $(FLAGS) -c $< -o $@
 	@./.progressbar $(PERCENT)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDE)
 
-$(NAME): $(OBJS)
+$(NAME) : $(OBJS)
 	@./.progressbar 100
 	@rm .progressbar
-	@echo "$(BLUE)Compilation de la libft...$(NOC)"
-	@make -sC $(LIBFT)
-	@cp $(LIBFT)/libft.a ./libft.a
-	@echo "$(BLUE)Création de l'executable...$(NOC)"
-	@$(CC) -o $(NAME) $(OBJS) libft.a -lreadline
-	@echo "$(GREEN)Tout est prêt !$(NOC)"
+	@ar cr $@ $^
 
-clean:
-	@echo "$(RED)Suppression des objets$(NOC)"
-	@make -sC $(LIBFT) clean
+clean :
 	@rm -f $(OBJS)
 
-fclean:	clean
-	@echo "$(RED)Suppression des binaires$(NOC)"
-	@make -sC $(LIBFT) fclean
-	@rm -f $(NAME) libft.a
+fclean : clean
+	@rm -f $(NAME)
 
-re:
-	@clear
-	@make fclean
-	@make all
+re : fclean $(NAME)
 
 create_progressbar:
 	@echo '#include <stdio.h>' > .progressbar.c
