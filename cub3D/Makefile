@@ -5,101 +5,71 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/17 14:20:53 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/12/20 10:22:55 by ngrenoux         ###   ########.fr        #
+#    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
+#    Updated: 2022/12/27 13:07:23 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKEFLAGS = --no-print-directory
-
 #=================================COMPILATION==================================#
 CC			= clang
-FLAGS		= -Wall -Wextra -Werror -Iincludes -g3
+FLAGS		= -Wall -Wextra -Werror -Iincludes -Imlx_linux -g3
 
 #==================================EXECUTABLE==================================#
 NAME		= cub3D
 
 #===================================INCLUDES===================================#
-LIBFT		= libft
+LIBFT		= libs/libft
+MINILIBX	= libs/mlx_linux
 
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
-			  srcs/parsing/parsing.c \
-			  srcs/parsing/parsing_utils.c \
-			  srcs/parsing/command.c \
-			  srcs/parsing/command_utils.c \
-			  srcs/parsing/variable.c \
-			  srcs/parsing/variable_utils.c \
-			  srcs/parsing/variable_utils2.c \
-			  srcs/parsing/env.c \
-			  srcs/parsing/redirection.c \
-			  srcs/parsing/redirection_utils.c \
-			  srcs/parsing/redirection_utils2.c \
-			  srcs/parsing/here_doc.c \
-			  srcs/parsing/here_doc_utils.c \
-			  srcs/parsing/quote.c \
-			  srcs/signal/signal.c \
-			  srcs/execution/execution.c \
-			  srcs/execution/execution_utils.c \
-			  srcs/execution/execution_utils2.c \
-			  srcs/execution/builtins.c \
-			  srcs/execution/exit.c \
-			  srcs/execution/builtins_utils.c \
-			  srcs/execution/export.c \
-			  srcs/execution/export_utils.c \
-			  srcs/execution/echo.c \
 			  srcs/utils/init.c \
 			  srcs/utils/error.c \
-			  srcs/utils/error_utils.c \
-
+			  srcs/utils/free.c \
+			  srcs/utils/utils.c \
+			  srcs/parsing/parsing.c \
+			  srcs/parsing/parsing_utils.c \
+			  srcs/parsing/check_map.c \
+			  srcs/window/window.c \
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
 
 #====================================COLORS====================================#
-NOC			= \e[0m
-BOLD		= \e[1m
-UNDERLINE	= \e[4m
-BLACK		= \e[1;30m
-RED			= \e[1m\e[38;5;196m
-GREEN		= \e[1m\e[38;5;76m
-YELLOW		= \e[1m\e[38;5;220m
-BLUE		= \e[1m\e[38;5;33m
-VIOLET		= \e[1;35m
-CYAN		= \e[1;36m
-WHITE		= \e[1;37m
-
-#==============================PROGRESS BAR UTILS==============================#
-PERCENT = 0
-NB_COMPIL = 0
-TOTAL_COMPIL = $(words $(OBJS))
-PROGRESS_BAR_DETAIL = 4
+NOC			= \033[0m
+BOLD		= \033[1m
+UNDERLINE	= \033[4m
+BLACK		= \033[1;30m
+RED			= \033[1;31m
+GREEN		= \033[1;32m
+YELLOW		= \033[1;33m
+BLUE		= \033[1;34m
+VIOLET		= \033[1;35m
+CYAN		= \033[1;36m
+WHITE		= \033[1;37m
 
 #=====================================RULES====================================#
-all: $(NAME)
+all:	$(NAME)
 
 .c.o:
-	$(if $(filter $(NB_COMPIL),0), @echo "$(BLUE)Compilation de minishell...$(NOC)")
-	$(if $(filter $(NB_COMPIL),0), @echo "$(YELLOW)$(NB_COMPIL) 0%$(NOC)")
-	$(if $(filter $(NB_COMPIL),0), @make create_progressbar)
-	$(eval NB_COMPIL=$(shell echo $$(($(NB_COMPIL)+1))))
-	$(eval PERCENT=$(shell echo $$(($(NB_COMPIL) * 100 / $(TOTAL_COMPIL)))))
 	@$(CC) $(FLAGS) -c $< -o $@
-	@./.progressbar $(PERCENT)
 
-$(NAME): $(OBJS)
-	@./.progressbar 100
-	@rm .progressbar
-	@echo "$(BLUE)Compilation de la libft...$(NOC)"
+$(NAME):	$(OBJS)
+	@echo "$(BLUE)Compilation de la librairie...$(NOC)"
 	@make -sC $(LIBFT)
+	@echo "$(BLUE)Compilation de la minilibx...$(NOC)"
+	@make -sC $(MINILIBX)
+	@echo "$(BLUE)Copie de la librairie...$(NOC)"
 	@cp $(LIBFT)/libft.a ./libft.a
-	@echo "$(BLUE)Création de l'executable...$(NOC)"
-	@$(CC) -o $(NAME) $(OBJS) libft.a
-	@echo "$(GREEN)Tout est prêt !$(NOC)"
+	@echo "$(GREEN)Copie effectuée.$(NOC)"
+	@echo "$(BLUE)Création de l'executable$(NOC)"
+	@$(CC) $(OBJS) -Lmlx -lmlx -Llibs/mlx_linux -Imlx -lXext -lX11 -lm -lz -o $(NAME)  libft.a
+	@echo "$(GREEN)Exécutable créé.$(NOC)"
 
 clean:
 	@echo "$(RED)Suppression des objets$(NOC)"
 	@make -sC $(LIBFT) clean
+	@make -sC $(MINILIBX) clean
 	@rm -f $(OBJS)
 
 fclean:	clean
@@ -107,49 +77,6 @@ fclean:	clean
 	@make -sC $(LIBFT) fclean
 	@rm -f $(NAME) libft.a
 
-re:
-	@clear
-	@make fclean
-	@make all
+re:	fclean all
 
-create_progressbar:
-	@echo '#include <stdio.h>' > .progressbar.c
-	@echo '#include <stdlib.h>\n' >> .progressbar.c
-	@echo 'void	print_color(int color)' >> .progressbar.c
-	@echo '{' >> .progressbar.c
-	@echo '	if (color == -1)' >> .progressbar.c
-	@echo '		printf("\\e[0m ");' >> .progressbar.c
-	@echo '	else if (color == 0)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;154m ");' >> .progressbar.c
-	@echo '	else if (color == 1 || color == 9)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;155m ");' >> .progressbar.c
-	@echo '	else if (color == 2 || color == 8)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;156m ");' >> .progressbar.c
-	@echo '	else if (color == 3 || color == 7)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;157m ");' >> .progressbar.c
-	@echo '	else if (color == 4 || color == 6)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;158m ");' >> .progressbar.c
-	@echo '	else if (color == 5)' >> .progressbar.c
-	@echo '		printf("\\e[48;5;159m ");' >> .progressbar.c
-	@echo '}\n' >> .progressbar.c
-	@echo 'int	main(int ac, char **av)' >> .progressbar.c
-	@echo '{' >> .progressbar.c
-	@echo '	int	nb = atoi(av[1]);\n' >> .progressbar.c
-	@echo '	printf("\\e[1A\\e[K");' >> .progressbar.c
-	@echo '	for (int i = 0; i <= 100; i += $(PROGRESS_BAR_DETAIL))' >> .progressbar.c
-	@echo '	{' >> .progressbar.c
-	@echo '		if (i > nb)' >> .progressbar.c
-	@echo '			printf("\\e[48;5;196m ");' >> .progressbar.c
-	@echo '		else' >> .progressbar.c
-	@echo '			print_color((nb - (i / $(PROGRESS_BAR_DETAIL))) % 10);' >> .progressbar.c
-	@echo '	}' >> .progressbar.c
-	@echo '	print_color(-1);' >> .progressbar.c
-	@echo '	if (nb == 100)' >> .progressbar.c
-	@echo '		printf("\e[1m\e[38;5;76m100%%\\e[0m\\n");' >> .progressbar.c
-	@echo '	else' >> .progressbar.c
-	@echo '		printf("\e[1m\e[38;5;220m%i%%\\e[0m\\n", nb);' >> .progressbar.c
-	@echo '}' >> .progressbar.c
-	@gcc .progressbar.c -o .progressbar
-	@rm .progressbar.c
-
-.PHONY: all clean fclean re create_progressbar
+.PHONY: all clean fclean re
