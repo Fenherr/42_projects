@@ -34,6 +34,7 @@ void	ft_clear_data(t_data *data)
 	data->nb_player = 0;
 	data->screen_height = 994;
 	data->screen_width = 1920;
+	data->fov = 2;
 	data->error.nb_player = 0;
 	data->error.dup_north = 0;
 	data->error.dup_south = 0;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
+#    By: hde-min <hde-min@student.42angouleme.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/12/27 13:07:23 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/01/04 09:55:56 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/parsing.c \
 			  srcs/parsing/parsing_utils.c \
 			  srcs/parsing/check_map.c \
-			  srcs/window/window.c \
+			  srcs/parsing/check_map_utils.c \
+			  
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

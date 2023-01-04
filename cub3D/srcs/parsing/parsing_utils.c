@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:43:00 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/12/27 14:58:43 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/03 16:24:39 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,3 @@ void	ft_check_caracters_map(t_data *data)
 	}
 	close (fd);
 }
-

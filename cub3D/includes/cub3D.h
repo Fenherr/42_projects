@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/12/27 13:08:02 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:57:56 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ typedef struct s_data
 	char		*map_path;
 	char		**map;
 	int			map_height;
-	int			screen_height;
-	int			screen_width;
 	int			nb_player;
 	t_wall		wall;
 	t_colors	colors;
@@ -98,11 +96,11 @@ void	ft_parsing(t_data *data);
 /*-------------------------parsing_utils.c----------------------*/
 void	ft_parse_data(t_data *data);
 void	ft_check_caracters_map(t_data *data);
-
 /*--------------------------check_map.c------------------------*/
 void	ft_check_map(t_data *data);
 
-/*----------------------------window.c-------------------------*/
-void	ft_start_window(t_data *data);
+/*-----------------------check_map_utils.c---------------------*/
+int		ft_check_diagonal(t_data *data, int i, int j);
+int		ft_if_high_len(t_data *data, int i, int j);
 
 #endif

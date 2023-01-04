@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:04:19 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/12/27 13:37:27 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:18:41 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void	ft_map_parsing(t_data *data)
 		free(line);
 		line = simpler_gnl(fd);
 	}
+	data->map[i + 1] = NULL;
 	close (fd);
 }
 
