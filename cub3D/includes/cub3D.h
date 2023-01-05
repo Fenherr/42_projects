@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/04 14:57:56 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/05 13:24:52 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 
 # include "../libs/libft/libft.h"
 # include "../libs/mlx_linux/mlx.h"
+
+/*==============================================================*/
+/*                              MACROS                          */
+/*==============================================================*/
+# define WIN_HEIGHT 800
+# define WIN_WIDTH 1600
 
 /*==============================================================*/
 /*                            STRUCTURES                        */
@@ -85,6 +91,7 @@ void	ft_error_msg(char *str, char *free_str, char **free_arr);
 /*------------------------------free.c--------------------------*/
 void	ft_free_all(t_data *data);
 void	ft_free_array(char **arr);
+void	ft_free(t_data *data);
 
 /*-----------------------------utils.c--------------------------*/
 void	ft_check_data(t_data *data);
@@ -96,6 +103,7 @@ void	ft_parsing(t_data *data);
 /*-------------------------parsing_utils.c----------------------*/
 void	ft_parse_data(t_data *data);
 void	ft_check_caracters_map(t_data *data);
+
 /*--------------------------check_map.c------------------------*/
 void	ft_check_map(t_data *data);
 

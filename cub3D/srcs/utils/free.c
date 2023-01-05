@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:31:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/05 10:25:35 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/05 10:46:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,13 @@ void	ft_free_all(t_data *data)
 	free(data->colors.floor);
 	free(data->colors.ceiling);
 	ft_free_array(data->map);
+}
+
+void	ft_free(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	ft_free_all(data);
+	exit (0);
 }
