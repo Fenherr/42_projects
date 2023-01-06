@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/05 13:24:52 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/06 11:20:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,15 @@ typedef struct s_error
 	int			nb_player;
 }	t_error;
 
+typedef struct s_minimap
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}	t_minimap;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -75,6 +84,7 @@ typedef struct s_data
 	int			nb_player;
 	t_wall		wall;
 	t_colors	colors;
+	t_minimap	minimap;
 	t_error		error;
 }	t_data;
 
