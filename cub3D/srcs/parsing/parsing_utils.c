@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:43:00 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/03 16:24:39 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:42:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,35 @@ void	ft_check_caracters_map(t_data *data)
 		line = simpler_gnl(fd);
 	}
 	close (fd);
+}
+
+static int	ft_check_texture_data_utils(char *texture)
+{
+	int		fd;
+	char	*tmp;
+
+	tmp = malloc(sizeof(char *) * (ft_strlen(texture) - 1));
+	ft_strlcpy(tmp, texture, ft_strlen(texture));
+	fd = open(tmp, O_RDONLY);
+	if (fd == -1)
+	{
+		close (fd);
+		free(tmp);
+		return (1);
+	}
+	close (fd);
+	free(tmp);
+	return (0);
+}
+
+void	ft_check_texture_data(t_data *data)
+{
+	if (ft_check_texture_data_utils(data->wall.north_path))
+		ft_error_msg("The northern texture does not exist", NULL, NULL);
+	else if (ft_check_texture_data_utils(data->wall.south_path))
+		ft_error_msg("The southern texture does not exist", NULL, NULL);
+	else if (ft_check_texture_data_utils(data->wall.west_path))
+		ft_error_msg("The western texture does not exist", NULL, NULL);
+	else if (ft_check_texture_data_utils(data->wall.east_path))
+		ft_error_msg("The eastern texture does not exist", NULL, NULL);
 }

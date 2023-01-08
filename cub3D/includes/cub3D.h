@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/06 11:20:20 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:25:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	ft_parsing(t_data *data);
 /*-------------------------parsing_utils.c----------------------*/
 void	ft_parse_data(t_data *data);
 void	ft_check_caracters_map(t_data *data);
+void	ft_check_texture_data(t_data *data);
 
 /*--------------------------check_map.c------------------------*/
 void	ft_check_map(t_data *data);
