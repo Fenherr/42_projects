@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/10 14:37:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:25:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ typedef struct s_wall
 	t_image		south;
 	t_image		west;
 	t_image		east;
+	int		*e;
+	int		*s;
+	int		*n;
+	int		*w;
 }	t_wall;
 
 typedef struct s_colors
@@ -87,12 +91,22 @@ typedef struct s_error
 	int			nb_player;
 }	t_error;
 
+typedef struct s_texture
+{
+	int			height;
+	double		x;
+	double		y;
+	double		angle;
+}	t_texture;
+
+
 typedef struct s_data
 {
 	void		*mlx;
 	void		*win;
 	char		*map_path;
 	char		**map;
+	char		**dup_map;
 	int			map_height;
 	double		x_p;
 	double		y_p;
@@ -100,8 +114,12 @@ typedef struct s_data
 	int			*minimap;
 	int			*screen;
 	int			square;
+	int			moove;
+	int			moose;
+	int			x_moose;
+	int			cpt_moove;
 	t_wall		wall;
-	t_image		image[6];
+	t_image		image[2];
 	t_colors	colors;
 	t_error		error;
 }	t_data;
@@ -120,12 +138,16 @@ void	ft_error_msg(char *str, char *free_str, char **free_arr);
 void	ft_free_all(t_data *data);
 void	ft_free_array(char **arr);
 
+/*------------------- ---------textures.c-------------------------*/
+void	ft_set_texture(t_data *data);
+
 /*-----------------------------utils.c--------------------------*/
 void	ft_check_data(t_data *data);
 void	ft_check_caracters_utils(t_data *data, char *line);
 
 /*----------------------------parsing.c-------------------------*/
 void	ft_parsing(t_data *data);
+char	*ft_dup_path(char *str);
 
 /*-------------------------parsing_utils.c----------------------*/
 void	ft_parse_data(t_data *data);
@@ -196,5 +218,14 @@ void	ft_minimap(t_data *data);
 
 /*------------------- ---------colors.c-------------------------*/
 void	ft_colors(t_data *data);
+
+/*------------------- ---------texture.c-------------------------*/
+int		ft_texture(t_data *data, int j, t_texture *t);
+
+/*--------------------------duplicate_map.c----------------------*/
+void	ft_texture_map(t_data *data);
+
+/*-----------------------------corner.c--------------------------*/
+void	ft_check_corner(t_data *data);
 
 #endif

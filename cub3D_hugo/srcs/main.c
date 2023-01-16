@@ -21,7 +21,6 @@ int	main(int ac, char **av)
 		ft_init(&data, av[1]);
 		ft_parsing(&data);
 		ft_init_player(&data);
-		printf("x = %f\ny = %f\nview = %f\n", data.x_p, data.y_p, data.view);
 		ft_start_window(&data);
 	}
 	return (0);

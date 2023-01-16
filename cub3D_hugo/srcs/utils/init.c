@@ -27,6 +27,14 @@ static void	check_map_extension(char *map_name)
 		ft_error_msg("A name is required", NULL, NULL);
 }
 
+void	ft_clear_data_2(t_data *data)
+{
+	data->moove = 1;
+	data->moose = 0;
+	data->x_moose = 0;
+	data->cpt_moove = 0;
+}
+
 void	ft_clear_data(t_data *data)
 {
 	data->map = NULL;
@@ -46,6 +54,7 @@ void	ft_clear_data(t_data *data)
 	data->wall.east_path = NULL;
 	data->wall.north_path = NULL;
 	data->wall.south_path = NULL;
+	ft_clear_data_2(data);
 }
 
 void	ft_init(t_data *data, char *map_name)

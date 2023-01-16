@@ -12,18 +12,22 @@
 
 #include "../../includes/cub3D.h"
 
-void	ft_fill_image(t_data *data, int height)
+void	ft_fill_image(t_data *data, t_texture *texture)
 {
 	long int	j;
 	long int	i;
 
 	j = 0;
-	while (j < height)
+	if (texture->height >= WIN_HEIGHT)
+		texture->height = WIN_HEIGHT - 2;
+	while (j <= texture->height)
 	{
-		i = (((j + ((WIN_HEIGHT / 2)
-							- (height / 2))) * WIN_WIDTH) + (data->square));
+		i = ((((j + ((WIN_HEIGHT / 2) - (texture->height / 2))))
+					* WIN_WIDTH) + (data->square));
+		if (i >= WIN_HEIGHT * WIN_WIDTH)
+			i = (WIN_HEIGHT * WIN_WIDTH) - 2;
 		if (i < (WIN_HEIGHT * WIN_WIDTH) && i > 0)
-			data->screen[i] = 0xFFFF00;
+			data->screen[i] = ft_texture(data, j, texture);
 		j++;
 	}
 	data->square++;
@@ -34,14 +38,17 @@ double	ft_distance_to_player(t_data *data, double x, double y)
 	double	distance;
 
 	distance = sqrt(pow((data->x_p - x), 2) + pow((data->y_p - y), 2));
+	if (distance > 994)
+		distance = 993;
 	return (distance);
 }
 
 void	ft_put_wall(t_data *data, double x, double y, double angle)
 {
-	float	distance;
-	float	height;
-	float	diffangle;
+	float		distance;
+	float		height;
+	float		diffangle;
+	t_texture	texture;
 
 	distance = ft_distance_to_player(data, x, y);
 	diffangle = ft_clock(angle) - ft_clock(data->view);
@@ -50,7 +57,11 @@ void	ft_put_wall(t_data *data, double x, double y, double angle)
 	diffangle = ft_radiant(diffangle);
 	distance = distance * cos(diffangle);
 	height = (600 / distance);
-	ft_fill_image(data, ft_better_round(height));
+	texture.height = ft_better_round(height);
+	texture.x = x;
+	texture.y = y;
+	texture.angle = angle;
+	ft_fill_image(data, &texture);
 }
 
 void	ft_raycast(t_data *data, double angle)

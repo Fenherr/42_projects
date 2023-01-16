@@ -6,11 +6,27 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:04:19 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/09 09:04:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:21:03 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+char	*ft_dup_path(char *str)
+{
+	int		i;
+	char	*copy;
+
+	i = 0;
+	copy = malloc(sizeof(char) * ft_strlen(str));
+	while (str[i] != '\n')
+	{
+		copy[i] = str[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
+}
 
 static void	ft_map_len(t_data *data)
 {
@@ -70,4 +86,5 @@ void	ft_parsing(t_data *data)
 		ft_error_msg("We need one and ONLY one player please !", NULL, NULL);
 	ft_map_parsing(data);
 	ft_check_map(data);
+	ft_texture_map(data);
 }

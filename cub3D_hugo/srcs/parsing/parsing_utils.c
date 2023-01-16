@@ -15,13 +15,13 @@
 static void	ft_texture_data(t_data *data, char *line, char **tmp)
 {
 	if (!ft_strncmp(line, "NO", 2))
-		data->wall.north_path = ft_strdup(tmp[1]);
+		data->wall.north_path = ft_dup_path(tmp[1]);
 	else if (!ft_strncmp(line, "SO", 2))
-		data->wall.south_path = ft_strdup(tmp[1]);
+		data->wall.south_path = ft_dup_path(tmp[1]);
 	else if (!ft_strncmp(line, "WE", 2))
-		data->wall.west_path = ft_strdup(tmp[1]);
+		data->wall.west_path = ft_dup_path(tmp[1]);
 	else if (!ft_strncmp(line, "EA", 2))
-		data->wall.east_path = ft_strdup(tmp[1]);
+		data->wall.east_path = ft_dup_path(tmp[1]);
 	else if (!ft_strncmp(line, "F", 1))
 		data->colors.floor_data = ft_strdup(tmp[1]);
 	else if (!ft_strncmp(line, "C", 1))
@@ -76,8 +76,8 @@ static int	ft_check_texture_data_utils(char *texture)
 	int		fd;
 	char	*tmp;
 
-	tmp = malloc(sizeof(char *) * (ft_strlen(texture) - 1));
-	ft_strlcpy(tmp, texture, ft_strlen(texture));
+	tmp = malloc(sizeof(char *) * (ft_strlen(texture)));
+	ft_strcpy(tmp, texture);
 	fd = open(tmp, O_RDONLY);
 	if (fd == -1)
 	{

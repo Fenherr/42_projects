@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/01/06 13:32:05 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/01/13 10:40:02 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ MINILIBX	= libs/mlx_linux
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
 			  srcs/utils/init.c \
+			  srcs/utils/textures.c \
 			  srcs/utils/error.c \
 			  srcs/utils/free.c \
 			  srcs/utils/utils.c \
@@ -32,6 +33,8 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/parsing_utils.c \
 			  srcs/parsing/check_map.c \
 			  srcs/parsing/check_map_utils.c \
+			  srcs/parsing/duplicate_map.c \
+			  srcs/parsing/corner.c \
 			  srcs/window/window.c \
 			  srcs/window/free_window.c \
 			  srcs/window/init_player.c \
@@ -45,6 +48,7 @@ SRCS		= srcs/main.c \
 			  srcs/display/display.c \
 			  srcs/display/raycast.c \
 			  srcs/display/start_image.c \
+			  srcs/display/texture.c \
 			  srcs/minimap/minimap.c \
 
 #====================================OBJECTS===================================#

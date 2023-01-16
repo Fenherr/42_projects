@@ -12,11 +12,9 @@
 
 #include "../../includes/cub3D.h"
 
-int	key_hook(int keycode, t_data *data)
+void	key_hook_2(int keycode, t_data *data)
 {
-	if (keycode == XK_Escape)
-		ft_free(data);
-	else if (keycode == XK_w || keycode == XK_Up)
+	if (keycode == XK_w || keycode == XK_Up)
 		ft_moove(data, 8);
 	else if (keycode == XK_a)
 		ft_moove(data, 4);
@@ -32,6 +30,20 @@ int	key_hook(int keycode, t_data *data)
 		ft_look_left_2(data);
 	else if (keycode == XK_e)
 		ft_look_right_2(data);
+}
+
+int	key_hook(int keycode, t_data *data)
+{
+	if (keycode == XK_Escape)
+		ft_free(data);
+	if (data->cpt_moove > 0)
+		data->cpt_moove = 0;
+	else
+	{
+		data->cpt_moove++;
+		return (-1);
+	}
+	key_hook_2(keycode, data);
 	ft_to_see(data);
 	ft_minimap(data);
 	return (0);

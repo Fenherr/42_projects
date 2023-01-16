@@ -13,34 +13,34 @@
 
 void	ft_look_right(t_data *data)
 {
+	data->moove = 1;
 	if (data->view + 0.200000000000 > 12)
 		data->view = 0;
 	else
 		data->view = data->view + 0.2;
-	printf("view = %f\n", data->view);
 }
 
 void	ft_look_left(t_data *data)
 {
+	data->moove = 1;
 	if (data->view - 0.200000000000 < 0)
 		data->view = 12 - 0.2;
 	else
 		data->view = data->view - 0.2;
-	printf("view = %f\n", data->view);
 }
 
 void	ft_look_right_2(t_data *data)
 {
+	data->moove = 1;
 	if (data->view >= 12)
 		data->view = 0;
 	data->view = data->view + 3;
-	printf("view = %f\n", data->view);
 }
 
 void	ft_look_left_2(t_data *data)
 {
+	data->moove = 1;
 	if (data->view <= 0)
 		data->view = 12;
 	data->view = data->view - 3;
-	printf("view = %f\n", data->view);
 }

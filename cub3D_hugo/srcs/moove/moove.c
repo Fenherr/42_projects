@@ -31,6 +31,7 @@ void	ft_moove(t_data *data, int i)
 {
 	t_wall_moove	wall;
 
+	data->moove = 0;
 	wall.x = ft_lmoove_x(data->view);
 	wall.y = ft_lmoove_y(data->view);
 	if (i == 8)
