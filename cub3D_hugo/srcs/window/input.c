@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:51:27 by hde-min           #+#    #+#             */
-/*   Updated: 2022/12/27 10:51:27 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/16 17:03:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	key_hook_2(int keycode, t_data *data)
 {
 	if (keycode == XK_w || keycode == XK_Up)
-		ft_moove(data, 8);
+		ft_move(data, 8);
 	else if (keycode == XK_a)
-		ft_moove(data, 4);
+		ft_move(data, 4);
 	else if (keycode == XK_s || keycode == XK_Down)
-		ft_moove(data, 2);
+		ft_move(data, 2);
 	else if (keycode == XK_d)
-		ft_moove(data, 6);
+		ft_move(data, 6);
 	else if (keycode == XK_Right)
 		ft_look_right(data);
 	else if (keycode == XK_Left)
@@ -36,16 +36,9 @@ int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
 		ft_free(data);
-	if (data->cpt_moove > 0)
-		data->cpt_moove = 0;
-	else
-	{
-		data->cpt_moove++;
-		return (-1);
-	}
 	key_hook_2(keycode, data);
 	ft_to_see(data);
-	ft_minimap(data);
+//	ft_minimap(data);
 	return (0);
 }
 

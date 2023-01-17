@@ -26,6 +26,20 @@ int	*ft_create_image(t_data *data)
 	return (colorized);
 }
 
+int	*ft_create_image_2(t_data *data)
+{
+	int	pixel_bits;
+	int	line_bytes;
+	int	endian;
+	int	*colorized;
+
+	data->image[2].img = mlx_new_image(data->mlx,
+			WIN_WIDTH, WIN_HEIGHT);
+	colorized = (int *)mlx_get_data_addr(data->image[2].img,
+			&pixel_bits, &line_bytes, &endian);
+	return (colorized);
+}
+
 int	*ft_create_minimap(t_data *data)
 {
 	int	pixel_bits;

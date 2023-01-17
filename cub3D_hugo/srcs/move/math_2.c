@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:34:44 by hde-min           #+#    #+#             */
-/*   Updated: 2023/01/03 13:34:44 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/17 12:31:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_better_round(double to_round)
 	return (r);
 }
 
-double	ft_lmoove_x(double angle)
+double	ft_lmove_x(double angle)
 {
 	double	x;
 
@@ -34,7 +34,7 @@ double	ft_lmoove_x(double angle)
 	return (x);
 }
 
-double	ft_lmoove_y(double angle)
+double	ft_lmove_y(double angle)
 {
 	double	y;
 

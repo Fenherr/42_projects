@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:47:03 by hde-min           #+#    #+#             */
-/*   Updated: 2023/01/02 09:47:05 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/17 14:12:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_fill_image(t_data *data, t_texture *texture)
 
 	j = 0;
 	if (texture->height >= WIN_HEIGHT)
-		texture->height = WIN_HEIGHT - 2;
+		texture->height = WIN_HEIGHT;
 	while (j <= texture->height)
 	{
 		i = ((((j + ((WIN_HEIGHT / 2) - (texture->height / 2))))
@@ -38,8 +38,6 @@ double	ft_distance_to_player(t_data *data, double x, double y)
 	double	distance;
 
 	distance = sqrt(pow((data->x_p - x), 2) + pow((data->y_p - y), 2));
-	if (distance > 994)
-		distance = 993;
 	return (distance);
 }
 
@@ -56,7 +54,7 @@ void	ft_put_wall(t_data *data, double x, double y, double angle)
 		diffangle -= 360;
 	diffangle = ft_radiant(diffangle);
 	distance = distance * cos(diffangle);
-	height = (600 / distance);
+	height = (500 / distance);
 	texture.height = ft_better_round(height);
 	texture.x = x;
 	texture.y = y;
@@ -71,8 +69,8 @@ void	ft_raycast(t_data *data, double angle)
 	double	x;
 	double	y;
 
-	i = ft_lmoove_x(angle) / 10;
-	j = ft_lmoove_y(angle) / 10;
+	i = ft_lmove_x(angle) / 50;
+	j = ft_lmove_y(angle) / 50;
 	x = data->x_p;
 	y = data->y_p;
 	while (data->map[ft_round(y)][ft_round(x)] != '1')

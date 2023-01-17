@@ -16,6 +16,7 @@ void	ft_free_image(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->image[0].img);
 	mlx_destroy_image(data->mlx, data->image[1].img);
+	mlx_destroy_image(data->mlx, data->image[2].img);
 	mlx_destroy_image(data->mlx, data->wall.north.img);
 	mlx_destroy_image(data->mlx, data->wall.south.img);
 	mlx_destroy_image(data->mlx, data->wall.east.img);

@@ -30,16 +30,17 @@ void	ft_get_texture(t_data *data)
 
 void	ft_set_texture(t_data *data)
 {
-	int	i;
-	int	j;
-
 	data->wall.north.img = mlx_xpm_file_to_image(data->mlx,
-			data->wall.north_path, &i, &j);
+			data->wall.north_path, &data->wall.north.width,
+			&data->wall.north.height);
 	data->wall.south.img = mlx_xpm_file_to_image(data->mlx,
-			data->wall.south_path, &i, &j);
+			data->wall.south_path, &data->wall.south.width,
+			&data->wall.south.height);
 	data->wall.west.img = mlx_xpm_file_to_image(data->mlx,
-			data->wall.west_path, &i, &j);
+			data->wall.west_path, &data->wall.west.width,
+			&data->wall.west.height);
 	data->wall.east.img = mlx_xpm_file_to_image(data->mlx,
-			data->wall.east_path, &i, &j);
+			data->wall.east_path, &data->wall.east.width,
+			&data->wall.east.height);
 	ft_get_texture(data);
 }

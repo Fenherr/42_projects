@@ -29,10 +29,8 @@ static void	check_map_extension(char *map_name)
 
 void	ft_clear_data_2(t_data *data)
 {
-	data->moove = 1;
 	data->moose = 0;
 	data->x_moose = 0;
-	data->cpt_moove = 0;
 }
 
 void	ft_clear_data(t_data *data)

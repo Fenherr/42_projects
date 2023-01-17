@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:12:12 by hde-min           #+#    #+#             */
-/*   Updated: 2022/12/26 11:16:29 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/17 14:14:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ void	ft_start_window(t_data *data)
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH,
 			WIN_HEIGHT, "Cube 3D");
+	data->floor_and_celling = ft_create_image_2(data);
+	ft_put_pixel(data, data->floor_and_celling);
 	data->screen = ft_create_image(data);
 	data->minimap = ft_create_minimap(data);
 	ft_set_texture(data);
 	ft_to_see(data);
-	ft_minimap(data);
-	mlx_hook(data->win, 6, 1L << 6, ft_mouse_moove, data);
+//	ft_minimap(data);
+//	mlx_hook(data->win, 6, 1L << 6, ft_mouse_moove, data);
 //	mlx_loop_hook(data->mlx, ft_mouse_look, data);
+//	mlx_key_hook(data->win, key_hook, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, key_hook, data);
-	mlx_hook(data->win, 17, 1L >> 2, ft_mouse_hook, data);
 	mlx_loop(data->mlx);
 }

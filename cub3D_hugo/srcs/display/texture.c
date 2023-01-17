@@ -12,97 +12,42 @@
 
 #include "../../includes/cub3D.h"
 
-long int	ft_pixel(double i, int j, int height)
-{
-	long int	tmp;
-	double		onheight;
-
-	onheight = 31.0 / height;
-	tmp = i;
-	i -= tmp;
-	tmp = j * onheight;
-	tmp = (tmp * 32);
-	tmp = tmp + (i * 32);
-	return (tmp);
-}
-
-int	ft_dir(double angle)
-{
-	if (angle < 3)
-		return (9);
-	else if (angle >= 3 && angle < 6)
-		return (3);
-	else if (angle >= 6 && angle < 9)
-		return (1);
-	else if (angle >= 9)
-		return (7);
-	return (9);
-}
-
-int	ft_special_wall(t_data *data, long int tmp, long int tmp2, t_texture *t)
+int	ft_texture_2(t_data *data, t_texture *t, t_add *add)
 {
 	int	color;
-	int	dir;
-	int	xtemp;
-	double	xt;
 
 	color = 0;
-	xtemp = t->x;
-	xt = t->x;
-	xt -= xtemp;
-	dir = ft_dir(t->angle);
-	if (dir == 9)
-	{
-		if (xt > 0.01)
-			return ((data->wall.n[tmp2]));
-		else
-			return ((data->wall.e[tmp]));
-	}
-	else if (dir == 3)
-	{
-		if (xt > 0.01)
-			return ((data->wall.s[tmp2]));
-		else
-			return ((data->wall.e[tmp]));
-	}
-	else if (dir == 1)
-	{
-		if (xt < 0.99)
-			return ((data->wall.s[tmp2]));
-		else
-			return ((data->wall.w[tmp]));
-	}
-	else if (dir == 7)
-	{
-		if (xt > 0.99)
-			return ((data->wall.w[tmp]));
-		else
-			return ((data->wall.n[tmp2]));
-	}
+	if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '8')
+		color = ft_double_wall1(data, add, t);
+	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '9')
+		color = ft_double_wall2(data, add, t);
+	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '5')
+		color = ft_special_wall(data, add, t);
+	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '7')
+		color = ft_4_wall(data, add, t);
+	else
+		color = ft_3_wall(data, add, t);
 	return (color);
 }
 
 int	ft_texture(t_data *data, int j, t_texture *t)
 {
+	t_add		add;
 	int			color;
-	long int	tmp;
-	long int	tmp2;
-	double		onheight;
 
-	onheight = 31.0 / t->height;
-	tmp = ft_pixel(t->y, j, t->height);
-	tmp2 = ft_pixel(t->x, j, t->height);
-	if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '1')
-		return (data->wall.n[tmp2]);
-	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '2')
-		return (data->wall.s[tmp2]);
+	add.a_west = ft_pixel_w(t, j, data);
+	add.a_north = ft_pixel_n(t, j, data);
+	add.a_east = ft_pixel_e(t, j, data);
+	add.a_south = ft_pixel_s(t, j, data);
+	if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '2')
+		return (data->wall.s[add.a_south]);
 	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '3')
-		return (data->wall.w[tmp]);
+		return (data->wall.w[add.a_west]);
 	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '4')
-		return (data->wall.e[tmp]);
+		return (data->wall.e[add.a_east]);
+	else if (data->dup_map[ft_round(t->y)][ft_round(t->x)] == '1')
+		return (data->wall.n[add.a_north]);
 	else
-	{
-		color = ft_special_wall(data, tmp, tmp2, t);
-		return (color);
-	}
+		color = ft_texture_2(data, t, &add);
+	return (color);
 }

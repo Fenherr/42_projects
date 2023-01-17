@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:04:19 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/13 10:21:03 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:44:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void	ft_parsing(t_data *data)
 	ft_map_parsing(data);
 	ft_check_map(data);
 	ft_texture_map(data);
+	ft_check_spec_wall(data);
 }

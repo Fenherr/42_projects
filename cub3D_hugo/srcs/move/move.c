@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moove.c                                            :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:30:42 by hde-min           #+#    #+#             */
-/*   Updated: 2022/12/27 12:30:43 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/17 14:12:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
-void	ft_moove_2(t_data *data, int i, t_wall_moove *wall)
+void	ft_move_2(t_data *data, int i, t_wall_move *wall)
 {
 	if (i == 2)
 	{
@@ -27,13 +28,12 @@ void	ft_moove_2(t_data *data, int i, t_wall_moove *wall)
 	data->y_p = ft_wall_y(wall, data, i);
 }
 
-void	ft_moove(t_data *data, int i)
+void	ft_move(t_data *data, int i)
 {
-	t_wall_moove	wall;
+	t_wall_move	wall;
 
-	data->moove = 0;
-	wall.x = ft_lmoove_x(data->view);
-	wall.y = ft_lmoove_y(data->view);
+	wall.x = ft_lmove_x(data->view);
+	wall.y = ft_lmove_y(data->view);
 	if (i == 8)
 	{
 		wall.xtemp = data->x_p + wall.x;
@@ -44,5 +44,5 @@ void	ft_moove(t_data *data, int i)
 		wall.xtemp = data->x_p - wall.y;
 		wall.ytemp = data->y_p + wall.x;
 	}
-	ft_moove_2(data, i, &wall);
+	ft_move_2(data, i, &wall);
 }

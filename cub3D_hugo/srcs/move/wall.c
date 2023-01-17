@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-min <hde-min@student.42angouleme.      +#+  +:+       +#+        */
+/*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:13:34 by hde-min           #+#    #+#             */
-/*   Updated: 2023/01/02 14:13:34 by hde-min          ###   ########.fr       */
+/*   Updated: 2023/01/16 17:06:39 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/cub3D.h"
 
-int	ft_better_wall_x(t_data *data, t_wall_moove *wall)
+int	ft_better_wall_x(t_data *data, t_wall_move *wall)
 {
 	int	wallround;
 
@@ -22,7 +23,7 @@ int	ft_better_wall_x(t_data *data, t_wall_moove *wall)
 	return (wallround);
 }
 
-int	ft_better_wall_y(t_data *data, t_wall_moove *wall)
+int	ft_better_wall_y(t_data *data, t_wall_move *wall)
 {
 	int	wallround;
 
@@ -33,9 +34,12 @@ int	ft_better_wall_y(t_data *data, t_wall_moove *wall)
 	return (wallround);
 }
 
-double	ft_wall_x(t_wall_moove *wall, t_data *data, int i)
+double	ft_wall_x(t_wall_move *wall, t_data *data, int i)
 {
-	if (data->map[ft_round(data->y_p)][ft_better_wall_x(data, wall)] == '1')
+	if (data->map[ft_round(data->y_p - 0.3)]
+		[ft_better_wall_x(data, wall)] == '1'
+		|| data->map[ft_round(data->y_p + 0.3)]
+		[ft_better_wall_x(data, wall)] == '1')
 	{
 		if (i == 8)
 			wall->xtemp = wall->xtemp - wall->x;
@@ -47,13 +51,15 @@ double	ft_wall_x(t_wall_moove *wall, t_data *data, int i)
 			wall->xtemp = wall->xtemp - wall->y;
 		return (wall->xtemp);
 	}
-	data->moove = 1;
 	return (wall->xtemp);
 }
 
-double	ft_wall_y(t_wall_moove *wall, t_data *data, int i)
+double	ft_wall_y(t_wall_move *wall, t_data *data, int i)
 {
-	if (data->map[ft_better_wall_y(data, wall)][ft_round(data->x_p)] == '1')
+	if (data->map[ft_better_wall_y(data, wall)]
+		[ft_round(data->x_p - 0.3)] == '1'
+		|| data->map[ft_better_wall_y(data, wall)]
+		[ft_round(data->x_p + 0.3)] == '1')
 	{
 		if (i == 8)
 			wall->ytemp = wall->ytemp - wall->y;
@@ -65,6 +71,5 @@ double	ft_wall_y(t_wall_moove *wall, t_data *data, int i)
 			wall->ytemp = wall->ytemp + wall->x;
 		return (wall->ytemp);
 	}
-	data->moove = 1;
 	return (wall->ytemp);
 }

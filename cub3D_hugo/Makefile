@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/01/13 10:40:02 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/01/17 09:34:33 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,20 +35,27 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/check_map_utils.c \
 			  srcs/parsing/duplicate_map.c \
 			  srcs/parsing/corner.c \
+			  srcs/parsing/check_spec_wall.c \
 			  srcs/window/window.c \
 			  srcs/window/free_window.c \
 			  srcs/window/init_player.c \
 			  srcs/window/input.c \
 			  srcs/window/put_image.c \
-			  srcs/moove/moove.c \
-			  srcs/moove/look.c \
-			  srcs/moove/math.c \
-			  srcs/moove/math_2.c \
-			  srcs/moove/wall.c \
+			  srcs/move/move.c \
+			  srcs/move/look.c \
+			  srcs/move/math.c \
+			  srcs/move/math_2.c \
+			  srcs/move/wall.c \
 			  srcs/display/display.c \
 			  srcs/display/raycast.c \
 			  srcs/display/start_image.c \
 			  srcs/display/texture.c \
+			  srcs/display/init_add_dir.c \
+			  srcs/display/dir.c \
+			  srcs/display/special_wall.c \
+			  srcs/display/double_wall.c \
+			  srcs/display/3_wall.c \
+			  srcs/display/4_wall.c \
 			  srcs/minimap/minimap.c \
 
 #====================================OBJECTS===================================#

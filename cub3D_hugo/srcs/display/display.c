@@ -6,11 +6,24 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:44:45 by hde-min           #+#    #+#             */
-/*   Updated: 2023/01/06 15:41:46 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:19:21 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	*ft_copy(int *arr1, int *arr2)
+{
+	int	i;
+
+	i = 0;
+	while (arr2[i])
+	{
+		arr1[i] = arr2[i];
+		i++;
+	}
+	return (arr1);
+}
 
 void	ft_to_see(t_data *data)
 {
@@ -18,18 +31,13 @@ void	ft_to_see(t_data *data)
 	double	angle;
 	double	fovtot;
 
-	for(i = 0; data->dup_map[i]; i++)
-       	 printf("%s", data->dup_map[i]);
-	if (data->moove == 0)
-		return ;
 	i = 0;
 	data->square = 0;
 	if (data->view - FOV < 0)
 		angle = 12 + (data->view - FOV);
 	else
 		angle = data->view - FOV;
-	if (i < WIN_WIDTH)
-		ft_put_pixel(data, data->screen);
+	data->screen = ft_copy(data->screen, data->floor_and_celling);
 	fovtot = 2.0 / WIN_WIDTH;
 	while (i < WIN_WIDTH)
 	{
