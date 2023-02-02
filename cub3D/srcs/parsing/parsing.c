@@ -5,68 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 14:04:19 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/08 18:26:31 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/02/02 10:55:25 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/02/02 18:16:08 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static void	ft_map_len(t_data *data)
+static int	ft_parse_texture(char **data, char *line)
 {
-	int		fd;
-	char	*line;
-
-	fd = open(data->map_path, O_RDONLY);
-	line = simpler_gnl(fd);
-	while (line)
-	{
-		if (ft_strncmp(line, "NO", 2) && ft_strncmp(line, "SO", 2)
-			&& ft_strncmp(line, "WE", 2) && ft_strncmp(line, "EA", 2)
-			&& ft_strncmp(line, "F", 1) && ft_strncmp(line, "C", 1)
-			&& ft_strcmp(line, "\n"))
-			data->map_height++;
-		free(line);
-		line = simpler_gnl(fd);
-	}
-	close (fd);
+	if (*data == NULL)
+		*data = ft_clean_dup(line);
+	else
+		return (1);
+	return (0);
 }
 
-static void	ft_map_parsing(t_data *data)
+static int	ft_parse_data(t_data *data, char *line)
 {
-	int		i;
-	int		fd;
-	char	*line;
+	if (!ft_strncmp(line, "NO ", 3))
+		return (ft_parse_texture(&data->wall.north_path, line));
+	else if (!ft_strncmp(line, "SO ", 3))
+		return (ft_parse_texture(&data->wall.south_path, line));
+	else if (!ft_strncmp(line, "WE ", 3))
+		return (ft_parse_texture(&data->wall.west_path, line));
+	else if (!ft_strncmp(line, "EA ", 3))
+		return (ft_parse_texture(&data->wall.east_path, line));
+	else if (!ft_strncmp(line, "F ", 2))
+		return (ft_parse_texture(&data->colors.floor_data, line));
+	else if (!ft_strncmp(line, "C ", 2))
+		return (ft_parse_texture(&data->colors.ceiling_data, line));
+	return (0);
+}
 
-	i = -1;
-	ft_map_len(data);
-	if (data->map_height == 0)
-		ft_error_msg("Missing map", NULL, NULL);
-	fd = open(data->map_path, O_RDONLY);
-	data->map = ft_calloc((data->map_height + 1), sizeof(char *));
-	line = simpler_gnl(fd);
-	while (line)
+static void	ft_parsing_utils(t_data *data, char *line, int fd)
+{
+	if (ft_parse_data(data, line))
 	{
-		if (ft_strncmp(line, "NO", 2) && ft_strncmp(line, "SO", 2)
-			&& ft_strncmp(line, "WE", 2) && ft_strncmp(line, "EA", 2)
-			&& ft_strncmp(line, "F", 1) && ft_strncmp(line, "C", 1)
-			&& ft_strcmp(line, "\n"))
-			data->map[++i] = ft_strdup(line);
-		free(line);
-		line = simpler_gnl(fd);
+		close (fd);
+		ft_free_all(data);
+		ft_error_msg("Duplicate data detected.", line, NULL);
 	}
-	data->map[i + 1] = NULL;
-	close (fd);
 }
 
 void	ft_parsing(t_data *data)
 {
-	ft_check_data(data);
-	ft_parse_data(data);
-	ft_check_caracters_map(data);
-	ft_check_texture_data(data);
-	if (data->error.nb_player != 1)
-		ft_error_msg("We need one and ONLY one player please !", NULL, NULL);
-	ft_map_parsing(data);
-	ft_check_map(data);
+	int		fd;
+	char	*line;
+
+	fd = open(data->map_path, O_RDONLY);
+	if (fd == -1)
+		ft_error_msg("Unable to open the map file.", NULL, NULL);
+	line = simpler_gnl(fd);
+	if (line == NULL)
+		ft_error_msg("Empty file.", line, NULL);
+	while (line)
+	{
+		ft_parsing_utils(data, line, fd);
+		free(line);
+		line = simpler_gnl(fd);
+	}
+	printf("%s\n", data->wall.north_path);
+	printf("%s\n", data->wall.south_path);
+	printf("%s\n", data->wall.west_path);
+	printf("%s\n", data->wall.east_path);
+	printf("%s\n", data->colors.floor_data);
+	printf("%s\n", data->colors.ceiling_data);
+	close (fd);
 }

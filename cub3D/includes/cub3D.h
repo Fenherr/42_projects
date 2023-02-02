@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/01/08 18:25:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:16:27 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,22 @@
 /*==============================================================*/
 /*                            STRUCTURES                        */
 /*==============================================================*/
-typedef struct s_image
+
+typedef struct s_wall_move
 {
-	void		*img;
-	int			height;
-	int			width;
-}	t_image;
+	double	x;
+	double	y;
+	double	xtemp;
+	double	ytemp;
+}	t_wall_move;
+
+typedef struct s_minimap
+{
+	int	x;
+	int	y;
+	int	i;
+	int	j;
+}	t_minimap;
 
 typedef struct s_wall
 {
@@ -45,34 +55,15 @@ typedef struct s_wall
 	char		*south_path;
 	char		*west_path;
 	char		*east_path;
-	t_image		img;
 }	t_wall;
 
 typedef struct s_colors
 {
-	char		*floor;
-	char		*ceiling;
+	char		*floor_data;
+	char		*ceiling_data;
+	int			floor;
+	int			ceiling;
 }	t_colors;
-
-typedef struct s_error
-{
-	int			dup_north;
-	int			dup_south;
-	int			dup_west;
-	int			dup_east;
-	int			dup_floor;
-	int			dup_ceiling;
-	int			nb_player;
-}	t_error;
-
-typedef struct s_minimap
-{
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}	t_minimap;
 
 typedef struct s_data
 {
@@ -80,46 +71,25 @@ typedef struct s_data
 	void		*win;
 	char		*map_path;
 	char		**map;
+	char		**dup_map;
 	int			map_height;
 	int			nb_player;
 	t_wall		wall;
+	t_image		image;
 	t_colors	colors;
-	t_minimap	minimap;
-	t_error		error;
 }	t_data;
 
 /*==============================================================*/
 /*                            FONCTIONS                         */
 /*==============================================================*/
 
-/*------------------------------init.c--------------------------*/
-void	ft_init(t_data *data, char *map_name);
-
-/*------------------------------error.c-------------------------*/
 void	ft_error_msg(char *str, char *free_str, char **free_arr);
-
-/*------------------------------free.c--------------------------*/
+void	ft_error_and_free(char *str, t_data *data);
+int		ft_is_player(char c);
+void	ft_parsing(t_data *data);
+void	ft_init(t_data *data, char *map_name);
 void	ft_free_all(t_data *data);
 void	ft_free_array(char **arr);
-void	ft_free(t_data *data);
-
-/*-----------------------------utils.c--------------------------*/
-void	ft_check_data(t_data *data);
-void	ft_check_caracters_utils(t_data *data, char *line);
-
-/*----------------------------parsing.c-------------------------*/
-void	ft_parsing(t_data *data);
-
-/*-------------------------parsing_utils.c----------------------*/
-void	ft_parse_data(t_data *data);
-void	ft_check_caracters_map(t_data *data);
-void	ft_check_texture_data(t_data *data);
-
-/*--------------------------check_map.c------------------------*/
-void	ft_check_map(t_data *data);
-
-/*-----------------------check_map_utils.c---------------------*/
-int		ft_check_diagonal(t_data *data, int i, int j);
-int		ft_if_high_len(t_data *data, int i, int j);
+char	*ft_clean_dup(char *str);
 
 #endif

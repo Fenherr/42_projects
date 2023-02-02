@@ -6,16 +6,17 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/01/08 18:53:01 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/02/02 18:18:00 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
-CC			= gcc
+CC			= clang
 FLAGS		= -Wall -Wextra -Werror -Iincludes -Imlx_linux -g3
 
 #==================================EXECUTABLE==================================#
 NAME		= cub3D
+NAME_BONUS	= cub3D_bonus
 
 #===================================INCLUDES===================================#
 LIBFT		= libs/libft
@@ -24,18 +25,17 @@ MINILIBX	= libs/mlx_linux
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
 			  srcs/utils/init.c \
+			  srcs/utils/textures.c \
 			  srcs/utils/error.c \
 			  srcs/utils/free.c \
 			  srcs/utils/utils.c \
+			  srcs/utils/colors.c \
+			  srcs/utils/colors_util.c \
 			  srcs/parsing/parsing.c \
-			  srcs/parsing/parsing_utils.c \
-			  srcs/parsing/check_map.c \
-			  srcs/parsing/check_map_utils.c \
-			  srcs/minimap/minimap.c \
-
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)
+OBJS_BONUS	= $(BONUS:.c=.o)
 
 #====================================COLORS====================================#
 NOC			= \033[0m
@@ -68,16 +68,30 @@ $(NAME):	$(OBJS)
 	@$(CC) $(OBJS) -Lmlx -lmlx -Llibs/mlx_linux -Imlx -lXext -lX11 -lm -lz -o $(NAME)  libft.a
 	@echo "$(GREEN)Exécutable créé.$(NOC)"
 
+$(NAME_BONUS):	$(OBJS_BONUS)
+	@echo "$(BLUE)Compilation de la librairie...$(NOC)"
+	@make -sC $(LIBFT)
+	@echo "$(BLUE)Compilation de la minilibx...$(NOC)"
+	@make -sC $(MINILIBX)
+	@echo "$(BLUE)Copie de la librairie...$(NOC)"
+	@cp $(LIBFT)/libft.a ./libft.a
+	@echo "$(GREEN)Copie effectuée.$(NOC)"
+	@echo "$(BLUE)Création de l'executable$(NOC)"
+	@$(CC) $(OBJS_BONUS) -Lmlx -lmlx -Llibs/mlx_linux -Imlx -lXext -lX11 -lm -lz -o $(NAME_BONUS)  libft.a
+	@echo "$(GREEN)Exécutable créé.$(NOC)"
+
+bonus:	$(NAME_BONUS)
+
 clean:
 	@echo "$(RED)Suppression des objets$(NOC)"
 	@make -sC $(LIBFT) clean
 	@make -sC $(MINILIBX) clean
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean:	clean
 	@echo "$(RED)Suppression des binaires$(NOC)"
 	@make -sC $(LIBFT) fclean
-	@rm -f $(NAME) libft.a
+	@rm -f $(NAME) $(NAME_BONUS) libft.a
 
 re:	fclean all
 
