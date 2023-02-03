@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/02/02 18:18:00 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/02/03 11:16:19 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,11 @@ MINILIBX	= libs/mlx_linux
 #=================================SOURCE FILES=================================#
 SRCS		= srcs/main.c \
 			  srcs/utils/init.c \
-			  srcs/utils/textures.c \
 			  srcs/utils/error.c \
 			  srcs/utils/free.c \
 			  srcs/utils/utils.c \
-			  srcs/utils/colors.c \
-			  srcs/utils/colors_util.c \
 			  srcs/parsing/parsing.c \
+			  srcs/parsing/parsing_utils.c \
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

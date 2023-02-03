@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/02 18:16:27 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:25:29 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,6 @@
 /*==============================================================*/
 /*                            STRUCTURES                        */
 /*==============================================================*/
-
-typedef struct s_wall_move
-{
-	double	x;
-	double	y;
-	double	xtemp;
-	double	ytemp;
-}	t_wall_move;
-
-typedef struct s_minimap
-{
-	int	x;
-	int	y;
-	int	i;
-	int	j;
-}	t_minimap;
 
 typedef struct s_wall
 {
@@ -75,7 +59,6 @@ typedef struct s_data
 	int			map_height;
 	int			nb_player;
 	t_wall		wall;
-	t_image		image;
 	t_colors	colors;
 }	t_data;
 
@@ -91,5 +74,8 @@ void	ft_init(t_data *data, char *map_name);
 void	ft_free_all(t_data *data);
 void	ft_free_array(char **arr);
 char	*ft_clean_dup(char *str);
+void	ft_check_data(t_data *data, char *line, int fd);
+char	**ft_realloc_tab_char(char **tab, char *str);
+int		ft_map_begenning(char *line);
 
 #endif

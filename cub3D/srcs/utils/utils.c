@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:57:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/02 18:16:14 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:01:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,26 @@ char	*ft_clean_dup(char *str)
 	return (copy);
 }
 
-int	ft_is_player(char c)
+char	**ft_realloc_tab_char(char **tab, char *str)
 {
-	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (1);
-	return (0);
+	int		i;
+	char	**new_tab;
+
+	i = 0;
+	while (tab && tab[i] != NULL)
+		i++;
+	new_tab = malloc(sizeof(char *) * (i + 2));
+	if (!new_tab)
+		return (NULL);
+	new_tab[i + 1] = NULL;
+	i = 0;
+	while (tab && tab[i] != NULL)
+	{
+		new_tab[i] = tab[i];
+		i++;
+	}
+	if (tab)
+		free(tab);
+	new_tab[i] = str;
+	return (new_tab);
 }
