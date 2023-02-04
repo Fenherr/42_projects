@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:55:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/03 16:27:33 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:24:17 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static void	ft_parsing_datas(t_data *data, char *line, int fd)
 		ft_free_all(data);
 		ft_error_msg("Duplicate data detected.", line, NULL);
 	}
-	free(line);
 }
 
 void	ft_parsing(t_data *data)
@@ -63,6 +62,9 @@ void	ft_parsing(t_data *data)
 		if (!line)
 			break ;
 		ft_parsing_datas(data, line, fd);
+		if (ft_map_begenning(line))
+			break ;
+		free(line);
 	}
 	ft_check_data(data, line, fd);
 	close (fd);

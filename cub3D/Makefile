@@ -6,12 +6,12 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/02/03 11:16:19 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/02/04 14:39:22 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
-CC			= clang
+CC			= gcc
 FLAGS		= -Wall -Wextra -Werror -Iincludes -Imlx_linux -g3
 
 #==================================EXECUTABLE==================================#

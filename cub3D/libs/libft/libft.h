@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:30:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2022/09/19 11:30:32 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:47:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char		*ft_rd_save(int fd, char *save);
 char		*get_next_line(int fd);
 char		*simpler_gnl(int fd);
 char		*ft_uitoa(unsigned int n);
+char		**ft_realloc_tab_char(char **tab, char *str);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 void		*ft_memset(void *s, int c, size_t n);

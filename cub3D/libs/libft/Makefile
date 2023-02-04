@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 08:41:56 by ngrenoux          #+#    #+#              #
-#    Updated: 2022/12/20 10:38:16 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/02/04 16:50:40 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS_OTHER =	ft_atoi.c \
 				ft_calloc.c \
 				ft_itoa.c \
 				ft_split.c	\
-				ft_atoi_base.c
+				ft_atoi_base.c \
+				ft_realloc_tab_char.c
 SRCS_PUT = 		ft_putchar.c \
 				ft_putchar_fd.c \
 				ft_putendl_fd.c \

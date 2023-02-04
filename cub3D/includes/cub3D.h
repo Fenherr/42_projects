@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/03 16:25:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:57:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_free_all(t_data *data);
 void	ft_free_array(char **arr);
 char	*ft_clean_dup(char *str);
 void	ft_check_data(t_data *data, char *line, int fd);
-char	**ft_realloc_tab_char(char **tab, char *str);
 int		ft_map_begenning(char *line);
+void	ft_parsing_map(t_data *data, char *line, int fd);
 
 #endif
