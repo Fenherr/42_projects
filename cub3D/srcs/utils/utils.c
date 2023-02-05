@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 12:57:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/04 16:40:05 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:28:59 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_clean_dup(char *str)
 
 	i = 0;
 	copy = malloc(sizeof(char) * ft_strlen(str));
+	if (!copy)
+		return (NULL);
 	while (str[i] != '\n')
 	{
 		copy[i] = str[i];

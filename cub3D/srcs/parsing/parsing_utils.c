@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:15:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/04 17:23:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/05 13:45:09 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	ft_map_begenning(char *line)
 
 void	ft_parsing_map(t_data *data, char *line, int fd)
 {
-	(void)data;
-	(void)line;
 	(void)fd;
+	data->map = ft_realloc_tab_char(data->map, line);
+	for (int i = 0; data->map[i]; i++)
+		printf("%s", data->map[i]);
 }

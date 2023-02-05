@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:55:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/04 17:24:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:51:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,17 @@ void	ft_parsing(t_data *data)
 		free(line);
 	}
 	ft_check_data(data, line, fd);
+	while (1)
+	{
+		if (!line)
+			break ;
+		printf("%s", line);
+		data->map = ft_realloc_tab_char(data->map, line);
+		free(line);
+		line = simpler_gnl(fd);
+	}
+	for (int i = 0; data->map[i]; i++)
+		printf("%s", data->map[i]);
 	close (fd);
 	free(line);
 }
