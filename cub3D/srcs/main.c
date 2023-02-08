@@ -21,4 +21,5 @@ int	main(int ac, char **av)
 	ft_init(&data, av[1]);
 	ft_parsing(&data);
 	ft_free_all(&data);
+	ft_free_array(data.map);
 }

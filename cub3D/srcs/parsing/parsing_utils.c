@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:15:58 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/05 13:45:09 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:52:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 void	ft_check_data(t_data *data, char *line, int fd)
 {
 	if (data->colors.floor_data == NULL || data->colors.ceiling_data == NULL
-		|| data->wall.north_path == NULL || data->wall.south_path == NULL
-		|| data->wall.west_path == NULL || data->wall.east_path == NULL)
+		|| data->wall.north_data == NULL || data->wall.south_data == NULL
+		|| data->wall.west_data == NULL || data->wall.east_data == NULL)
 	{
 		close (fd);
 		ft_free_all(data);
-		ft_error_msg("Missing data", line, NULL);
+		ft_error_msg("Missing data.", line, NULL);
 	}
+	ft_check_textures(data, line, fd);
+	ft_check_colors(data, line, fd);
 }
 
 int	ft_map_begenning(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (line[0] == ' ' || line[0] == '1' || line[0] == '0')
@@ -39,10 +41,13 @@ int	ft_map_begenning(char *line)
 	return (0);
 }
 
-void	ft_parsing_map(t_data *data, char *line, int fd)
+void	ft_map_parsing(t_data *data, char *line, int fd)
 {
-	(void)fd;
-	data->map = ft_realloc_tab_char(data->map, line);
-	for (int i = 0; data->map[i]; i++)
-		printf("%s", data->map[i]);
+	while (1)
+	{
+		if (!line)
+			break ;
+		data->map = ft_realloc_tab_char(data->map, line);
+		line = simpler_gnl(fd);
+	}
 }

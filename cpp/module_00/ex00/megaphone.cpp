@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 12:57:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/06 15:13:38 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/01/20 13:47:32 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/01/20 14:30:50 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#include <iostream>
 
-int	ft_is_player(char c)
+int	main(int ac, char **av)
 {
-	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (1);
-	return (0);
-}
-
-char	*ft_clean_dup(char *str)
-{
-	int		i;
-	char	*copy;
-
-	i = 0;
-	copy = malloc(sizeof(char) * ft_strlen(str));
-	if (!copy)
-		return (NULL);
-	while (str[i] != '\n')
+	if (ac == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	else
 	{
-		copy[i] = str[i];
-		i++;
+		for (int i = 1; av[i]; i++)
+		{
+			for (int j = 0; av[i][j]; j++)
+				std::cout << (char)toupper(av[i][j]);
+		}
+		std::cout << std::endl;
 	}
-	copy[i] = '\0';
-	return (copy);
 }

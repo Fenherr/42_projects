@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/04 16:57:24 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:44:14 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ typedef struct s_wall
 	char		*south_path;
 	char		*west_path;
 	char		*east_path;
+	char		*north_data;
+	char		*south_data;
+	char		*west_data;
+	char		*east_data;
 }	t_wall;
 
 typedef struct s_colors
@@ -56,7 +60,6 @@ typedef struct s_data
 	char		*map_path;
 	char		**map;
 	char		**dup_map;
-	int			map_height;
 	int			nb_player;
 	t_wall		wall;
 	t_colors	colors;
@@ -76,6 +79,12 @@ void	ft_free_array(char **arr);
 char	*ft_clean_dup(char *str);
 void	ft_check_data(t_data *data, char *line, int fd);
 int		ft_map_begenning(char *line);
-void	ft_parsing_map(t_data *data, char *line, int fd);
+void	ft_map_parsing(t_data *data, char *line, int fd);
+void	ft_check_textures(t_data *data, char *line, int fd);
+void	ft_check_colors(t_data *data, char *line, int fd);
+int		ft_check_comma(char *color_data);
+int		ft_check_last_nbr(char *color_data);
+int		ft_check_invalid_color(char *color_data);
+void	ft_check_map(t_data *data, int fd);
 
 #endif

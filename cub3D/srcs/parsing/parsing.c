@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:55:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/05 14:51:28 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:04:44 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static int	ft_data_is_dup(char **data, char *line)
 static int	ft_parse_data(t_data *data, char *line)
 {
 	if (!ft_strncmp(line, "NO ", 3))
-		return (ft_data_is_dup(&data->wall.north_path, line));
+		return (ft_data_is_dup(&data->wall.north_data, line));
 	else if (!ft_strncmp(line, "SO ", 3))
-		return (ft_data_is_dup(&data->wall.south_path, line));
+		return (ft_data_is_dup(&data->wall.south_data, line));
 	else if (!ft_strncmp(line, "WE ", 3))
-		return (ft_data_is_dup(&data->wall.west_path, line));
+		return (ft_data_is_dup(&data->wall.west_data, line));
 	else if (!ft_strncmp(line, "EA ", 3))
-		return (ft_data_is_dup(&data->wall.east_path, line));
+		return (ft_data_is_dup(&data->wall.east_data, line));
 	else if (!ft_strncmp(line, "F ", 2))
 		return (ft_data_is_dup(&data->colors.floor_data, line));
 	else if (!ft_strncmp(line, "C ", 2))
@@ -67,17 +67,7 @@ void	ft_parsing(t_data *data)
 		free(line);
 	}
 	ft_check_data(data, line, fd);
-	while (1)
-	{
-		if (!line)
-			break ;
-		printf("%s", line);
-		data->map = ft_realloc_tab_char(data->map, line);
-		free(line);
-		line = simpler_gnl(fd);
-	}
-	for (int i = 0; data->map[i]; i++)
-		printf("%s", data->map[i]);
+	ft_map_parsing(data, line, fd);
+	ft_check_map(data, fd);
 	close (fd);
-	free(line);
 }

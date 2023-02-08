@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:02:50 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/03 10:10:40 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:15:30 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	ft_clear_data(t_data *data)
 	data->wall.east_path = NULL;
 	data->wall.north_path = NULL;
 	data->wall.south_path = NULL;
+	data->wall.west_data = NULL;
+	data->wall.east_data = NULL;
+	data->wall.north_data = NULL;
+	data->wall.south_data = NULL;
 }
 
 void	ft_init(t_data *data, char *map_name)

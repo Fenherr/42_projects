@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:31:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/03 10:10:30 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:42:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	ft_free_array(char **arr)
 
 void	ft_free_all(t_data *data)
 {
+	free(data->wall.north_data);
+	free(data->wall.south_data);
+	free(data->wall.west_data);
+	free(data->wall.east_data);
 	free(data->wall.north_path);
 	free(data->wall.south_path);
 	free(data->wall.west_path);
