@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 10:42:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/07 15:44:14 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:06:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_data
 	char		**map;
 	char		**dup_map;
 	int			nb_player;
+	int			map_height;
 	t_wall		wall;
 	t_colors	colors;
 }	t_data;
@@ -70,7 +71,7 @@ typedef struct s_data
 /*==============================================================*/
 
 void	ft_error_msg(char *str, char *free_str, char **free_arr);
-void	ft_error_and_free(char *str, t_data *data);
+void	ft_close_and_free(int fd, t_data *data);
 int		ft_is_player(char c);
 void	ft_parsing(t_data *data);
 void	ft_init(t_data *data, char *map_name);
@@ -86,5 +87,13 @@ int		ft_check_comma(char *color_data);
 int		ft_check_last_nbr(char *color_data);
 int		ft_check_invalid_color(char *color_data);
 void	ft_check_map(t_data *data, int fd);
+int		ft_check_around(char **map, int i, int j);
+int		ft_check_space_utils(t_data *data, int i, int j);
+int		ft_check_wall_utils(t_data *data, int i, int j, int len);
+int		ft_if_high_len(t_data *data, int i, int j);
+int		ft_check_diagonal(t_data *data, int i, int j);
+void	ft_texture_map(t_data *data);
+void	ft_check_corner(t_data *data);
+void	ft_check_spec_wall(t_data *data);
 
 #endif

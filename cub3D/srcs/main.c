@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:16:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/02 18:16:33 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:45:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int	main(int ac, char **av)
 	ft_parsing(&data);
 	ft_free_all(&data);
 	ft_free_array(data.map);
+	ft_free_array(data.dup_map);
 }

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:02:50 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/06 15:15:30 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:47:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	check_map_extension(char *map_name)
 void	ft_clear_data(t_data *data)
 {
 	data->map = NULL;
+	data->dup_map = NULL;
+	data->nb_player = 0;
 	data->map_height = 0;
 	data->colors.floor = 0;
 	data->colors.ceiling = 0;

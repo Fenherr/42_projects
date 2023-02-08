@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:55:25 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/07 15:04:44 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:49:02 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ static void	ft_parsing_datas(t_data *data, char *line, int fd)
 	}
 }
 
+static void	ft_check_nb_player(t_data *data, int fd)
+{
+	if (data->nb_player != 1)
+	{
+		ft_close_and_free(fd, data);
+		ft_error_msg("Only one player.", NULL, data->map);
+	}
+}
+
 void	ft_parsing(t_data *data)
 {
 	int		fd;
@@ -69,5 +78,8 @@ void	ft_parsing(t_data *data)
 	ft_check_data(data, line, fd);
 	ft_map_parsing(data, line, fd);
 	ft_check_map(data, fd);
+	ft_check_nb_player(data, fd);
+	ft_texture_map(data);
+	ft_check_spec_wall(data);
 	close (fd);
 }

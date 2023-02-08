@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:59:17 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/07 11:20:07 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:12:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ static void	ft_check_texture_path(t_data *data, char *line, int fd)
 		|| ft_check_texture_path_utils(data->wall.west_data)
 		|| ft_check_texture_path_utils(data->wall.east_data))
 	{
-		close (fd);
-		ft_free_all(data);
+		ft_close_and_free(fd, data);
 		ft_error_msg("Texture path not found.", line, NULL);
 	}
 }
@@ -88,8 +87,7 @@ void	ft_check_textures(t_data *data, char *line, int fd)
 		|| ft_check_texture_utils(data->wall.west_data) == 1
 		|| ft_check_texture_utils(data->wall.east_data) == 1)
 	{
-		close (fd);
-		ft_free_all(data);
+		ft_close_and_free(fd, data);
 		ft_error_msg("Wrong texture extension.", line, NULL);
 	}
 	else if (ft_check_texture_utils(data->wall.north_data) == 2
@@ -97,8 +95,7 @@ void	ft_check_textures(t_data *data, char *line, int fd)
 		|| ft_check_texture_utils(data->wall.west_data) == 2
 		|| ft_check_texture_utils(data->wall.east_data) == 2)
 	{
-		close (fd);
-		ft_free_all(data);
+		ft_close_and_free(fd, data);
 		ft_error_msg("Texture not found.", line, NULL);
 	}
 	ft_extract_texture_path(data, data->wall.north_data);

@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 08:44:27 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/02/07 14:57:09 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/02/08 14:44:05 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,11 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/check_colors.c \
 			  srcs/parsing/check_colors_utils.c \
 			  srcs/parsing/check_map.c \
+			  srcs/parsing/check_map_utils.c \
+			  srcs/parsing/check_map_utils_2.c \
+			  srcs/parsing/texture_map.c \
+			  srcs/parsing/specifist_wall.c \
+			  srcs/parsing/check_corner.c \
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.c=.o)

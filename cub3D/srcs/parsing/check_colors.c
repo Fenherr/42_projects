@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:14:14 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/07 13:39:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:13:06 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ void	ft_check_colors(t_data *data, char *line, int fd)
 	if (ft_check_colors_utils(data->colors.floor_data) == 1
 		|| ft_check_colors_utils(data->colors.ceiling_data) == 1)
 	{
-		close (fd);
-		ft_free_all(data);
+		ft_close_and_free(fd, data);
 		ft_error_msg("Color not found.", line, NULL);
 	}
 	if (ft_check_colors_utils(data->colors.floor_data) == 2
 		|| ft_check_colors_utils(data->colors.ceiling_data) == 2)
 	{
-		close (fd);
-		ft_free_all(data);
+		ft_close_and_free(fd, data);
 		ft_error_msg("Incorrect rgb settings.", line, NULL);
 	}
 	data->colors.floor = ft_extract_colors(data->colors.floor_data);
