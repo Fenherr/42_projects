@@ -10,9 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEF_PHONEBOOK
-#define DEF_PHONEBOOK
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
 
+#include "Contact.hpp"
 
+class PhoneBook
+{
+    private:
+        Contact _contact[8];
+        int     _readInput(void) const;
+    
+    public:
+        PhoneBook();
+        ~PhoneBook();
+        void addContact(void);
+        void printContact(void) const;
+        void search(void) const;
+        void menu(void) const;
+};
 
 #endif
