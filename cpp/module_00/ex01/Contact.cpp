@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:00:23 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/04 16:00:23 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/06 09:49:55 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ std::string Contact::_getInput(std::string str) const
 
 void Contact::init(void)
 {
-    std::cin.ignore();
     this->_firstName = this->_getInput("First name: ");
     this->_lastName = this->_getInput("Last name: ");
     this->_nickname = this->_getInput("nickname: ");
@@ -79,7 +78,7 @@ void Contact::display(int index) const
     if (this->_firstName.empty() || this->_lastName.empty() || this->_nickname.empty())
         return ;
     std::cout << std::endl;
-    std::cout << "==== CONTACT No" << index << " ====" << std::endl;
+    std::cout << "================ CONTACT No " << index << " ================" << std::endl;
     std::cout << "First name:\t" << this->_firstName << std::endl;
     std::cout << "Last name:\t" << this->_lastName << std::endl;
     std::cout << "Nickname:\t" << this->_nickname << std::endl;

@@ -6,11 +6,9 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 15:54:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/04 15:54:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/06 09:56:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "PhoneBook.hpp"
 
 #include "PhoneBook.hpp"
 
@@ -30,7 +28,7 @@ int main(void)
             phoneBook.search();
         }
         std::cout << ">> " << std::flush;
-        std::cin >> input;
+        std::getline(std::cin, input);
     }
     return (0);
 }

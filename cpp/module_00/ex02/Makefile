@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 13:46:58 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/03/06 08:52:54 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/03/06 11:41:36 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,11 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 #==================================EXECUTABLE==================================#
-NAME		= phonebook
+NAME		= account
 
 #=================================SOURCE FILES=================================#
-SRCS		= PhoneBook.cpp \
-			  Contact.cpp \
-			  main.cpp
+SRCS		= Account.cpp \
+			  test.cpp
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.cpp=.o)
