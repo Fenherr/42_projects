@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:37:07 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/06 09:44:09 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:48:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 PhoneBook::PhoneBook()
 {
+    this->_nbContact = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -39,6 +40,7 @@ void PhoneBook::addContact(void)
     static int i;
     this->_contact[i % 8].init();
     this->_contact[i % 8].setIndex(i % 8);
+    this->_nbContact++;
     i++;
 }
 
@@ -59,7 +61,7 @@ int PhoneBook::_readInput() const
     {
         std::cout << "Enter contact index: " << std::flush;
         std::cin >> input;
-        if (std::cin.good() && (input >= 0 && input <= 8))
+        if (std::cin.good() && (input >= 0 && input < this->_nbContact))
             valid = true;
         else
         {

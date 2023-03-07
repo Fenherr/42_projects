@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:14:34 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/02/10 14:20:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:42:09 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class PhoneBook
 {
     private:
         Contact _contact[8];
+        int     _nbContact;
         int     _readInput(void) const;
     
     public:
