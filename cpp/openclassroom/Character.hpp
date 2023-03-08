@@ -11,6 +11,7 @@ class Character
 	public:
 
 	Character(std::string name);
+	Character(Character const& copyChar);
 	Character(std::string name, std::string weaponName, int weaponDamage);
 	~Character();
 	void takeDamage(int nbDamage);
@@ -25,7 +26,7 @@ class Character
 	std::string m_name;
 	int m_life;
 	int m_mana;
-	Weapon m_weapon;
+	Weapon* m_weapon;
 };
 
 #endif
