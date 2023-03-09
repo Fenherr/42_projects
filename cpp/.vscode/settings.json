@@ -47,6 +47,7 @@
         "random": "cpp",
         "tuple": "cpp",
         "utility": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "fstream": "cpp"
     }
 }
