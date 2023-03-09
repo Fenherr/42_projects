@@ -15,15 +15,22 @@
 void replace(std::string filename, std::string s1, std::string s2)
 {
 	std::string line;
+	int			start;
 	
 	std::ifstream infile(filename.c_str());
 
-	(void)s2;
 	if (infile)
 	{
+		std::ofstream outfile(filename + ".replace");
 		while (getline(infile, line))
 		{
-			std::cout << line.find(s1) << std::endl;
+			start = line.find(s1);
+			if (start != -1)
+			{
+				line.erase(start, s1.size());
+				line.insert(start, s2);
+			}
+			outfile << line << std::endl;
 		}
 	}
 	else
