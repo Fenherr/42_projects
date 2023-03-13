@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:14:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/13 09:14:20 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/03/10 10:36:28 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/03/10 12:54:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void)
+#include <iostream>
+
+class Harl
 {
-	Weapon club = Weapon("crude spiked club");
-	
-	HumanA bob("Bob", club);
-	bob.attack();
-	club.setType("iron club");
-	bob.attack();
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 
-	/*
-	Weapon dagger = Weapon("iron cursed dagger");
-	
-	HumanB jim("Jim", dagger);
-	jim.attack();
-	dagger.setType("mythril dagger");
-	jim.attack();
-	*/
-}
+	public:
+		Harl();
+		~Harl();
+		void	complain(std::string level);
+};
+
+typedef void	(Harl::*ptrFunc)(void);
+
+#endif
