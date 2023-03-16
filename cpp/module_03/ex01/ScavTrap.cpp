@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 09:18:05 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/16 11:22:41 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/03/16 12:10:54 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/03/16 13:09:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main()
-{
-	ClapTrap	billy("Billy");
-	
-	for (int i = 0; i <= 10; i++)
-		billy.attack("Bob");
-}
