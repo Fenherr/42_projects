@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 09:18:05 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/17 11:18:37 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/03/17 11:33:20 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/03/17 11:48:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ClapTrap	billy("Billy");
-	ScavTrap	bob("Bob");
-	
-	billy.attack("Bob");
-	bob.attack("Billy");
-	billy.takeDamage(20);
-	billy.beRepaired(5);
-	bob.guardGate();
-}
+	public:
+		FragTrap(std::string name);
+		~FragTrap();
+
+		void	attack(const std::string& target);
+		void	highFivesGuys();
+};
+
+#endif

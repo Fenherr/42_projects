@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 09:18:05 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/17 11:18:37 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/03/17 13:04:29 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/03/17 14:33:40 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef DIAMONTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-int main()
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ClapTrap	billy("Billy");
-	ScavTrap	bob("Bob");
-	
-	billy.attack("Bob");
-	bob.attack("Billy");
-	billy.takeDamage(20);
-	billy.beRepaired(5);
-	bob.guardGate();
-}
+	private:
+		std::string	_name;
+
+	public:
+		DiamondTrap(std::string name);
+		~DiamondTrap();
+
+		void	whoAmI();
+		using	ScavTrap::attack;
+};
+
+#endif

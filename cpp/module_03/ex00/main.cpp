@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:18:05 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/16 11:22:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:19:01 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main()
 {
 	ClapTrap	billy("Billy");
 	
-	for (int i = 0; i <= 10; i++)
-		billy.attack("Bob");
+	billy.attack("Bob");
+	billy.takeDamage(20);
+	billy.beRepaired(5);
 }

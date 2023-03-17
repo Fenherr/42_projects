@@ -6,20 +6,15 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 09:28:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/16 11:20:32 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:46:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-{
-	std::cout << "Default constructor called" << std::endl;
-}
-
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDmg(0)
 {
-	std::cout << "Overload constructor called" << std::endl;
+	std::cout << "constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy)
@@ -73,8 +68,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " has no more energy points" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << _name << " repairs himself by " << amount << "points." << std::endl;
+	std::cout << "ClapTrap " << _name << " repairs himself by " << amount << " points." << std::endl;
 	_energyPoints -= 1;
 	_hitPoints += amount;
-	std::cout << _name << " has " << _energyPoints << " energy points." << std::endl;
+	std::cout << _name << " has " << _energyPoints << " energy points and " << _hitPoints << " hit points." << std::endl;
 }

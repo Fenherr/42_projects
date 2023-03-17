@@ -6,21 +6,23 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 13:46:58 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/03/17 11:30:09 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/03/17 14:49:30 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -Wshadow -std=c++98
 
 #==================================EXECUTABLE==================================#
-NAME		= scavtrap
+NAME		= diamondTrap
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.cpp \
 			  ClapTrap.cpp \
-			  ScavTrap.cpp
+			  ScavTrap.cpp \
+			  FragTrap.cpp \
+			  DiamondTrap.cpp
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.cpp=.o)

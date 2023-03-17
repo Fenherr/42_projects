@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 13:46:58 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/03/17 11:30:09 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/03/17 11:30:39 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,13 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 #==================================EXECUTABLE==================================#
-NAME		= scavtrap
+NAME		= fragtrap
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.cpp \
 			  ClapTrap.cpp \
-			  ScavTrap.cpp
+			  ScavTrap.cpp \
+			  FragTrap.cpp
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.cpp=.o)
