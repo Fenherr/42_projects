@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:44:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/22 13:57:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:48:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Dog::Dog() : Animal()
 	std::cout << "A good doggo come !" << std::endl;
 	this->_type = "Dog";
 	this->_brain = new Brain();
-	this->_brain->setIdea(0, "I love my master");
 }
 
 Dog::Dog(Dog const &copy) : Animal(copy)
@@ -56,6 +55,11 @@ void	Dog::makeSound() const
 std::string	Dog::getType() const
 {
 	return this->_type;
+}
+
+Brain	Dog::getBrain() const
+{
+	return *this->_brain;
 }
 
 //=============================================================================

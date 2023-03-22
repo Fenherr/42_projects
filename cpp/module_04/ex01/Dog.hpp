@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:41:42 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 15:07:05 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:48:52 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Dog : public Animal
 
 		virtual void	makeSound() const;
 		std::string	getType() const;
+		Brain	getBrain() const;
 };
 
 #endif
