@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:20:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 15:54:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:00:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ Cat::Cat() : Animal()
 {
 	std::cout << "A demon euh... a cat appeared" << std::endl;
 	this->_type = "Cat";
-	try
-	{
-		this->_brain = new Brain();
-	}
-	catch(const std::bad_alloc& e)
-	{
-		std::cout << "Allocation failed" << std::endl;
-	}
+	this->_brain = new Brain();
+	this->_brain->setIdea(1, "I'll kill you");
 }
 
 Cat::Cat(Cat const &copy) : Animal(copy)
@@ -47,7 +41,7 @@ Cat	& Cat::operator=(Cat const & rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
-		this->_brain = rhs._brain;
+		this->_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }

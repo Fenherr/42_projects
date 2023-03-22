@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:30:54 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 14:00:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:24:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ class Brain
 		~Brain();
 		
 		Brain & operator=(Brain const & rhs);
+		
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string idea);
 };
 
 #endif

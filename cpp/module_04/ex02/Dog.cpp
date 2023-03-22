@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:44:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 16:23:05 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:19:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ Dog::Dog() : AAnimal()
 {
 	std::cout << "A good doggo come !" << std::endl;
 	this->_type = "Dog";
-	try
-	{
-		this->_brain = new Brain();
-	}
-	catch(const std::bad_alloc& e)
-	{
-		std::cout << "Allocation failed" << std::endl;
-	}
+	this->_brain = new Brain();
+	this->_brain->setIdea(0, "I love my master");
 }
 
 Dog::Dog(Dog const &copy) : AAnimal(copy)
@@ -47,7 +41,7 @@ Dog	& Dog::operator=(Dog const & rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
-		this->_brain = rhs._brain;
+		this->_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }
