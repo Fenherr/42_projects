@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:23:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 13:48:17 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:30:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ WrongCat::WrongCat()
 {
 	std::cout << "What is it ? A cat ? Here ?" << std::endl;
 	this->_type = "WrongCat";
+}
+
+WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy)
+{
+	*this = copy;
 }
 
 WrongCat::~WrongCat()
@@ -37,6 +42,14 @@ void	WrongCat::makeSound() const
 std::string	WrongCat::getType() const
 {
 	return this->_type;
+}
+
+//=============================================================================
+
+WrongCat & WrongCat::operator=(WrongCat const & rhs)
+{
+	this->_type = rhs._type;
+	return *this;
 }
 
 //=============================================================================

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:49:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 13:37:50 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:00:03 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat
 
 		void promote();
 		void demote();
+		void signForm(Form &form) const;
 
 		class GradeTooHighException : public std::exception
 		{

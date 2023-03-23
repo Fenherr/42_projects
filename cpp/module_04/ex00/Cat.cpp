@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:20:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 13:44:07 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:24:58 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ Cat::Cat()
 {
 	std::cout << "A demon euh... a cat appeared" << std::endl;
 	this->_type = "Cat";
+}
+
+Cat::Cat(Cat const &copy) : Animal(copy)
+{
+	*this = copy;
 }
 
 Cat::~Cat()
@@ -37,6 +42,14 @@ void	Cat::makeSound() const
 std::string	Cat::getType() const
 {
 	return this->_type;
+}
+
+//=============================================================================
+
+Cat & Cat::operator=(Cat const & rhs)
+{
+	this->_type = rhs._type;
+	return *this;
 }
 
 //=============================================================================

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:41:42 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 11:16:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:11:34 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ class Dog : public Animal
 {
 	public:
 		Dog();
+		Dog(Dog const &copy);
 		virtual ~Dog();
+
+		Dog & operator=(Dog const &rhs);
 
 		virtual void	makeSound() const;
 		std::string	getType() const;

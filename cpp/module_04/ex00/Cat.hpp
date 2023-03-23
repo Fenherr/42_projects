@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:08:49 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 11:17:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:03:33 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ class Cat : public Animal
 {
 	public:
 		Cat();
+		Cat(Cat const &copy);
 		virtual ~Cat();
+
+		Cat & operator=(Cat const &rhs);
 
 		virtual void	makeSound() const;
 		std::string	getType() const;

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:22:01 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 11:36:14 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:32:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
+		WrongCat(WrongCat const &copy);
 		virtual ~WrongCat();
+
+		WrongCat & operator=(WrongCat const &rhs);
 
 		virtual void	makeSound() const;
 		std::string	getType() const;
