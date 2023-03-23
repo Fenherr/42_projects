@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:31:38 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/22 15:21:10 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:14:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,20 @@ int main()
 	std::cout << std::endl;
 	
 	Dog basic;
-	{
-		Dog tmp = basic;
-	}
+	Dog tmp = basic;
 	
 	std::cout << std::endl;
 	
 	Cat basic2;
-	{
-		Cat tmp2 = basic2;
-	}
+	Cat tmp2 = basic2;
 	
+	std::cout << std::endl;
+	std::cout << "----Brain idea test----" << std::endl;
+	std::cout << std::endl;
+	
+	Dog dog;
+	
+	dog.getBrain()->setIdea(0, "I love my master");
+	std::cout << "Dog's idea: " << dog.getBrain()->getIdea(0) << std::endl;
 	std::cout << std::endl;
 }

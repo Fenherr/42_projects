@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:08:49 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/20 16:22:32 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:13:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Cat : public AAnimal
 
 		virtual void	makeSound() const;
 		std::string	getType() const;
+		Brain*	getBrain();
 };
 
 #endif

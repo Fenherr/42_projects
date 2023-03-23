@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:44:40 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/22 16:48:58 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:11:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ std::string	Dog::getType() const
 	return this->_type;
 }
 
-Brain	Dog::getBrain() const
+Brain*	Dog::getBrain() const
 {
-	return *this->_brain;
+	return this->_brain;
 }
 
 //=============================================================================

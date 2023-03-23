@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:20:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/22 15:19:33 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:14:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Cat::Cat() : AAnimal()
 	std::cout << "A demon euh... a cat appeared" << std::endl;
 	this->_type = "Cat";
 	this->_brain = new Brain();
-	this->_brain->setIdea(1, "I'll kill you");
 }
 
 Cat::Cat(Cat const &copy) : AAnimal(copy)
@@ -58,6 +57,11 @@ void	Cat::makeSound() const
 std::string	Cat::getType() const
 {
 	return this->_type;
+}
+
+Brain*	Cat::getBrain()
+{
+	return this->_brain;
 }
 
 //=============================================================================

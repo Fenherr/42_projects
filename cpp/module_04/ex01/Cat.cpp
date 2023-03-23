@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:20:27 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/22 16:41:59 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:12:57 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ std::string	Cat::getType() const
 	return this->_type;
 }
 
-Brain	Cat::getBrain()
+Brain*	Cat::getBrain()
 {
-	return *this->_brain;
+	return this->_brain;
 }
 
 //=============================================================================
