@@ -6,7 +6,7 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 13:46:58 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/03/08 11:37:00 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/03/24 17:04:16 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,15 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 #==================================EXECUTABLE==================================#
-NAME		= name
+NAME		= bureaucrat
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.cpp \
+			  Bureaucrat.cpp \
+			  AForm.cpp \
+			  ShrubberyCreationForm.cpp \
+			  RobotomyRequestForm.cpp \
+			  PresidentialPardonForm.cpp
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.cpp=.o)
