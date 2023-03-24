@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:01:10 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 15:58:37 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:45:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat employee("Employee", 90);
+		Bureaucrat employee("Employee", 110);
 		
 		Form form("Test form", 100, 100);
 		
@@ -32,6 +32,9 @@ int main()
 		std::cout << std::endl;
 		
 		employee.signForm(form);
+		
+		std::cout << std::endl;
+		
 		std::cout << form << std::endl;
 	}
 	catch(Bureaucrat::GradeTooHighException &e)

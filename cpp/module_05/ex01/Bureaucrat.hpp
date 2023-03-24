@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:49:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 16:00:03 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:39:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -34,7 +36,7 @@ class Bureaucrat
 
 		void promote();
 		void demote();
-		void signForm(Form &form) const;
+		void signForm(Form &form);
 
 		class GradeTooHighException : public std::exception
 		{

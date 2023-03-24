@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:42:46 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 16:13:31 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:40:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ Form & Form::operator=(const Form &rhs)
 
 std::ostream&   operator<<( std::ostream& o, const Form& rhs )
 {
-	o << "Form name: " << rhs.getName()
-	  << "\nIs signed: " << rhs.getSign()
-	  << "\nGrade required to sign the form: " << rhs.getSignGrade()
-	  << "\nGrade required to execute the form: " << rhs.getExecuteGrade();
+	o << "Form name: " << rhs.getName() << std::endl
+	  << "Is signed: " << rhs.getSign() << std::endl
+	  << "Grade required to sign the form: " << rhs.getSignGrade() << std::endl
+	  << "Grade required to execute the form: " << rhs.getExecuteGrade();
 	return o;
 }
 
@@ -77,10 +77,10 @@ int Form::getExecuteGrade() const
 
 //======================================Methods================================
 
-void Form::beSigned(const Bureaucrat &target)
+void Form::beSigned(Bureaucrat &target)
 {
 	if (target.getGrade() > this->_signGrade)
-		throw Form::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	this->_sign = true;
 }
 

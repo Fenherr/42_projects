@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:16:42 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 16:13:38 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:32:20 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Form
 		int getSignGrade() const;
 		int getExecuteGrade() const;
 		
-		void beSigned(const Bureaucrat &target);
+		void beSigned(Bureaucrat &target);
 		
 		class GradeTooHighException : public std::exception
 		{
