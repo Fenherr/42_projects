@@ -15,10 +15,16 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 #==================================EXECUTABLE==================================#
-NAME		= name
+NAME		= intern
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.cpp \
+			  AForm.cpp \
+			  Bureaucrat.cpp \
+			  PresidentialPardonForm.cpp \
+			  RobotomyRequestForm.cpp \
+			  ShrubberyCreationForm.cpp \
+			  Intern.cpp
 
 #====================================OBJECTS===================================#
 OBJS		= $(SRCS:.cpp=.o)
