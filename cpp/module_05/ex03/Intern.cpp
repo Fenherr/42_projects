@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:45:04 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/25 14:45:04 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:29:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,30 @@ Intern & Intern::operator=(Intern const & rhs)
 AForm * Intern::makeForm(std::string formName, std::string target) const
 {
 	AForm *form;
-	int i = 0;
+	int i;
 	std::string formTab[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	
-	while (formName.compare(formTab[i]))
-		i++;
+	for (i = 0; i < 3; i++)
+	{
+		if (formName == formTab[i])
+			break ;
+	}
 	
 	switch (i)
 	{
 	case 0:
 		form = new ShrubberyCreationForm(target);
+		std::cout << "Intern creates " << formName << std::endl;
 		return form;
 		break;
 	case 1:
 		form = new RobotomyRequestForm(target);
+		std::cout << "Intern creates " << formName << std::endl;
 		return form;
 		break;
 	case 2:
 		form = new PresidentialPardonForm(target);
+		std::cout << "Intern creates " << formName << std::endl;
 		return form;
 		break;
 	default:
