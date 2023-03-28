@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:51:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/28 13:50:24 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:55:41 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void ScalarConverter::convert(std::string const convertStr)
 	}
 	
 	toInt = std::atoi(convertStr.c_str());
+	
+	
 }
