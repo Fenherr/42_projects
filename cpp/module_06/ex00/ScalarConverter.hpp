@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 13:55:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/28 13:07:47 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/03/28 09:38:45 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/03/28 13:03:06 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+#include <limits>
+#include <string>
+#include <cstdlib>
+
+class ScalarConverter
 {
-	if (ac == 2)
-		ScalarConverter::convert(av[1]);
-	else
-		std::cout << "Only one argument please." << std::endl;
-}
+	public:
+		static void convert(std::string const convertStr);
+};
+
+#endif
