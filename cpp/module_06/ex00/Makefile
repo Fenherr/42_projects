@@ -6,16 +6,16 @@
 #    By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 13:46:58 by ngrenoux          #+#    #+#              #
-#    Updated: 2023/03/28 13:03:41 by ngrenoux         ###   ########.fr        #
+#    Updated: 2023/03/29 16:24:13 by ngrenoux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #=================================COMPILATION==================================#
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -g
 
 #==================================EXECUTABLE==================================#
-NAME		= scalar
+NAME		= converter
 
 #=================================SOURCE FILES=================================#
 SRCS		= main.cpp \

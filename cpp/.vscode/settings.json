@@ -48,6 +48,7 @@
         "tuple": "cpp",
         "utility": "cpp",
         "cinttypes": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "climits": "cpp"
     }
 }

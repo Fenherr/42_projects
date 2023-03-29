@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 09:38:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/28 13:03:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:07:04 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <limits>
+#include <climits>
 #include <string>
 #include <cstdlib>
 
