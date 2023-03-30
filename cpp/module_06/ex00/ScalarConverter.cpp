@@ -6,11 +6,14 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:51:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/29 16:56:47 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/03/30 13:58:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+std::string tmp;
+static std::string pseudoLiterals[6] = {"nan", "nanf", "+inf", "+inff", "-inf", "-inff"};
 
 static bool isChar(std::string const str)
 {
@@ -35,21 +38,100 @@ static bool isInt(std::string const str)
 	return true;
 }
 
+static bool isFloat(std::string const str)
+{
+	if (str.size() > 1 && str[str.size() - 1] == 'f')
+		return true;
+	return false;
+}
+
+static bool isDouble(std::string str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[str.size() - 1] != 'f' && str[i] == '.')
+			return true;
+	}
+	return false;
+}
+
+static void printChar(std::string str)
+{
+	if (std::isprint(str[0]))
+		std::cout << "char: '" << str[0] << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+	std::cout << "float: " << static_cast<float>(str[0]) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(str[0]) << ".0" << std::endl;
+}
+
+static void printInt(int nb, std::string str)
+{
+	std::string toChar = "";
+	
+	if (str[0] == '-' || nb > 127)
+		toChar = "impossible";
+	else if (!std::isprint(nb))
+		toChar = "Non displayable";
+	else
+	{
+		toChar = "'";
+		toChar += static_cast<char>(nb);
+		toChar += "'";
+	}
+	std::cout << "char: " << toChar << std::endl;
+	std::cout << "int: " << nb << std::endl;
+	std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
+}
+
+static void printFloat(float nb, std::string tmp, std::string str)
+{
+	std::string toChar = "";
+	int prec = tmp.size() - 2;
+	
+	if (str[0] == '-' || nb > 127)
+		toChar = "impossible";
+	else if (!std::isprint(nb))
+		toChar = "Non displayable";
+	else
+	{
+		toChar = "'";
+		toChar += static_cast<char>(nb);
+		toChar += "'";
+	}
+	std::cout << "char: " << toChar << std::endl;
+	std::cout << "int: " << static_cast<int>(nb) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(prec) << nb << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(nb) << std::endl;
+}
+
+
 void ScalarConverter::convert(std::string const convertStr)
 {
 	std::string toChar = convertStr;
 	int toInt = 0;
+	float toFloat = 0;
+	// double toDouble = 0;
+	
+	//Pseudo literals management
+	for (int i = 0; i < 6; i++)
+	{
+		if (convertStr == pseudoLiterals[i])
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << static_cast<float>(std::strtof(pseudoLiterals[i].c_str(), NULL)) << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(std::strtod(pseudoLiterals[i].c_str(), NULL)) << std::endl;
+			return ;
+		}
+	}
 	
 	//Convert to char
 	if (isChar(toChar))
 	{
-		if (std::isprint(toChar[0]))
-			std::cout << "char: '" << toChar[0] << "'" << std::endl;
-		else
-			std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(toChar[0]) << std::endl;
-		std::cout << "float: " << static_cast<float>(toChar[0]) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(toChar[0]) << ".0" << std::endl;
+		printChar(toChar);
 		return ;
 	}
 	
@@ -60,8 +142,9 @@ void ScalarConverter::convert(std::string const convertStr)
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible"<< std::endl;
-		std::cout << "float: " << static_cast<float>(intCheck) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(intCheck) << ".0" << std::endl;
+		std::cout << std::setprecision(5);
+		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(intCheck) << "" << std::endl;
 		return ;
 	}
 	
@@ -69,6 +152,24 @@ void ScalarConverter::convert(std::string const convertStr)
 	toInt = std::atoi(convertStr.c_str());
 	
 	if (isInt(convertStr))
+	{
+		printInt(toInt, convertStr);
+		return ;
+	}
+	
+	//Convert to float
+	if (isFloat(convertStr))
+	{
+		char* pEnd;
+		toFloat = std::strtol(toChar.c_str(), &pEnd, 10);
+		tmp = pEnd;
+		toFloat = std::strtof(toChar.c_str(), &pEnd);
+		printFloat(toFloat, tmp, convertStr);
+		return ;
+	}
+	
+	//Convert to double
+	if (isFloat(convertStr) || isDouble(convertStr))
 	{
 		if (convertStr[0] == '-' || toInt > 127)
 			toChar = "impossible";
@@ -82,8 +183,14 @@ void ScalarConverter::convert(std::string const convertStr)
 		}
 		std::cout << "char: " << toChar << std::endl;
 		std::cout << "int: " << toInt << std::endl;
-		std::cout << "float: " << static_cast<float>(toInt) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(toInt) << ".0" << std::endl;
+		if ((isFloat(convertStr) && convertStr[convertStr.size() - 2] == '0') || (isDouble(convertStr) && convertStr[convertStr.size() - 1] == '0'))
+		{
+			std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << ".0f" << std::endl;
+			std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << ".0" << std::endl;
+			return ;
+		}
+		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << std::endl;
 		return ;
 	}
 }
