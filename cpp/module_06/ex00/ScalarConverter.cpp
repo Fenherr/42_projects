@@ -80,6 +80,7 @@ static void printInt(int nb, std::string str)
 		toChar += static_cast<char>(nb);
 		toChar += "'";
 	}
+	
 	std::cout << "char: " << toChar << std::endl;
 	std::cout << "int: " << nb << std::endl;
 	std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
@@ -107,13 +108,33 @@ static void printFloat(float nb, std::string tmp, std::string str)
 	std::cout << "double: " << static_cast<double>(nb) << std::endl;
 }
 
+static void printDouble(double nb, std::string tmp, std::string str)
+{
+	std::string toChar = "";
+	int prec = tmp.size() - 1;
+	
+	if (str[0] == '-' || nb > 127)
+		toChar = "impossible";
+	else if (!std::isprint(nb))
+		toChar = "Non displayable";
+	else
+	{
+		toChar = "'";
+		toChar += static_cast<char>(nb);
+		toChar += "'";
+	}
+	std::cout << "char: " << toChar << std::endl;
+	std::cout << "int: " << static_cast<int>(nb) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(prec - 1) << static_cast<float>(nb) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(prec) << nb << std::endl;
+}
 
 void ScalarConverter::convert(std::string const convertStr)
 {
 	std::string toChar = convertStr;
 	int toInt = 0;
 	float toFloat = 0;
-	// double toDouble = 0;
+	double toDouble = 0;
 	
 	//Pseudo literals management
 	for (int i = 0; i < 6; i++)
@@ -132,19 +153,6 @@ void ScalarConverter::convert(std::string const convertStr)
 	if (isChar(toChar))
 	{
 		printChar(toChar);
-		return ;
-	}
-	
-	//Overflow management
-	long intCheck = std::strtol(convertStr.c_str(), NULL, 10);
-	
-	if (intCheck > INT_MAX || intCheck < INT_MIN)
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible"<< std::endl;
-		std::cout << std::setprecision(5);
-		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(intCheck) << "" << std::endl;
 		return ;
 	}
 	
@@ -169,28 +177,13 @@ void ScalarConverter::convert(std::string const convertStr)
 	}
 	
 	//Convert to double
-	if (isFloat(convertStr) || isDouble(convertStr))
+	if (isDouble(convertStr))
 	{
-		if (convertStr[0] == '-' || toInt > 127)
-			toChar = "impossible";
-		else if (!std::isprint(toInt))
-			toChar = "Non displayable";
-		else
-		{
-			toChar = "'";
-			toChar += static_cast<char>(toInt);
-			toChar += "'";
-		}
-		std::cout << "char: " << toChar << std::endl;
-		std::cout << "int: " << toInt << std::endl;
-		if ((isFloat(convertStr) && convertStr[convertStr.size() - 2] == '0') || (isDouble(convertStr) && convertStr[convertStr.size() - 1] == '0'))
-		{
-			std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << ".0f" << std::endl;
-			std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << ".0" << std::endl;
-			return ;
-		}
-		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << std::endl;
+		char* pEnd;
+		toDouble = std::strtol(toChar.c_str(), &pEnd, 10);
+		tmp = pEnd;
+		toDouble = std::strtod(toChar.c_str(), &pEnd);
+		printDouble(toDouble, tmp, convertStr);
 		return ;
 	}
 }
