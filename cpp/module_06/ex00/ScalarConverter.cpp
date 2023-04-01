@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:51:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/30 13:58:28 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:55:06 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,17 @@ void ScalarConverter::convert(std::string const convertStr)
 			std::cout << "double: " << static_cast<double>(std::strtod(pseudoLiterals[i].c_str(), NULL)) << std::endl;
 			return ;
 		}
+	}
+	
+	//Overflow management
+	long intCheck = std::strtol(convertStr.c_str(), NULL, 10);
+	if (intCheck > INT_MAX || intCheck < INT_MIN)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << std::endl;
+		return ;
 	}
 	
 	//Convert to char
