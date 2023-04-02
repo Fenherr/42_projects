@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 11:49:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/30 11:53:27 by ngrenoux         ###   ########.fr       */
+/*   Created: 2023/04/02 12:20:24 by ngrenoux          #+#    #+#             */
+/*   Updated: 2023/04/02 12:20:24 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#ifndef B_HPP
+#define B_HPP
 
-uintptr_t Serializer::serialize(Data* ptr)
-{
-	uintptr_t raw;
-	
-	raw = reinterpret_cast<uintptr_t>(ptr);
-	return raw;
-}
+#include "Base.hpp"
 
-Data* Serializer::deserialize(uintptr_t raw)
-{
-	Data* ptr;
-	
-	ptr = reinterpret_cast<Data *>(raw);
-	return ptr;
-}
+class B : public Base
+{};
+
+#endif

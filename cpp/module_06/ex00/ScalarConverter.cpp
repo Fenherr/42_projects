@@ -135,6 +135,7 @@ void ScalarConverter::convert(std::string const convertStr)
 	int toInt = 0;
 	float toFloat = 0;
 	double toDouble = 0;
+	char* pEnd;
 	
 	//Pseudo literals management
 	for (int i = 0; i < 6; i++)
@@ -150,13 +151,15 @@ void ScalarConverter::convert(std::string const convertStr)
 	}
 	
 	//Overflow management
-	long intCheck = std::strtol(convertStr.c_str(), NULL, 10);
+	long intCheck = std::strtol(convertStr.c_str(), &pEnd, 10);
+	tmp = pEnd;
+	
 	if (intCheck > INT_MAX || intCheck < INT_MIN)
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(tmp.size() - 2) << static_cast<float>(std::strtof(convertStr.c_str(), NULL)) << "f" << std::endl;
+		std::cout << "double: " <<  std::fixed << std::setprecision(tmp.size() - 1) << static_cast<double>(std::strtod(convertStr.c_str(), NULL)) << std::endl;
 		return ;
 	}
 	
@@ -179,7 +182,6 @@ void ScalarConverter::convert(std::string const convertStr)
 	//Convert to float
 	if (isFloat(convertStr))
 	{
-		char* pEnd;
 		toFloat = std::strtol(toChar.c_str(), &pEnd, 10);
 		tmp = pEnd;
 		toFloat = std::strtof(toChar.c_str(), &pEnd);
@@ -190,7 +192,6 @@ void ScalarConverter::convert(std::string const convertStr)
 	//Convert to double
 	if (isDouble(convertStr))
 	{
-		char* pEnd;
 		toDouble = std::strtol(toChar.c_str(), &pEnd, 10);
 		tmp = pEnd;
 		toDouble = std::strtod(toChar.c_str(), &pEnd);

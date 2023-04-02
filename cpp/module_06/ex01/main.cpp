@@ -14,8 +14,8 @@
 
 int main()
 {
-	Data* ptr;
-	uintptr_t raw;
+	Data* ptr = new Data;
+	uintptr_t raw = Serializer::serialize(ptr);
 	
 	ptr->data = 0;
 	
@@ -23,6 +23,11 @@ int main()
 	std::cout << std::endl;
 	
 	std::cout << "ptr address: " << ptr << std::endl;
+	std::cout << std::endl;
 	ptr = Serializer::deserialize(raw);
+	std::cout << "Value data member: " << ptr->data << std::endl;
+	std::cout << std::endl;
 	std::cout << "ptr address deserialize: " << ptr << std::endl;
+	
+	delete ptr;
 }
