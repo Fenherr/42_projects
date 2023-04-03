@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:14:43 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/02 12:14:43 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:18:33 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 #include <iostream>
 #include <stdlib.h>
-
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 
 class Base
 {
