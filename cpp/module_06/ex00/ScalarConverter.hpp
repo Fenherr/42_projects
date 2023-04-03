@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 09:38:45 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/03 09:59:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:20:49 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 #include <string>
 #include <cstdlib>
 #include <iomanip>
+
+#define CHAR 1
+#define INT 2
+#define FLOAT 3
+#define DOUBLE 4
+#define LITERAL 5
+#define STRING 6
 
 class ScalarConverter
 {
