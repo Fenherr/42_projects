@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:51:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/03 15:50:47 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:55:49 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static bool isFloat(std::string str)
 			return false;
 		if (str[i] == '.' && str[str.size() - 1] == 'f' && str[str.size() - 2] != '.')
 			return true;
+		if (str[i] == '.' && str[i + 1] == 'f')
+			return true;
 	}
 	return false;
 }
@@ -89,8 +91,6 @@ static bool isString(std::string str)
 	
 	for (int i = 0; str[i]; i++)
 	{
-		if ((str[str.size() - 1] == 'f' && str[str.size() - 2] == '.'))
-			return true;
 		if (str.size() > 1 && !std::isdigit(str[i]) && str[str.size() - 1] != 'f' && str[i] != '.')
 			return true;
 		if (checkInt > INT_MAX)
@@ -179,8 +179,16 @@ static void printFloat(std::string str)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(toFloat) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(prec) << toFloat << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(toFloat) << std::endl;
+	if (str[str.size() - 2] == '.' && str[str.size() - 1] == 'f')
+	{
+		std::cout << "float: " << std::fixed << std::setprecision(prec) << toFloat << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(toFloat) << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << std::fixed << std::setprecision(prec) << toFloat << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(toFloat) << std::endl;
+	}
 }
 
 static void printDouble(std::string str)
@@ -233,10 +241,74 @@ static void printLiteral(std::string str)
 	std::cout << "double: " << static_cast<double>(std::strtod(pseudoLiterals[index].c_str(), NULL)) << std::endl;
 }
 
+/*====================================Check===================================*/
+
+static bool isError(std::string str)
+{
+	int count = 0;
+	
+	if (str.size() > 1)
+	{
+		if (str[0] == 'f')
+			return true;
+		for (int i = 0; str[i]; i++)
+		{
+			if (str[i] == '.')
+				count++;
+			if (count > 1)
+				return true;
+		}
+		count = 0;
+		for (int i = 0; str[i]; i++)
+		{
+			if (str[i] == '-' || str[i] == '+')
+				count++;
+			if (count > 1)
+				return true;
+		}
+		for (int i = count; str[i]; i++)
+		{
+			if (str[i] == '.')
+				i++;
+			else if (!std::isdigit(str[i]) && str[i] != 'f')
+				return true;
+		}
+		if (str[str.size() - 1] == 'f' && str[str.size() - 2] != '.' && !std::isdigit(str[str.size() - 2]))
+			return true;
+		int i;
+		for (i = 0; str[i]; i++)
+		{
+			if (str[i] == 'f')
+				break ;
+		}
+		int size = str.size() - 1;
+		if (i < size)
+			return true;
+		for (i = count; str[i]; i++)
+		{
+			if (std::isdigit(str[i]))
+				i++;
+			else if (!std::isdigit(str[i]))
+				break ;
+		}
+		if ((str[i] == '.' && str[i + 1] == 'f') || str[str.size() - 1] == '.')
+			return false;
+		if (i >= size)
+			return true;
+	}
+	return false;
+}
+
 /*===================================Method===================================*/
 
 void ScalarConverter::convert(std::string const convertStr)
 {
+	if (isError(convertStr))
+	{
+		std::cout << "Error: Argument not accepted.." << std::endl;
+		return ;
+	}
+	
 	searchType(convertStr);
 	
 	switch (type)
