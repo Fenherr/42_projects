@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:14:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/03 10:29:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:06:37 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,6 @@ int main()
 	
 	std::cout << "Test with ref" << std::endl;
 	identify(*test);
+	
+	delete test;
 }
