@@ -16,6 +16,16 @@
 #include <iostream>
 
 template<typename T>
-void iter(T array, size_t arrSize);
+void iter(T *array, size_t arrSize, void (*f)(T &))
+{
+	for (size_t i = 0; i < arrSize; i++)
+		f(array[i]);
+}
+
+template<typename T>
+void print(T &something)
+{
+	std::cout << something << std::endl;
+}
 
 #endif
