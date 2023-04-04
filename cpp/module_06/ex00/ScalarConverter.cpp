@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 10:51:13 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/03 17:55:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:35:05 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static bool isInt(std::string str)
 	
 	int i = 0;
 	
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	for (; str[i]; i++)
 	{
@@ -51,27 +51,64 @@ static bool isInt(std::string str)
 
 static bool isFloat(std::string str)
 {
-	for (int i = 0; str[i]; i++)
+	int i = 0;
+	int size = str.size();
+	int countF = 0;
+	int countDot = 0;
+	
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	
+	for (int j = 0; str[j]; j++)
 	{
-		if (str[i] == '.' && str[i + 1] == '.')
-			return false;
-		if (str[i] == '.' && str[str.size() - 1] == 'f' && str[str.size() - 2] != '.')
-			return true;
-		if (str[i] == '.' && str[i + 1] == 'f')
-			return true;
+		if (str[j] == 'f')
+			countF++;
+		if (str[j] == '.')
+			countDot++;
 	}
+	
+	if (countF > 1 || (countDot > 1 || (countDot < 1 && countF == 1)))
+		return false;
+	
+	for (; str[i]; i++)
+	{
+		if (str[str.size() - 1] != 'f')
+			break;
+		if (str[i] != '.' && !std::isdigit(str[i]) && str[i] != 'f')
+			break ;
+	}
+	
+	if (i == size)
+		return true;
 	return false;
 }
 
 static bool isDouble(std::string str)
 {
-	for (int i = 0; str[i]; i++)
+	int i = 0;
+	int size = str.size();
+	int countDot = 0;
+	
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	
+	for (int j = 0; str[j]; j++)
 	{
-		if (str[i] == '.' && str[i + 1] == '.')
-			return false;
-		if (str[i] == '.' && str[str.size() - 1] != 'f')
-			return true;
+		if (str[j] == '.')
+			countDot++;
 	}
+	
+	if (countDot > 1)
+		return false;
+	
+	for (; str[i]; i++)
+	{
+		if (str[i] != '.' && !std::isdigit(str[i]))
+			break ;
+	}
+	
+	if (i == size)
+		return true;
 	return false;
 }
 
@@ -241,76 +278,12 @@ static void printLiteral(std::string str)
 	std::cout << "double: " << static_cast<double>(std::strtod(pseudoLiterals[index].c_str(), NULL)) << std::endl;
 }
 
-/*====================================Check===================================*/
-
-static bool isError(std::string str)
-{
-	int count = 0;
-	
-	if (str.size() > 1)
-	{
-		if (str[0] == 'f')
-			return true;
-		for (int i = 0; str[i]; i++)
-		{
-			if (str[i] == '.')
-				count++;
-			if (count > 1)
-				return true;
-		}
-		count = 0;
-		for (int i = 0; str[i]; i++)
-		{
-			if (str[i] == '-' || str[i] == '+')
-				count++;
-			if (count > 1)
-				return true;
-		}
-		for (int i = count; str[i]; i++)
-		{
-			if (str[i] == '.')
-				i++;
-			else if (!std::isdigit(str[i]) && str[i] != 'f')
-				return true;
-		}
-		if (str[str.size() - 1] == 'f' && str[str.size() - 2] != '.' && !std::isdigit(str[str.size() - 2]))
-			return true;
-		int i;
-		for (i = 0; str[i]; i++)
-		{
-			if (str[i] == 'f')
-				break ;
-		}
-		int size = str.size() - 1;
-		if (i < size)
-			return true;
-		for (i = count; str[i]; i++)
-		{
-			if (std::isdigit(str[i]))
-				i++;
-			else if (!std::isdigit(str[i]))
-				break ;
-		}
-		if ((str[i] == '.' && str[i + 1] == 'f') || str[str.size() - 1] == '.')
-			return false;
-		if (i >= size)
-			return true;
-	}
-	return false;
-}
-
 /*===================================Method===================================*/
 
 void ScalarConverter::convert(std::string const convertStr)
 {
-	if (isError(convertStr))
-	{
-		std::cout << "Error: Argument not accepted.." << std::endl;
-		return ;
-	}
-	
 	searchType(convertStr);
-	
+
 	switch (type)
 	{
 	case CHAR:
@@ -328,10 +301,8 @@ void ScalarConverter::convert(std::string const convertStr)
 	case LITERAL:
 		printLiteral(convertStr);
 		break;
-	case STRING:
-		std::cout << "Error: Argument not accepted." << std::endl;
-		break;
 	default:
+		std::cout << "Error: Argument not accepted." << std::endl;
 		break;
 	}
 }
