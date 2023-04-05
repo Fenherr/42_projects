@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:02:12 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/04 14:14:55 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:12:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void swap(T & a, T & b)
 template<typename T>
 T min(T const & a, T const & b)
 {
-	if (a > b)
+	if (a >= b)
 		return b;
 	return a;
 }
