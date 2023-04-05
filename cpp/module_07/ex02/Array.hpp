@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:34:16 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/05 14:11:14 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:24:48 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Array
 		
 		//Operators overload
 		Array & operator=(const Array & rhs);
-		T& operator[] (unsigned int i);
+		T& operator[] (unsigned int i) const;
 		
 		//Method
 		unsigned int size() const;
@@ -100,7 +100,7 @@ Array<T> & Array<T>::operator=(const Array & rhs)
 
 //Operator [] overload
 template<typename T>
-T& Array<T>::operator[] (unsigned int i)
+T& Array<T>::operator[] (unsigned int i) const
 {
 	if (i > _size - 1)
 		throw OutOfBoundsException();

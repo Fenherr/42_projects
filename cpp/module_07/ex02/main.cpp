@@ -2,52 +2,34 @@
 #include "Array.hpp"
 
 #define MAX_VAL 42
-int main(int, char**)
+int main()
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
+    Array<int> test2(MAX_VAL);
+    Array<int> test3(5);
+        
+    Array<std::string> test4(4);
+        
+    for (unsigned int  i = 0; i < test2.size(); i++)
+        test2[i] = i;
+            
+    std::cout << "Int array test: " << test2 << std::endl;
+        
+    test3 = test2;
+        
+    std::cout << "Int array test 2: " << test3 << std::endl;
+        
     try
     {
-        numbers[-2] = 0;
+        std::cout << "Valid index: " << test2[4] << std::endl;
+        std::cout << "Invalid index: " << test2[MAX_VAL] << std::endl;
     }
-    catch(const std::exception& e)
+    catch(const Array<int>::OutOfBoundsException& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cout << e.what() << std::endl;
     }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;
-    return 0;
+        
+    for (unsigned int i = 0; i < test4.size(); i++)
+        test4[i] = "Bonjour";
+        
+    std::cout << "String array test: " << test4 << std::endl;
 }
