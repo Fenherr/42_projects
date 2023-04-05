@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:49:26 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 13:37:50 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:18:00 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat
 {
 	private:
-		std::string _name;
+		const std::string _name;
 		int _grade;
 
 	public:

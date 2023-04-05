@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:44:09 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/03/23 15:02:29 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:17:31 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &rhs)
 {
 	if (this != &rhs)
-	{
-		_name = rhs._name;
 		_grade = rhs._grade;
-	}
 	return *this;
 }
 
