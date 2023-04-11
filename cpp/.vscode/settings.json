@@ -49,6 +49,7 @@
         "utility": "cpp",
         "cinttypes": "cpp",
         "fstream": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "list": "cpp"
     }
 }
