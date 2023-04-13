@@ -50,6 +50,7 @@
         "cinttypes": "cpp",
         "fstream": "cpp",
         "climits": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "map": "cpp"
     }
 }

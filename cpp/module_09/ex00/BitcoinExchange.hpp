@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/12 15:49:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/13 13:36:41 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,27 @@
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
+#include <ctime>
+#include <string>
 #include <map>
 
 class BitcoinExchange
 {
 	private:
+		std::map<std::string, float> _exchangeRates;
+		
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
-		~BitcoinExchange();
 		
 		BitcoinExchange & operator=(const BitcoinExchange & rhs);
 	
+		void execute(std::string filename);
+		void mapParsing(std::string dataName);
+		
 	public:
-		static void execute(std::string file);
+		BitcoinExchange(std::string filename);
+		~BitcoinExchange();
 };
 
 #endif
