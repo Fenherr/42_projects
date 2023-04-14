@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/13 13:36:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:19:55 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <algorithm>
 #include <fstream>
 #include <ctime>
-#include <string>
+#include <cstring>
 #include <map>
 
 class BitcoinExchange
@@ -30,12 +30,21 @@ class BitcoinExchange
 		
 		BitcoinExchange & operator=(const BitcoinExchange & rhs);
 	
+		void mapParsing();
 		void execute(std::string filename);
-		void mapParsing(std::string dataName);
 		
 	public:
 		BitcoinExchange(std::string filename);
 		~BitcoinExchange();
+	
+	class FileException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return "Error: could not open file.";
+			}
+	};
 };
 
 #endif

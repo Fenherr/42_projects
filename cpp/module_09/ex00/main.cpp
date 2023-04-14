@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:16:53 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/12 14:24:54 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/14 09:43:19 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int main(int ac, char** av)
 	else if (ac > 2)
 		std::cout << "Error: too much arguments." << std::endl;
 	else
-		BitcoinExchange::execute(av[1]);
+		BitcoinExchange test(av[1]);
 }
