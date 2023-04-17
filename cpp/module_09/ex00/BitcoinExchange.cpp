@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/14 14:55:06 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:30:28 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ void BitcoinExchange::mapParsing()
 	if (!data)
 		throw FileException();
 	
+	if (getline(data, line) && line == "date,exchange_rate")
+	{
+		if (!getline(data, line))
+			throw EmptyDatabaseException();
+	}
+	
+	if (!getline(data, line))
+			throw EmptyDatabaseException();
+	
 	while (getline(data, line))
 	{
 		size_t pos = line.find(",");
@@ -70,21 +79,38 @@ void BitcoinExchange::execute(std::string filename)
 	{
 		size_t pos = line.find("|");
 
+		if (pos > 12)
+		{
+			date = line.substr(0, std::string::npos);
+			std::cout << "Error: bad input => " << date << std::endl;
+		}
+		
 		if (pos != std::string::npos)
 		{
 			date = line.substr(0, pos);
 			valueStr = line.substr(pos + 1);
 			value = static_cast<float>(std::strtof(valueStr.c_str(), NULL));
-			
+	
 			if (!checkDate(date.c_str(), "%Y-%m-%d"))
 				std::cout << "Error: bad input => " << date << std::endl;
+			else if (value > 1000)
+				std::cout << "Error: too large a number." << std::endl;
 			else if (static_cast<int>(value) < 0)
 				std::cout << "Error: not a positive number." << std::endl;
-			else if (static_cast<int>(value) > 1000)
-				std::cout << "Error: too large a number." << std::endl;
 			else
 			{
 				std::map<std::string, float>::iterator it = _exchangeRates.find(date);
+				if (it == _exchangeRates.end())
+				{
+					std::map<std::string, float>::iterator lower = _exchangeRates.lower_bound(date);
+					if (lower == _exchangeRates.begin())
+					{
+						std::cout << date << " => " << value << " = " << value * lower->second << std::endl;
+						continue;
+					}
+					else
+						it = --lower;
+				}
 				std::cout << date << " => " << value << " = " << value * it->second << std::endl;
 			}
 		}
@@ -97,6 +123,7 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 {
 	try
 	{
+		mapParsing();
 		execute(filename);
 	}
 	catch(const std::exception& e)

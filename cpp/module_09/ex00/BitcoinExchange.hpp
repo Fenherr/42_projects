@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/14 13:19:55 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:17:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fstream>
 #include <ctime>
 #include <cstring>
+#include <climits>
 #include <map>
 
 class BitcoinExchange
@@ -43,6 +44,15 @@ class BitcoinExchange
 			virtual const char* what() const throw()
 			{
 				return "Error: could not open file.";
+			}
+	};
+	
+	class EmptyDatabaseException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return "Error: empty data.";
 			}
 	};
 };
