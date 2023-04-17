@@ -45,7 +45,8 @@ int operations(char op, int nb1, int nb2)
 			res = nb1 / nb2;
 			break ;
 		default:
-			throw RPN::ErrorException();
+			std::cout << "Error: bad operator." << std::endl;
+			exit(1);
 	}
 	return res;
 }
@@ -75,6 +76,9 @@ void RPN::execute(std::string str)
 	for (unsigned int i = 0; i < str.size(); i++)
 	{
 		char ch = str[i];
+		if (ch == ' ' || ch == '\n')
+			continue ;
+		
 		if (std::isdigit(ch))
 		{
 			int nb = ch - '0';
@@ -101,7 +105,7 @@ void RPN::execute(std::string str)
 		throw ErrorException();
 	
 	int res = stack.pop();
-	if (stack.empty())
+	if (!stack.empty())
 		throw ErrorException();
 	std::cout << res << std::endl;
 }
