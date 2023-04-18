@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:16:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/17 17:01:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/18 09:24:26 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define RPN_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include <stack>
 
 class RPN
