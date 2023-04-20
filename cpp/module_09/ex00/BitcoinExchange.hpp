@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/17 14:17:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/20 13:26:36 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cstring>
 #include <climits>
 #include <map>
+#include <sstream>
 
 class BitcoinExchange
 {
