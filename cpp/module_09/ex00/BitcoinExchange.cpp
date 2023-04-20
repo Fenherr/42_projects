@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/20 13:53:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:44:46 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool isLeap(int year)
 				return false;
 		}
 		else
-			return false;
+			return true;
 	}
 	else
 		return false;
@@ -56,17 +56,15 @@ static bool checkDate(const char* date, const char* format)
 	
 	if (iss >> year >> dash1 >> month >> dash2 >> day && dash1 == '-' && dash2 == '-')
 	{
-		if (year < 2009)
-			return false;
-		else if (month < 1 || month > 12)
+		if (month < 1 || month > 12)
 			return false;
 		else if (day < 1 || day > 31)
 			return false;
 		else if (!has31Days(month) && day == 31)
 			return false;
-		else if (month == 2 && day > 28 && !isLeap(year))
+		else if (month == 2 && isLeap(year) && day > 29)
 			return false;
-		else if (month == 2 && day > 29)
+		else if (month == 2 && day > 28 && !isLeap(year))
 			return false;
 		else
 			return true;
