@@ -52,6 +52,7 @@
         "climits": "cpp",
         "list": "cpp",
         "map": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "queue": "cpp"
     }
 }

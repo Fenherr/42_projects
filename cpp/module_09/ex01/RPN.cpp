@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:02:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/17 17:04:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:46:53 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int operations(char op, int nb1, int nb2)
 			break ;
 		default:
 			std::cout << "Error: bad operator." << std::endl;
-			exit(1);
+			break ;
 	}
 	return res;
 }
