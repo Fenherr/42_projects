@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:16:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/18 09:24:26 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:52:47 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ class RPN
 				virtual const char* what() const throw()
 				{
 					return "Error: invalid argument.";
+				}
+		};
+		
+		class DivisionErrorException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Error: division by 0 impossible.";
 				}
 		};
 };

@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/20 13:26:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:19:44 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,15 @@ class BitcoinExchange
 			virtual const char* what() const throw()
 			{
 				return "Error: empty data.";
+			}
+	};
+	
+	class ErrorDatabaseException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return "Error: problem in the data.";
 			}
 	};
 };

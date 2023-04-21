@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/20 15:44:46 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:50:16 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,11 @@ void BitcoinExchange::mapParsing()
 	
 	while (getline(data, line))
 	{
-		size_t pos = line.find(",");
+		size_t pos = line.find_last_of(",");
+		
+		if (pos > 10)
+			throw ErrorDatabaseException();
+		
 		if (pos != std::string::npos)
 		{
 			mapKey = line.substr(0, pos);
@@ -122,13 +126,7 @@ void BitcoinExchange::execute(std::string filename)
 	getline(file, line);
 	while (getline(file, line))
 	{
-		size_t pos = line.find("|");
-
-		if (pos > 12)
-		{
-			date = line.substr(0, std::string::npos);
-			std::cout << "Error: bad input => " << date << std::endl;
-		}
+		size_t pos = line.find_last_of("|");
 		
 		if (pos != std::string::npos)
 		{
@@ -136,7 +134,12 @@ void BitcoinExchange::execute(std::string filename)
 			valueStr = line.substr(pos + 1);
 			value = static_cast<float>(std::strtof(valueStr.c_str(), NULL));
 	
-			if (!checkDate(date.c_str(), "%Y-%m-%d"))
+			if (pos > 11)
+			{
+				date = line.substr(0, std::string::npos);
+				std::cout << "Error: bad input => " << date << std::endl;
+			}
+			else if (!checkDate(date.c_str(), "%Y-%m-%d"))
 				std::cout << "Error: bad input => " << date << std::endl;
 			else if (value > 1000)
 				std::cout << "Error: too large a number." << std::endl;

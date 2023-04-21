@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:02:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/20 11:46:53 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:53:45 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int operations(char op, int nb1, int nb2)
 			res = nb1 * nb2;
 			break ;
 		case '/':
+			if (nb1 == 0 || nb2 == 0)
+				throw RPN::DivisionErrorException();
 			res = nb1 / nb2;
 			break ;
 		default:
