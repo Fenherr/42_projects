@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:02:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/21 13:53:45 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:31:35 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ RPN::~RPN()
 int operations(char op, int nb1, int nb2)
 {
 	int res;
-	
+
 	switch(op)
 	{
 		case '+':
@@ -42,7 +42,7 @@ int operations(char op, int nb1, int nb2)
 			res = nb1 * nb2;
 			break ;
 		case '/':
-			if (nb1 == 0 || nb2 == 0)
+			if (nb2 == 0)
 				throw RPN::DivisionErrorException();
 			res = nb1 / nb2;
 			break ;
@@ -80,7 +80,7 @@ void RPN::execute(std::string str)
 		char ch = str[i];
 		if (ch == ' ' || ch == '\n')
 			continue ;
-		
+
 		if (std::isdigit(ch))
 		{
 			int nb = ch - '0';
@@ -90,13 +90,13 @@ void RPN::execute(std::string str)
 		{
 			if (stack.empty())
 				throw ErrorException();
-			
+
 			int nb2 = stack.pop();
 			if (stack.empty())
 				throw ErrorException();
-			
+
 			int nb1 = stack.pop();
-			
+
 			int res = operations(ch, nb1, nb2);
 			stack.push(res);
 		}
@@ -105,7 +105,7 @@ void RPN::execute(std::string str)
 	}
 	if (stack.empty())
 		throw ErrorException();
-	
+
 	int res = stack.pop();
 	if (!stack.empty())
 		throw ErrorException();
