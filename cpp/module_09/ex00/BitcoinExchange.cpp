@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 14:48:49 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:18:13 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void BitcoinExchange::execute(std::string filename)
 	{
 		if (line == "date | value")
 			getline(file, line);
-			
+
 		size_t pos = line.find_last_of("|");
 
 		if (pos != std::string::npos)
@@ -165,7 +165,7 @@ void BitcoinExchange::execute(std::string filename)
 					std::map<std::string, float>::iterator lower = _exchangeRates.lower_bound(date);
 					if (lower == _exchangeRates.begin() && date < _exchangeRates.begin()->first)
 					{
-						std::cout << "Error: bad input." << std::endl;
+						std::cout << "Error: bad input => " << line << std::endl;
 						continue;
 					}
 					else
