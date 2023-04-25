@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/21 13:50:16 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:24:42 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ static bool checkDate(const char* date, const char* format)
 	int year;
 	int month;
 	int day;
-	
+
 	std::memset(&timeStruct, 0, sizeof(timeStruct));
-	
+
 	if (strptime(date, format, &timeStruct) == NULL)
 		return false;
-	
+
 	std::istringstream iss(date);
 	char dash1;
 	char dash2;
-	
+
 	if (iss >> year >> dash1 >> month >> dash2 >> day && dash1 == '-' && dash2 == '-')
 	{
 		if (month < 1 || month > 12)
@@ -77,32 +77,35 @@ static bool checkDate(const char* date, const char* format)
 
 void BitcoinExchange::mapParsing()
 {
+	std::string date;
 	std::string line;
 	std::string mapKey;
 	std::string mapValueStr;
 	float mapValue;
 	std::fstream data("data.csv");
-	
+
 	if (!data)
 		throw FileException();
-	
+
 	if (getline(data, line) && line == "date,exchange_rate")
 	{
 		if (!getline(data, line))
 			throw EmptyDatabaseException();
 	}
-	
+
 	if (!getline(data, line))
 			throw EmptyDatabaseException();
-	
+
 	while (getline(data, line))
 	{
 		size_t pos = line.find_last_of(",");
-		
+		date = line.substr(0, pos);
+
 		if (pos > 10)
 			throw ErrorDatabaseException();
-		
-		if (pos != std::string::npos)
+		else if (!checkDate(date.c_str(), "%Y-%m-%d"))
+			throw ErrorDatabaseException();
+		else if (pos != std::string::npos)
 		{
 			mapKey = line.substr(0, pos);
 			mapValueStr = line.substr(pos + 1);
@@ -112,6 +115,16 @@ void BitcoinExchange::mapParsing()
 	}
 }
 
+static bool checkStr(std::string str)
+{
+	for (unsigned int i = 0; i < str.size(); i++)
+	{
+		if (str[i] != ' ' && str[i] != '-' && str[i] != '|' && !std::isdigit(str[i]) && str[i] != '.')
+			return false;
+	}
+	return true;
+}
+
 void BitcoinExchange::execute(std::string filename)
 {
 	std::string line;
@@ -119,26 +132,23 @@ void BitcoinExchange::execute(std::string filename)
 	std::string valueStr;
 	float value;
 	std::fstream file(filename.c_str());
-	
+
 	if (!file)
 		throw FileException();
-	
+
 	getline(file, line);
 	while (getline(file, line))
 	{
 		size_t pos = line.find_last_of("|");
-		
+
 		if (pos != std::string::npos)
 		{
 			date = line.substr(0, pos);
 			valueStr = line.substr(pos + 1);
 			value = static_cast<float>(std::strtof(valueStr.c_str(), NULL));
-	
-			if (pos > 11)
-			{
-				date = line.substr(0, std::string::npos);
-				std::cout << "Error: bad input => " << date << std::endl;
-			}
+
+			if (pos > 11 || !checkStr(line))
+				std::cout << "Error: bad input => " << line << std::endl;
 			else if (!checkDate(date.c_str(), "%Y-%m-%d"))
 				std::cout << "Error: bad input => " << date << std::endl;
 			else if (value > 1000)
@@ -162,6 +172,8 @@ void BitcoinExchange::execute(std::string filename)
 				std::cout << date << " => " << value << " = " << value * it->second << std::endl;
 			}
 		}
+		else
+			std::cout << "Error: bad input => " << line << std::endl;
 	}
 }
 
@@ -178,7 +190,7 @@ BitcoinExchange::BitcoinExchange(std::string filename)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	
+
 }
 
 /*==============================Destructor====================================*/

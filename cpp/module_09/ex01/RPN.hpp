@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:16:44 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/21 13:52:47 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:33:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 #define RPN_HPP
 
 #include <iostream>
-#include <cstdlib>
 #include <stack>
 
 class RPN
 {
 	private:
 		std::stack<int> _stack;
-		
+
 		RPN(const RPN &copy);
 		RPN operator=(const RPN & rhs);
-		
+
 		void push(int nb);
 		int pop();
 		bool empty();
-	
+
 	public:
 		RPN();
 		~RPN();
 		void execute(std::string str);
-		
+
 		class ErrorException : public std::exception
 		{
 			public:
@@ -42,7 +41,7 @@ class RPN
 					return "Error: invalid argument.";
 				}
 		};
-		
+
 		class DivisionErrorException : public std::exception
 		{
 			public:

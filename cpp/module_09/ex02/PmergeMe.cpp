@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:37:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/24 10:26:41 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:28:36 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,25 @@ void PmergeMe::printArray(std::deque<unsigned int>& array)
 
 /*----------------------------------------------------------------------------*/
 
-static void mergeInsertDeque(std::deque<unsigned int>& array, std::deque<unsigned int>& left, std::deque<unsigned int>& right)
+static void insertDeque(std::deque<unsigned int>& array)
+{
+	size_t size = array.size();
+
+	for (size_t i = 1; i < size; i++)
+	{
+		unsigned int tmp = array[i];
+		int j = i - 1;
+
+		while (j >= 0 && tmp < array[j])
+		{
+			array[j + 1] = array[j];
+			--j;
+		}
+			array[j + 1] = tmp;
+	}
+}
+
+static void mergeDeque(std::deque<unsigned int>& array, std::deque<unsigned int>& left, std::deque<unsigned int>& right)
 {
 	int i = 0;
 	int j = 0;
@@ -47,6 +65,9 @@ static void mergeInsertDeque(std::deque<unsigned int>& array, std::deque<unsigne
 	int rSize = right.size();
 
 	array.clear();
+
+	if (array.size() <= 15)
+		insertDeque(array);
 
 	//Left and right fusion in original array
 	while (i < lSize && j < rSize)
@@ -87,18 +108,39 @@ void PmergeMe::sortDeque(std::deque<unsigned int>& array)
 		sortDeque(right);
 
 	//Merge
-	mergeInsertDeque(array, left, right);
+	mergeDeque(array, left, right);
 }
 
 /*----------------------------------------------------------------------------*/
 
-static void mergeInsertVector(std::vector<unsigned int>& array, std::vector<unsigned int>& left, std::vector<unsigned int>& right)
+static void insertVector(std::vector<unsigned int>& array)
+{
+	size_t size = array.size();
+
+	for (size_t i = 1; i < size; i++)
+	{
+		unsigned int tmp = array[i];
+		int j = i - 1;
+
+		while (j >= 0 && tmp < array[j])
+		{
+			array[j + 1] = array[j];
+			--j;
+		}
+			array[j + 1] = tmp;
+	}
+}
+
+static void mergeVector(std::vector<unsigned int>& array, std::vector<unsigned int>& left, std::vector<unsigned int>& right)
 {
 	int i = 0;
 	int j = 0;
 	int k = 0;
 	int lSize = left.size();
 	int rSize = right.size();
+
+	if (array.size() <= 15)
+		insertVector(array);
 
 	//Left and right fusion in original array
 	while (i < lSize && j < rSize)
@@ -136,7 +178,7 @@ void PmergeMe::sortVector(std::vector<unsigned int>& array)
 		sortVector(right);
 
 	//Merge
-	mergeInsertVector(array, left, right);
+	mergeVector(array, left, right);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -150,7 +192,7 @@ void PmergeMe::execute()
 	clock_t queueTimeStart = clock();
 	sortDeque(_queueArray);
 	clock_t queueTimeEnd = clock();
-	double queueTime = double(queueTimeEnd - queueTimeStart) / CLOCKS_PER_SEC;
+	double queueTime = double(queueTimeEnd - queueTimeStart) * 1000000 / CLOCKS_PER_SEC;
 
 	std::cout << "After:\t" << std::flush;
 	printArray(_queueArray);
@@ -159,11 +201,11 @@ void PmergeMe::execute()
 	clock_t vectorTimeStart = clock();
 	sortVector(_vectorArray);
 	clock_t vectorTimeEnd = clock();
-	double vectorTime = double(vectorTimeEnd - vectorTimeStart) / CLOCKS_PER_SEC;
+	double vectorTime = double(vectorTimeEnd - vectorTimeStart) * 1000000 / CLOCKS_PER_SEC;
 
 	//Time display
-	std::cout << "Time to process a range of " << _queueArray.size() << " elements with std::deque : " << std::fixed << queueTime << " sec" << std::endl;
-	std::cout << "Time to process a range of " << _vectorArray.size() << " elements with std::vector : " << vectorTime << " sec" << std::endl;
+	std::cout << "Time to process a range of " << _queueArray.size() << " elements with std::deque : " << std::fixed << std::setprecision(1) << queueTime << " µs" << std::endl;
+	std::cout << "Time to process a range of " << _vectorArray.size() << " elements with std::vector : " << vectorTime << " µs" << std::endl;
 }
 
 /*=============================Constructor====================================*/
