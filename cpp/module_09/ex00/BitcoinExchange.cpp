@@ -6,11 +6,26 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:08:18 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 15:18:13 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:30:43 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+const char* BitcoinExchange::FileException::what() const throw()
+{
+	return "Error: could not open file.";
+}
+
+const char* BitcoinExchange::EmptyDatabaseException::what() const throw()
+{
+	return "Error: empty data.";
+}
+
+const char* BitcoinExchange::ErrorDatabaseException::what() const throw()
+{
+	return "Error: problem in the data.";
+}
 
 /*===============================function=====================================*/
 static bool isLeap(int year)

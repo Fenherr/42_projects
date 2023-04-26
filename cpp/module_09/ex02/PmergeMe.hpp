@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 09:45:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 10:29:48 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:26:11 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ class PmergeMe
 	class ArgumentsException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Error: invalid arguments.";
-			}
+			virtual const char* what() const throw();
 	};
 };
 

@@ -6,11 +6,21 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:02:03 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 14:31:35 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:32:18 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+
+const char* RPN::ErrorException::what() const throw()
+{
+	return "Error: invalid argument.";
+}
+
+const char* RPN::DivisionErrorException::what() const throw()
+{
+	return "Error: division by 0 impossible.";
+}
 
 /*=============================Constructor====================================*/
 

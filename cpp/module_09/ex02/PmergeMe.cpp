@@ -6,11 +6,16 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:37:06 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 10:28:36 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:28:10 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+const char* PmergeMe::ArgumentsException::what() const throw()
+{
+	return "Error: invalid arguments.";
+}
 
 /*===========================Member Functions=================================*/
 

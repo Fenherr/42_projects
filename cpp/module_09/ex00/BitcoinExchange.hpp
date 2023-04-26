@@ -6,7 +6,7 @@
 /*   By: ngrenoux <ngrenoux@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:48:29 by ngrenoux          #+#    #+#             */
-/*   Updated: 2023/04/25 11:27:01 by ngrenoux         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:30:36 by ngrenoux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,28 +40,19 @@ class BitcoinExchange
 	class FileException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Error: could not open file.";
-			}
+			virtual const char* what() const throw();
 	};
 
 	class EmptyDatabaseException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Error: empty data.";
-			}
+			virtual const char* what() const throw();
 	};
 
 	class ErrorDatabaseException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Error: problem in the data.";
-			}
+			virtual const char* what() const throw();
 	};
 };
 
