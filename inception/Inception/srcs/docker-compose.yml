@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+        nginx:
+                container_name: nginx
+                build: ./Requirements/nginx
+                ports:
+                        - 443:443
+                restart: always
