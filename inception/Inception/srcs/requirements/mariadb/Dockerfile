@@ -1,8 +1,9 @@
 FROM debian:buster
 
 RUN		apt-get update
-RUN		apt-get install -y mariadb-server mariadb-client \
-		vim && rm -rf /var/lib/apt/lists/*
+RUN		apt-get install -y mariadb-server
+RUN		apt-get install -y mariadb-client
+RUN		rm -rf /var/lib/apt/lists/*
 
 RUN		mkdir -p /var/run/mysql
 RUN		chown -R mysql:mysql /var/run/mysql

@@ -1,7 +1,7 @@
 FROM debian:buster
 
-RUN		apt update && apt upgrade -y \
-		&& apt install nginx -y \
+RUN		apt update && apt upgrade -y
+RUN		apt install nginx -y \
 		openssl
 
 RUN 		mkdir /etc/nginx/ssl
