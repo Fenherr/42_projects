@@ -8,20 +8,21 @@ if [-d "/var/lib/mysql/$MYSQL_DATABASE"]
 then
 	echo "Database already exist"
 else
-	mysql_secure_installation << EOF
+	
+mysql_secure_installation << EOF
 
-y
+Y
 1234
 1234
-y
+Y
 n
-y
-y
+Y
+Y
 EOF
 
 echo "GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD'; FLUSH PRIVILEGES;" | mysql -uroot
 
-echo "CREATE DATABASE IF NOT EXIST $MYSQL_DATABASE; GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'; FLUSH PRIVILEGES" | mysql -uroot
+echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE; GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'; FLUSH PRIVILEGES" | mysql -uroot
 
 mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress.sql
 

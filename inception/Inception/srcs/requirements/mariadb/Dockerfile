@@ -5,9 +5,9 @@ RUN		apt-get install -y mariadb-server
 RUN		apt-get install -y mariadb-client
 RUN		rm -rf /var/lib/apt/lists/*
 
-RUN		mkdir -p /var/run/mysql
-RUN		chown -R mysql:mysql /var/run/mysql
-RUN		chmod 777 /var/run/mysql
+RUN		mkdir -p /var/run/mysqld
+RUN		chown -R mysql:mysql /var/run/mysqld
+RUN		chmod 777 /var/run/mysqld
 
 EXPOSE		3306
 
@@ -18,4 +18,4 @@ RUN		chmod +x /usr/local/bin/wordpress.sql
 
 ENTRYPOINT	["/usr/local/bin/mariadb.sh"]
 
-CMD		["mysqld", "--bind-adress=0.0.0.0"]
+CMD		["mysqld", "--bind-address=0.0.0.0"]

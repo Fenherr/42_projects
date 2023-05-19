@@ -15,3 +15,8 @@ else
 	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
 	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
 	cp wp-config-sample.php wp-config.php
+	wp user create ngrenoux ngrenoux@gmail.com --role=administrator --user_pass=1234 --allow-root
+	wp user update billy --allow-root --role=none
+fi
+
+exec "$@"
