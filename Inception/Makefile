@@ -17,7 +17,7 @@ fclean: stop down
 	-docker system prune --force --all
 	-docker volume prune --force
 	-docker network prune --force
-	-sudo rm -rf ~/data/wordpress/* ~/data/mariadb/*
+	-sudo rm -rf ~/data/
 nginx:
 	docker build --no-cache -t nginx $(NGINX)
 wordpress:
