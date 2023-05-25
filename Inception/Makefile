@@ -2,6 +2,7 @@ COMPOSE		= srcs/docker-compose.yml
 
 all:
 	-mkdir /home/ngrenoux/data /home/ngrenoux/data/mysql /home/ngrenoux/data/wordpress
+	-cp /home/ngrenoux/Documents/.env ./srcs
 	docker compose -f $(COMPOSE) up -d
 re: fclean all
 down:
