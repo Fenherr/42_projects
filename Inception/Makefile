@@ -14,6 +14,7 @@ fclean: stop down
 	-docker volume prune --force
 	-docker network prune --force
 	-sudo rm -rf ~/data/
+	-sudo rm ./srcs/.env
 stop:
 	-docker stop $$(docker ps -qa)
 .PHONY: all re nginx prune down fclean wordpress mariadb stop
